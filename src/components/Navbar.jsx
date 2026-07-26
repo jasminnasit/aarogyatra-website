@@ -1,0 +1,156 @@
+import React, { useState } from 'react';
+import { PhoneCall, MessageCircle, Menu, X, Heart, ShieldCheck, Stethoscope } from 'lucide-react';
+
+export default function Navbar({ activePage, setActivePage }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'treatments', label: 'Treatments' },
+    { id: 'why-us', label: 'Why Gujarat & Why Us' },
+    { id: 'international-patients', label: 'For Patients' },
+    { id: 'about-us', label: 'About Us' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
+  const handleNavClick = (pageId) => {
+    setActivePage(pageId);
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+      {/* Top Announcement Bar */}
+      <div className="bg-slate-900 text-slate-200 text-xs py-1.5 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-full font-medium text-[11px]">
+              <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
+              Doctor-Founded Medical Travel
+            </span>
+            <span className="hidden md:inline text-slate-400">|</span>
+            <span className="hidden md:inline text-slate-300">NABH Accredited Hospitals in Gujarat • 60-80% Savings</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-slate-300">
+            <a 
+              href="https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion." 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
+              <span>WhatsApp: +91-9900000000</span>
+            </a>
+            <span className="text-slate-600">|</span>
+            <div className="flex items-center gap-1 text-[11px] font-medium text-teal-300 bg-slate-800 px-2 py-0.5 rounded">
+              🌐 EN / GU / HI
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          
+          {/* Logo */}
+          <button 
+            onClick={() => handleNavClick('home')}
+            className="flex items-center gap-3 text-left group"
+          >
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+              <Stethoscope className="w-6 h-6 stroke-[2.2]" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-extrabold text-2xl tracking-tight text-slate-900 font-outfit">
+                  AAROGYATRA
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-1.5 py-0.5 rounded">
+                  CARE
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 font-medium tracking-wide">
+                GLOBAL MEDICAL TRAVEL • DOCTOR GUIDED
+              </p>
+            </div>
+          </button>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                  activePage === link.id
+                    ? 'text-teal-700 bg-teal-50 font-semibold'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Right CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => handleNavClick('free-opinion')}
+              className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white transition-all bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl shadow-md hover:from-teal-700 hover:to-teal-800 hover:shadow-lg hover:shadow-teal-600/25 active:scale-95"
+            >
+              Get Free Doctor Opinion
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex items-center lg:hidden gap-2">
+            <button
+              onClick={() => handleNavClick('free-opinion')}
+              className="px-3 py-1.5 text-xs font-semibold text-white bg-teal-600 rounded-lg shadow-xs"
+            >
+              Free Opinion
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-hidden"
+              aria-label="Toggle Navigation"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => handleNavClick(link.id)}
+              className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium ${
+                activePage === link.id
+                  ? 'text-teal-700 bg-teal-50 font-semibold'
+                  : 'text-slate-700 hover:bg-slate-50'
+              }`}
+            >
+              {link.label}
+            </button>
+          ))}
+          <div className="pt-2">
+            <button
+              onClick={() => handleNavClick('free-opinion')}
+              className="w-full text-center py-3 text-base font-semibold text-white bg-teal-600 rounded-xl shadow-md"
+            >
+              Get a Free Medical Opinion
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
