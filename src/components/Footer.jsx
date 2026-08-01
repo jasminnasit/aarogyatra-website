@@ -22,6 +22,14 @@ export default function Footer({ setActivePage }) {
                 alt="Aarogyatra Global Care Logo" 
                 className="h-14 w-auto object-contain rounded-xl bg-white p-1 shadow-md" 
               />
+              <div>
+                <span className="font-outfit font-bold text-2xl text-white tracking-tight block">
+                  AAROGYATRA <span className="text-teal-400 font-light">GLOBAL CARE</span>
+                </span>
+                <span className="text-xs text-slate-400 tracking-wide block">
+                  Your journey to better health
+                </span>
+              </div>
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">

@@ -72,16 +72,16 @@ export default function CostCalculator({ onGetOpinionClick }) {
           {/* Gujarat Cost (Highlighted) */}
           <div className="md:col-span-1 bg-gradient-to-br from-teal-900 to-slate-900 text-white p-6 rounded-2xl shadow-lg border border-teal-500/30 relative">
             <div className="absolute top-3 right-3 bg-teal-500/20 text-teal-300 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full border border-teal-400/30">
-              Gujarat Cost
+              India Cost
             </div>
             <p className="text-xs font-semibold text-teal-400 uppercase tracking-wider mb-1">
-              Gujarat (India)
+              India Package
             </p>
             <div className="text-3xl font-extrabold text-white font-outfit my-2">
               {currentMatrix.gujarat}
             </div>
             <p className="text-[11px] text-teal-200/80 leading-snug">
-              All-inclusive (Surgeon, Hospital, Implants, Nursing & 8-Wk Aftercare)
+              All-inclusive (Surgeon, Hospital, Implants, Nursing & 4-Wk Aftercare)
             </p>
           </div>
 

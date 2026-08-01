@@ -70,13 +70,21 @@ export default function Navbar({ activePage, setActivePage }) {
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 text-left group shrink-0"
+            className="flex items-center gap-2.5 text-left group shrink-0"
           >
             <img 
               src="./logo.jpg" 
               alt="Aarogyatra Global Care Logo" 
-              className="h-11 xl:h-13 w-auto object-contain rounded-lg shadow-xs group-hover:scale-105 transition-transform bg-white p-0.5" 
+              className="h-10 xl:h-12 w-auto object-contain rounded-lg shadow-xs group-hover:scale-105 transition-transform bg-white p-0.5" 
             />
+            <div className="flex flex-col justify-center">
+              <span className="font-extrabold text-base xl:text-lg tracking-tight text-slate-900 font-outfit leading-tight">
+                AAROGYATRA
+              </span>
+              <span className="text-[10px] xl:text-[11px] text-teal-700 font-bold tracking-wider uppercase leading-none mt-0.5">
+                GLOBAL CARE LLP
+              </span>
+            </div>
           </button>
 
           {/* Desktop Navigation Links - Single Line, No Wrap */}
