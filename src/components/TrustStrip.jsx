@@ -11,7 +11,7 @@ export default function TrustStrip() {
     {
       icon: UserCheck,
       title: "Specialised Medical Team",
-      subtitle: "Cases reviewed by doctor directors"
+      subtitle: "Cases reviewed by specialised medical team"
     },
     {
       icon: Plane,
