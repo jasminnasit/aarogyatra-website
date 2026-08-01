@@ -7,7 +7,7 @@ export default function Footer({ setActivePage }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20medical%20opinion.";
 
   return (
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">

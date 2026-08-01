@@ -63,7 +63,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20medical%20opinion.";
 
   return (
     <div className="space-y-20 pb-16">

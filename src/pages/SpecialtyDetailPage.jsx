@@ -8,7 +8,7 @@ import { treatmentsData } from '../data/treatmentsData';
 export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
   const treatment = treatmentsData.find(t => t.id === specialtyId) || treatmentsData[0];
 
-  const primaryWhatsapp = `https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20a%20question%20regarding%20${encodeURIComponent(treatment.title)}.`;
+  const primaryWhatsapp = `https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20a%20question%20regarding%20${encodeURIComponent(treatment.title)}.`;
 
   return (
     <div className="space-y-12 pb-16">

@@ -30,7 +30,7 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
     }
   };
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20a%20treatment%20query.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20a%20treatment%20query.";
 
   return (
     <div className="space-y-12 pb-16">

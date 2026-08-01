@@ -55,7 +55,7 @@ export default function MedicalOpinionForm({ compact = false }) {
     setIsSubmitted(true);
   };
 
-  const primaryWhatsappUrl = `https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20doctor%20opinion.%20My%20name%20is%20${encodeURIComponent(formData.fullName || 'Patient')}`;
+  const primaryWhatsappUrl = `https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20doctor%20opinion.%20My%20name%20is%20${encodeURIComponent(formData.fullName || 'Patient')}`;
 
   if (isSubmitted) {
     return (

@@ -40,7 +40,7 @@ export default function InternationalPatientsPage({ setActivePage }) {
     }
   ];
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20a%20question%20about%20my%20medical%20travel%20journey.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20a%20question%20about%20my%20medical%20travel%20journey.";
 
   return (
     <div className="space-y-16 pb-16">

@@ -2,7 +2,7 @@ import React from 'react';
 import { Stethoscope, Heart, ShieldCheck, Award, CheckCircle2, Building2, MapPin, Mail, MessageCircle, Instagram } from 'lucide-react';
 
 export default function AboutUsPage({ setActivePage }) {
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20to%20connect%20with%20your%20founders.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20to%20connect%20with%20your%20founders.";
 
   return (
     <div className="space-y-16 pb-16">

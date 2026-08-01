@@ -23,7 +23,7 @@ export default function HospitalsPackagesPage({ setActivePage }) {
     }
   ];
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20to%20inquire%20about%20a%20hospital%20and%20budget%20package.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20to%20inquire%20about%20a%20hospital%20and%20budget%20package.";
 
   return (
     <div className="space-y-16 pb-16">

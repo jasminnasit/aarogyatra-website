@@ -10,7 +10,7 @@ export default function ContactPage() {
     setSubmitted(true);
   };
 
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20an%20inquiry.";
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20an%20inquiry.";
 
   return (
     <div className="space-y-16 pb-16">
