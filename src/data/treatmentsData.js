@@ -22,8 +22,6 @@ export const treatmentsData = [
       "Pacemaker Implantation",
       "Paediatric and Congenital Heart Surgery"
     ],
-    hospitalStayDays: "4–6 days in Hospital (ICU + Ward)",
-    indiaStayDays: "12–16 days total in India",
     whatsIncluded: [
       "Pre-operative cardiac evaluation & diagnostic tests",
       "Surgeon fee, Anesthesiologist fee, & ICU charges",
@@ -58,8 +56,6 @@ export const treatmentsData = [
       "Arthroscopy (ACL, Meniscus, Rotator Cuff)",
       "Fracture Fixation"
     ],
-    hospitalStayDays: "4–5 days in Hospital",
-    indiaStayDays: "10–14 days total in India",
     whatsIncluded: [
       "US-FDA approved implants (Stryker, DePuy, Zimmer)",
       "Physiotherapist sessions during hospital stay",
@@ -93,8 +89,6 @@ export const treatmentsData = [
       "Immunotherapy",
       "Bone Marrow Transplant"
     ],
-    hospitalStayDays: "3–7 days (Surgery) / Day Care (Chemo/Radiation)",
-    indiaStayDays: "14–21 days depending on treatment protocol",
     whatsIncluded: [
       "Multidisciplinary tumor evaluation before arrival",
       "Biopsy, PET-CT scan & pathology verification",
@@ -127,8 +121,6 @@ export const treatmentsData = [
       "Bladder and Ureter Surgery",
       "Dialysis & Vascular Access"
     ],
-    hospitalStayDays: "1–3 days in Hospital",
-    indiaStayDays: "7–10 days total in India",
     whatsIncluded: [
       "Advanced laser procedures with minimal incision",
       "Urologist consultations & ultrasound/CT imaging",
@@ -162,8 +154,6 @@ export const treatmentsData = [
       "Hysterectomy",
       "IVF and Fertility Treatment"
     ],
-    hospitalStayDays: "2–4 days in Hospital",
-    indiaStayDays: "7–12 days total in India",
     whatsIncluded: [
       "High-definition 4K laparoscopic surgical setup",
       "Premium imported surgical meshes & staplers",
@@ -198,8 +188,6 @@ export const treatmentsData = [
       "Wisdom Tooth Removal & Gum Surgery",
       "Laser Teeth Whitening"
     ],
-    hospitalStayDays: "Outpatient / Day Care Clinic",
-    indiaStayDays: "5–10 days total in India",
     whatsIncluded: [
       "3D CBCT Imaging & Digital Smile Design",
       "US-FDA certified dental implants & Zirconia crowns",
@@ -234,8 +222,6 @@ export const treatmentsData = [
       "Laser Skin & Anti-Ageing Treatments",
       "Chemical Peels & Scar Revision"
     ],
-    hospitalStayDays: "Day Care / 1 day Hospital",
-    indiaStayDays: "7–10 days total in India",
     whatsIncluded: [
       "Board-certified plastic surgeons & dermatologists",
       "Advanced robotic / Sapphire FUE hair transplant tools",

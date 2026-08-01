@@ -100,33 +100,12 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                       {treatment.shortDesc}
                     </p>
 
-                    {/* Surgeries & Procedures */}
-                    <div>
-                      <span className="text-xs font-bold text-slate-600 uppercase tracking-wider block mb-2">Surgeries & Procedures:</span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {treatment.procedures.map((proc, idx) => (
-                          <span key={idx} className="bg-slate-100 text-slate-800 border border-slate-200 text-xs px-3 py-1 rounded-lg font-medium">
-                            {proc}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* Conditions / Concerns */}
                     <div>
                       <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1">Conditions & Concerns Treated:</span>
                       <p className="text-xs text-slate-600">
                         {treatment.conditionsTreated.join(" • ")}
                       </p>
-                    </div>
-
-                    <div className="flex items-center gap-4 text-xs font-semibold text-slate-600 pt-2">
-                      <span className="flex items-center gap-1.5 text-teal-800">
-                        <Clock className="w-4 h-4 text-teal-600" />
-                        {treatment.hospitalStayDays}
-                      </span>
-                      <span>•</span>
-                      <span className="text-slate-700">{treatment.indiaStayDays}</span>
                     </div>
                   </div>
 

@@ -42,16 +42,6 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
               {treatment.shortDesc}
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-4 text-xs font-medium text-slate-300">
-              <span className="bg-slate-800 px-3.5 py-2 rounded-xl border border-slate-700 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-teal-400" />
-                {treatment.hospitalStayDays}
-              </span>
-              <span className="bg-slate-800 px-3.5 py-2 rounded-xl border border-slate-700 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-teal-400" />
-                {treatment.indiaStayDays}
-              </span>
-            </div>
           </div>
 
           <div className="lg:col-span-4 flex flex-col gap-3">
