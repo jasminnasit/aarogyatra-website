@@ -17,12 +17,11 @@ export default function Footer({ setActivePage }) {
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-bold shadow-md">
-                AY
-              </div>
-              <span className="font-outfit font-bold text-2xl text-white tracking-tight">
-                AAROGYATRA <span className="text-teal-400 font-light">GLOBAL CARE</span>
-              </span>
+              <img 
+                src="./logo.jpg" 
+                alt="Aarogyatra Global Care Logo" 
+                className="h-14 w-auto object-contain rounded-xl bg-white p-1 shadow-md" 
+              />
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">

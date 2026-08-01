@@ -70,24 +70,13 @@ export default function Navbar({ activePage, setActivePage }) {
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2.5 text-left group shrink-0"
+            className="flex items-center gap-3 text-left group shrink-0"
           >
-            <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
-              <Stethoscope className="w-5 h-5 xl:w-6 xl:h-6 stroke-[2.2]" />
-            </div>
-            <div>
-              <div className="flex items-center gap-1">
-                <span className="font-extrabold text-lg xl:text-xl tracking-tight text-slate-900 font-outfit">
-                  AAROGYATRA
-                </span>
-                <span className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-1 py-0.5 rounded">
-                  CARE
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-500 font-medium tracking-wide hidden sm:block">
-                GLOBAL CARE LLP
-              </p>
-            </div>
+            <img 
+              src="./logo.jpg" 
+              alt="Aarogyatra Global Care Logo" 
+              className="h-11 xl:h-13 w-auto object-contain rounded-lg shadow-xs group-hover:scale-105 transition-transform bg-white p-0.5" 
+            />
           </button>
 
           {/* Desktop Navigation Links - Single Line, No Wrap */}
