@@ -192,7 +192,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
       <TrustStrip />
 
       {/* HOW IT WORKS (4 STEPS) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="how-it-works-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
             Seamless Patient Journey
@@ -329,7 +329,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
         </div>
       </section>
 
-      {/* HOSPITALS & PACKAGES SECTION (NEW / REWRITTEN v4) */}
+      {/* HOSPITALS & PACKAGES SECTION */}
       <section className="bg-slate-900 text-white py-16 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           

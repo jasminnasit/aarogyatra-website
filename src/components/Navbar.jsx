@@ -32,7 +32,7 @@ export default function Navbar({ activePage, setActivePage }) {
   const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
       {/* Top Announcement Bar */}
       <div className="bg-slate-900 text-slate-200 text-xs py-1.5 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
@@ -63,40 +63,40 @@ export default function Navbar({ activePage, setActivePage }) {
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Navbar - Strictly Single Line Height */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 xl:h-20 flex-nowrap gap-2">
           
           {/* Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 text-left group"
+            className="flex items-center gap-2.5 text-left group shrink-0"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
-              <Stethoscope className="w-6 h-6 stroke-[2.2]" />
+            <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+              <Stethoscope className="w-5 h-5 xl:w-6 xl:h-6 stroke-[2.2]" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-2xl tracking-tight text-slate-900 font-outfit">
+              <div className="flex items-center gap-1">
+                <span className="font-extrabold text-lg xl:text-xl tracking-tight text-slate-900 font-outfit">
                   AAROGYATRA
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-1.5 py-0.5 rounded">
+                <span className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-1 py-0.5 rounded">
                   CARE
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium tracking-wide">
-                GLOBAL CARE LLP • HEALTHCARE TRAVEL YOU CAN TRUST
+              <p className="text-[10px] text-slate-500 font-medium tracking-wide hidden sm:block">
+                GLOBAL CARE LLP
               </p>
             </div>
           </button>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          {/* Desktop Navigation Links - Single Line, No Wrap */}
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-nowrap">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-2 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all ${
                   activePage === link.id
                     ? 'text-teal-700 bg-teal-50 font-semibold'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
@@ -107,21 +107,21 @@ export default function Navbar({ activePage, setActivePage }) {
             ))}
           </nav>
 
-          {/* Right CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right CTA Buttons - Single Line */}
+          <div className="hidden lg:flex items-center shrink-0">
             <button
               onClick={() => handleNavClick('free-opinion')}
-              className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white transition-all bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl shadow-md hover:from-teal-700 hover:to-teal-800 hover:shadow-lg hover:shadow-teal-600/25 active:scale-95"
+              className="relative inline-flex items-center justify-center px-4 xl:px-5 py-2 text-xs xl:text-sm font-semibold text-white whitespace-nowrap transition-all bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl shadow-md hover:from-teal-700 hover:to-teal-800 hover:shadow-lg hover:shadow-teal-600/25 active:scale-95"
             >
               Get Free Medical Opinion
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center lg:hidden gap-2">
+          <div className="flex items-center lg:hidden gap-2 shrink-0">
             <button
               onClick={() => handleNavClick('free-opinion')}
-              className="px-3 py-1.5 text-xs font-semibold text-white bg-teal-600 rounded-lg shadow-xs"
+              className="px-3 py-1.5 text-xs font-semibold text-white bg-teal-600 rounded-lg shadow-xs whitespace-nowrap"
             >
               Free Opinion
             </button>
