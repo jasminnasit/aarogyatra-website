@@ -5,6 +5,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 import HomePage from './pages/HomePage';
 import TreatmentsPage from './pages/TreatmentsPage';
+import HospitalsPackagesPage from './pages/HospitalsPackagesPage';
 import SpecialtyDetailPage from './pages/SpecialtyDetailPage';
 import WhyGujaratPage from './pages/WhyGujaratPage';
 import InternationalPatientsPage from './pages/InternationalPatientsPage';
@@ -21,7 +22,17 @@ const parseHash = () => {
   const params = new URLSearchParams(queryString || '');
   const specialtyId = params.get('id') || 'cardiac-care';
 
-  const validPages = ['home', 'treatments', 'specialty-detail', 'why-us', 'international-patients', 'about-us', 'free-opinion', 'contact'];
+  const validPages = [
+    'home', 
+    'treatments', 
+    'hospitals-packages', 
+    'your-journey', 
+    'specialty-detail', 
+    'why-us', 
+    'about-us', 
+    'free-opinion', 
+    'contact'
+  ];
   
   return {
     page: validPages.includes(page) ? page : 'home',
@@ -99,6 +110,18 @@ export default function App() {
           />
         )}
 
+        {activePage === 'hospitals-packages' && (
+          <HospitalsPackagesPage 
+            setActivePage={handleSetActivePage} 
+          />
+        )}
+
+        {activePage === 'your-journey' && (
+          <InternationalPatientsPage 
+            setActivePage={handleSetActivePage} 
+          />
+        )}
+
         {activePage === 'specialty-detail' && (
           <SpecialtyDetailPage 
             specialtyId={selectedSpecialtyId} 
@@ -108,10 +131,6 @@ export default function App() {
 
         {activePage === 'why-us' && (
           <WhyGujaratPage setActivePage={handleSetActivePage} />
-        )}
-
-        {activePage === 'international-patients' && (
-          <InternationalPatientsPage setActivePage={handleSetActivePage} />
         )}
 
         {activePage === 'about-us' && (

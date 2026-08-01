@@ -1,7 +1,9 @@
 import React from 'react';
-import { Stethoscope, Heart, ShieldCheck, Award, CheckCircle2, Building2, MapPin } from 'lucide-react';
+import { Stethoscope, Heart, ShieldCheck, Award, CheckCircle2, Building2, MapPin, Mail, MessageCircle, Instagram } from 'lucide-react';
 
 export default function AboutUsPage({ setActivePage }) {
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20to%20connect%20with%20your%20founders.";
+
   return (
     <div className="space-y-16 pb-16">
       
@@ -9,14 +11,14 @@ export default function AboutUsPage({ setActivePage }) {
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 hero-radial-bg border-b border-slate-800">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3.5 py-1.5 rounded-full border border-teal-500/30">
-            About Aarogyatra Global Care
+            About Aarogyatra Global Care LLP
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit leading-tight text-white">
-            Two Doctors. One Mission: <br />
-            <span className="gradient-text-light">Trustworthy Healthcare Travel.</span>
+            Two founders. One mission: <br />
+            <span className="gradient-text-light">Healthcare travel you can trust.</span>
           </h1>
           <p className="text-slate-200 text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Founded by practising medical physicians to ensure international patients receive honest medical guidance, transparent costs, and continuous aftercare.
+            "Aarogya" means health. "Yatra" means journey. Aarogyatra Global Care LLP was founded to make medical travel to India simple, honest and human.
           </p>
         </div>
       </section>
@@ -31,22 +33,22 @@ export default function AboutUsPage({ setActivePage }) {
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-teal-700">Founding Narrative</span>
               <h2 className="text-2xl font-bold text-slate-900 font-outfit">
-                Why We Started Aarogyatra
+                Simple, Honest & Human Healthcare Travel
               </h2>
             </div>
           </div>
 
           <div className="text-slate-700 text-base leading-relaxed space-y-4 font-normal">
             <p>
-              Aarogyatra Global Care was founded in 2026 by <strong className="text-slate-900 font-bold">Dr. Dhyani</strong> and <strong className="text-slate-900 font-bold">Dr. Nensi Savani</strong> — two physicians who saw the same problem again and again: patients travelling from abroad arriving in India confused, overcharged, and guided by commercial travel agents with zero medical training.
+              Aarogyatra Global Care LLP was founded to solve a critical gap in medical travel: ensuring international patients receive doctor-guided evaluation, transparent budget packages, and continuous aftercare support.
             </p>
 
             <p>
-              We built Aarogyatra to be the healthcare facilitator we wished existed for our own families — where a qualified medical doctor reads your reports before you spend a single rupee, where all costs are written down before you travel, and where care continues for 8 weeks after discharge.
+              We connect patients to India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category — with surgeons who have handled thousands of cases.
             </p>
 
             <blockquote className="p-5 bg-teal-50 border-l-4 border-teal-700 rounded-r-2xl font-outfit text-teal-950 font-bold italic text-lg my-4 shadow-xs">
-              "Aarogya" means health. "Yatra" means journey. We are honored to walk yours with you.
+              "Aarogya" means health. "Yatra" means journey. Aarogyatra Global Care LLP was founded to make medical travel to India simple, honest and human.
             </blockquote>
           </div>
         </div>
@@ -56,30 +58,33 @@ export default function AboutUsPage({ setActivePage }) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold text-slate-900 font-outfit">
-            Meet Our Founder Doctors
+            Meet Our Founders
           </h2>
           <p className="text-slate-700 text-sm mt-1 font-medium">
-            Dedicated medical directors guiding your healthcare journey.
+            Managing Directors leading clinical review & patient logistics.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
-          {/* Dr Dhyani */}
+          {/* Dr Dhyani Rathi */}
           <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-lg space-y-4 text-center sm:text-left">
             <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-teal-600 to-cyan-500 text-white font-extrabold text-2xl flex items-center justify-center mx-auto sm:mx-0 shadow-md">
-              DD
+              DR
             </div>
             <div>
               <h3 className="text-xl font-bold text-slate-900 font-outfit">
-                Dr. Dhyani, MBBS
+                Dr. Dhyani Rathi
               </h3>
-              <p className="text-xs font-semibold text-teal-700">
-                Co-Founder & Designated Partner
+              <p className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                BHMS, MHA, FMC
+              </p>
+              <p className="text-xs font-semibold text-slate-600 mt-0.5">
+                Co-Founder & Managing Director
               </p>
             </div>
             <p className="text-sm text-slate-700 leading-relaxed font-normal">
-              Medical practitioner passionate about bridging global healthcare gaps. Oversees clinical review of international patient cases, specialist consultations, and surgical care protocols. Speaks English, Gujarati, and Hindi.
+              Oversees clinical case evaluation, hospital and specialist matching, surgical quality standards, and medical team operations.
             </p>
           </div>
 
@@ -90,14 +95,17 @@ export default function AboutUsPage({ setActivePage }) {
             </div>
             <div>
               <h3 className="text-xl font-bold text-slate-900 font-outfit">
-                Dr. Nensi Savani, MBBS
+                Dr. Nensi Savani
               </h3>
-              <p className="text-xs font-semibold text-teal-700">
-                Co-Founder & Designated Partner
+              <p className="text-xs font-bold text-teal-700 uppercase tracking-wider">
+                BDS, MHA
+              </p>
+              <p className="text-xs font-semibold text-slate-600 mt-0.5">
+                Co-Founder & Managing Director
               </p>
             </div>
             <p className="text-sm text-slate-700 leading-relaxed font-normal">
-              Physician dedicated to patient-centered post-operative recovery and international patient logistics. Head of the Aarogyatra Aftercare™ 8-week recovery program. Speaks English, Gujarati, and Hindi.
+              Leads international patient experience, budget package curation, dental & surgical coordination, and the 4-week post-return aftercare program.
             </p>
           </div>
 
@@ -110,27 +118,27 @@ export default function AboutUsPage({ setActivePage }) {
           <div className="flex items-center gap-3">
             <Building2 className="w-6 h-6 text-teal-400" />
             <h3 className="text-xl font-bold font-outfit text-white">
-              Official Registration & Compliance
+              Official LLP Entity Details
             </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-200">
             <div className="p-4 rounded-2xl bg-slate-800 border border-slate-700 space-y-1">
-              <span className="text-teal-400 font-bold uppercase tracking-wider block">Legal Structure</span>
-              <p className="font-bold text-white">Registered LLP (India)</p>
-              <p className="text-slate-300">Aarogyatra Global Care LLP</p>
+              <span className="text-teal-400 font-bold uppercase tracking-wider block">LLPIN</span>
+              <p className="font-bold text-white text-sm">ACZ-7789</p>
+              <p className="text-slate-300">Registered LLP in India</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-800 border border-slate-700 space-y-1">
               <span className="text-teal-400 font-bold uppercase tracking-wider block">Registered Office</span>
-              <p className="font-bold text-white">Modasa, Sabarkantha</p>
+              <p className="font-bold text-white text-sm">Modasa, Sabarkantha</p>
               <p className="text-slate-300">Gujarat, India</p>
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-800 border border-slate-700 space-y-1">
-              <span className="text-teal-400 font-bold uppercase tracking-wider block">Quality Standard</span>
-              <p className="font-bold text-white">NABH Hospital Empanelment</p>
-              <p className="text-slate-300">Empanelment application in progress</p>
+              <span className="text-teal-400 font-bold uppercase tracking-wider block">Contact Channels</span>
+              <p className="font-bold text-white text-sm">+91 74339 28339</p>
+              <p className="text-slate-300">connect@aarogyatraglobalcare.com</p>
             </div>
           </div>
         </div>
@@ -142,7 +150,7 @@ export default function AboutUsPage({ setActivePage }) {
           onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           className="px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm rounded-2xl shadow-lg transition-all"
         >
-          Consult Our Doctor-Founders Free
+          Consult Our Specialised Medical Team Free
         </button>
       </section>
 

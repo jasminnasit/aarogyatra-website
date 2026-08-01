@@ -55,6 +55,8 @@ export default function MedicalOpinionForm({ compact = false }) {
     setIsSubmitted(true);
   };
 
+  const primaryWhatsappUrl = `https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20doctor%20opinion.%20My%20name%20is%20${encodeURIComponent(formData.fullName || 'Patient')}`;
+
   if (isSubmitted) {
     return (
       <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-teal-200 text-center space-y-6 animate-in zoom-in-95 duration-300">
@@ -66,18 +68,19 @@ export default function MedicalOpinionForm({ compact = false }) {
             Medical Opinion Request Received!
           </h3>
           <p className="text-slate-600 mt-2 max-w-md mx-auto text-sm leading-relaxed">
-            Thank you, <span className="font-semibold text-slate-900">{formData.fullName}</span>. Dr. Dhyani & Dr. Nensi Savani will review your case details and send a physician-evaluated treatment plan to <span className="font-semibold text-teal-700">{formData.whatsappNumber}</span> within <span className="font-bold text-slate-900">48 hours</span>.
+            Thank you, <span className="font-semibold text-slate-900">{formData.fullName}</span>. Our specialised medical team will study your reports and send a clear doctor-reviewed response to <span className="font-semibold text-teal-700">{formData.whatsappNumber}</span> within <span className="font-bold text-slate-900">48 hours</span>.
           </p>
         </div>
 
-        <div className="bg-teal-50/80 border border-teal-200/80 rounded-2xl p-4 text-xs text-teal-900 text-left max-w-md mx-auto space-y-1.5">
+        <div className="bg-teal-50/80 border border-teal-200/80 rounded-2xl p-4 text-xs text-teal-900 text-left max-w-md mx-auto space-y-2">
           <div className="font-semibold flex items-center gap-1.5 text-teal-950">
             <ShieldCheck className="w-4 h-4 text-teal-700" />
-            What happens next?
+            What you will receive:
           </div>
-          <p>1. Our doctor-founders review your clinical history.</p>
-          <p>2. We discuss your case with NABH partner specialists in Gujarat.</p>
-          <p>3. You receive a written estimate with zero hidden costs.</p>
+          <p>✓ A medical opinion on your case</p>
+          <p>✓ Recommended hospital & specialist options in India</p>
+          <p>✓ Clear next steps & package built around your budget</p>
+          <p>✓ 4 weeks of aftercare follow-up when you return</p>
         </div>
 
         <div className="pt-2">
@@ -98,14 +101,34 @@ export default function MedicalOpinionForm({ compact = false }) {
       <div className="mb-6">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 text-teal-700 text-xs font-semibold rounded-full mb-2">
           <Lock className="w-3.5 h-3.5" />
-          Free & Confidential Doctor Consultation
+          No Charge • No Obligation • 100% Confidential
         </div>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-outfit tracking-tight">
-          Get a Free Medical Opinion
+          Send Your Reports. We'll Reply Within 48 Hours.
         </h3>
         <p className="text-sm text-slate-600 mt-1">
-          Send your reports. A physician will personally reply within 48 hours — free of charge.
+          Your information is confidential and reviewed only by our specialised medical team.
         </p>
+
+        {/* Benefits checklist */}
+        <div className="grid grid-cols-2 gap-2 mt-4 text-xs font-medium text-slate-700 bg-slate-50 p-3 rounded-2xl border border-slate-200/60">
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+            <span>Medical opinion on your case</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+            <span>Hospital & specialist options</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+            <span>Package built around your budget</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+            <span>Clear next steps & visa support</span>
+          </div>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -163,14 +186,14 @@ export default function MedicalOpinionForm({ compact = false }) {
         {/* Medical Condition */}
         <div>
           <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-            Medical Condition / Procedure Needed
+            Medical Condition or Treatment Needed (Include budget / custom requests)
           </label>
           <textarea
             name="medicalCondition"
             rows="3"
             value={formData.medicalCondition}
             onChange={handleInputChange}
-            placeholder="Describe your medical condition, current symptoms, or treatment needed..."
+            placeholder="Describe your medical condition, treatment needed, or target budget... (Unlisted treatments & custom budget packages welcomed!)"
             className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-hidden transition-all resize-none"
           ></textarea>
         </div>
@@ -248,7 +271,7 @@ export default function MedicalOpinionForm({ compact = false }) {
             className="w-full py-4 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold text-base rounded-2xl shadow-lg shadow-teal-600/25 transition-all active:scale-[0.99] flex items-center justify-center gap-2"
           >
             <Send className="w-4 h-4" />
-            <span>Submit for Free Doctor Opinion</span>
+            <span>Submit for Free Doctor Opinion & Package Quote</span>
           </button>
         </div>
 
@@ -259,18 +282,18 @@ export default function MedicalOpinionForm({ compact = false }) {
         </div>
 
         <a
-          href={`https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20doctor%20opinion.%20My%20name%20is%20${encodeURIComponent(formData.fullName || 'Patient')}`}
+          href={primaryWhatsappUrl}
           target="_blank"
           rel="noreferrer"
           className="w-full py-3 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold text-sm rounded-2xl transition-all flex items-center justify-center gap-2"
         >
           <MessageCircle className="w-4 h-4 fill-emerald-600 text-emerald-600" />
-          <span>Prefer to talk? Send Reports Directly on WhatsApp</span>
+          <span>Prefer WhatsApp? Chat Directly (+91 74339 28339)</span>
         </a>
 
         {/* Reassurance text */}
         <p className="text-[11px] text-slate-400 text-center leading-snug pt-2">
-          🔒 Your medical information is confidential and evaluated exclusively by our medical doctor team. Zero obligation.
+          🔒 Your medical information is confidential and evaluated exclusively by our specialised medical team. Zero obligation.
         </p>
 
       </form>

@@ -2,13 +2,13 @@ import React from 'react';
 import { MessageCircle } from 'lucide-react';
 
 export default function FloatingWhatsApp() {
-  const whatsappUrl = "https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
+  const whatsappUrl = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
       {/* Tooltip hint */}
       <div className="hidden md:flex items-center bg-slate-900 text-white text-xs font-medium px-3.5 py-2 rounded-xl shadow-xl border border-slate-800 animate-in fade-in slide-in-from-right-4 duration-300">
-        <span>Chat with Doctor Team on WhatsApp</span>
+        <span>Chat with Medical Team on WhatsApp</span>
         <div className="w-2 h-2 bg-slate-900 rotate-45 -mr-1.5 ml-1 border-r border-t border-slate-800"></div>
       </div>
 

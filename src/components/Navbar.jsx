@@ -7,8 +7,8 @@ export default function Navbar({ activePage, setActivePage }) {
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'treatments', label: 'Treatments' },
-    { id: 'why-us', label: 'Why Gujarat & Why Us' },
-    { id: 'international-patients', label: 'For Patients' },
+    { id: 'hospitals-packages', label: 'Hospitals & Packages' },
+    { id: 'your-journey', label: 'Your Journey' },
     { id: 'about-us', label: 'About Us' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -19,6 +19,8 @@ export default function Navbar({ activePage, setActivePage }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion.";
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
       {/* Top Announcement Bar */}
@@ -27,21 +29,21 @@ export default function Navbar({ activePage, setActivePage }) {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-full font-medium text-[11px]">
               <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
-              Doctor-Founded Medical Travel
+              Specialised Medical Team
             </span>
             <span className="hidden md:inline text-slate-400">|</span>
-            <span className="hidden md:inline text-slate-300">NABH Accredited Hospitals in Gujarat • 60-80% Savings</span>
+            <span className="hidden md:inline text-slate-300">India's NABH & JCI Accredited Hospitals • 4 Weeks Aftercare</span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-300">
             <a 
-              href="https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20would%20like%20a%20free%20medical%20opinion." 
+              href={primaryWhatsapp}
               target="_blank" 
               rel="noreferrer"
               className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
-              <span>WhatsApp: +91-9900000000</span>
+              <span>WhatsApp: +91 74339 28339</span>
             </a>
             <span className="text-slate-600">|</span>
             <div className="flex items-center gap-1 text-[11px] font-medium text-teal-300 bg-slate-800 px-2 py-0.5 rounded">
@@ -73,7 +75,7 @@ export default function Navbar({ activePage, setActivePage }) {
                 </span>
               </div>
               <p className="text-[11px] text-slate-500 font-medium tracking-wide">
-                GLOBAL MEDICAL TRAVEL • DOCTOR GUIDED
+                GLOBAL CARE LLP • HEALTHCARE TRAVEL YOU CAN TRUST
               </p>
             </div>
           </button>
@@ -101,7 +103,7 @@ export default function Navbar({ activePage, setActivePage }) {
               onClick={() => handleNavClick('free-opinion')}
               className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white transition-all bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl shadow-md hover:from-teal-700 hover:to-teal-800 hover:shadow-lg hover:shadow-teal-600/25 active:scale-95"
             >
-              Get Free Doctor Opinion
+              Get Free Medical Opinion
             </button>
           </div>
 

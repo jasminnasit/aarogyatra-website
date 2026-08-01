@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck, Instagram } from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,20 +10,22 @@ export default function ContactPage() {
     setSubmitted(true);
   };
 
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20an%20inquiry.";
+
   return (
     <div className="space-y-16 pb-16">
       
-      {/* Header Banner - Dark Slate 900 Background */}
+      {/* Header Banner */}
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 hero-radial-bg border-b border-slate-800">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3.5 py-1.5 rounded-full border border-teal-500/30">
             Get In Touch
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit text-white leading-tight">
-            Contact Aarogyatra Global Care
+            Contact Aarogyatra Global Care LLP
           </h1>
           <p className="text-slate-200 text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Have a question about treatments, costs, or travel logistics? We reply within 24 hours, usually much faster.
+            Have a question about treatments, budget packages, or travel logistics? We reply within 48 hours, usually much faster.
           </p>
         </div>
       </section>
@@ -39,7 +41,7 @@ export default function ContactPage() {
 
             {/* WhatsApp Primary */}
             <a
-              href="https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20have%20an%20inquiry."
+              href={primaryWhatsapp}
               target="_blank"
               rel="noreferrer"
               className="flex items-start gap-4 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 hover:bg-emerald-500/20 transition-all text-white group"
@@ -49,8 +51,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-xs text-emerald-400 font-bold uppercase tracking-wider block">Primary WhatsApp (Click to Chat)</span>
-                <span className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">+91-9900000000</span>
-                <p className="text-xs text-slate-400 mt-0.5">Instant messaging & report sending</p>
+                <span className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">+91 74339 28339</span>
+                <p className="text-xs text-slate-400 mt-0.5">Secondary: +91 81693 87848</p>
               </div>
             </a>
 
@@ -61,10 +63,27 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-xs text-teal-400 font-bold uppercase tracking-wider block">Email Inquiry</span>
-                <a href="mailto:care@aarogyatra.com" className="text-base font-semibold text-white hover:underline">care@aarogyatra.com</a>
-                <p className="text-xs text-slate-400 mt-0.5">Detailed medical files & corporate MOUs</p>
+                <a href="mailto:connect@aarogyatraglobalcare.com" className="text-sm font-semibold text-white hover:underline">connect@aarogyatraglobalcare.com</a>
+                <p className="text-xs text-slate-400 mt-0.5">Detailed medical reports & package requests</p>
               </div>
             </div>
+
+            {/* Instagram */}
+            <a
+              href="https://instagram.com/aarogyatra_global_care"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start gap-4 p-4 rounded-2xl bg-slate-800 border border-slate-700 hover:border-pink-500/50 transition-all"
+            >
+              <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0">
+                <Instagram className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-xs text-pink-400 font-bold uppercase tracking-wider block">Instagram</span>
+                <span className="text-sm font-semibold text-white">@aarogyatra_global_care</span>
+                <p className="text-xs text-slate-400 mt-0.5">Follow our patient stories & updates</p>
+              </div>
+            </a>
 
             {/* Office */}
             <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-800 border border-slate-700">
@@ -74,19 +93,14 @@ export default function ContactPage() {
               <div>
                 <span className="text-xs text-teal-400 font-bold uppercase tracking-wider block">Registered Office</span>
                 <span className="text-sm font-semibold text-white">Modasa, Sabarkantha</span>
-                <p className="text-xs text-slate-400 mt-0.5">Gujarat, India (PIN 383315)</p>
+                <p className="text-xs text-slate-400 mt-0.5">Gujarat, India</p>
               </div>
             </div>
 
-            {/* Response Promise */}
-            <div className="flex items-center gap-2 text-xs text-teal-300 bg-slate-800/80 px-4 py-3 rounded-xl border border-slate-700">
-              <Clock className="w-4 h-4 text-teal-400 shrink-0" />
-              <span>Response promise: "We reply within 24 hours, usually much faster."</span>
-            </div>
           </div>
 
           <div className="pt-4 border-t border-slate-800 text-xs text-slate-400">
-            Aarogyatra Global Care LLP • Registered Entity in Gujarat, India
+            Aarogyatra Global Care LLP · LLPIN ACZ-7789 · Gujarat, India
           </div>
         </div>
 
@@ -101,7 +115,7 @@ export default function ContactPage() {
                 Message Sent Successfully!
               </h3>
               <p className="text-slate-700 text-sm max-w-md mx-auto">
-                Thank you for contacting Aarogyatra. Our doctor team will reply to your message shortly.
+                Thank you for contacting Aarogyatra. Our specialised medical team will reply to your message within 48 hours.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -153,13 +167,13 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Message / Inquiry *</label>
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Message / Medical Inquiry *</label>
                 <textarea
                   rows="4"
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  placeholder="How can we assist you with medical treatment in Gujarat?"
+                  placeholder="Tell us what medical treatment or budget package you need..."
                   className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden resize-none text-slate-900"
                 ></textarea>
               </div>

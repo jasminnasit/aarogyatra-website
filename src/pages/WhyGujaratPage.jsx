@@ -7,13 +7,13 @@ import {
 export default function WhyGujaratPage({ setActivePage }) {
   const whyGujaratPoints = [
     {
-      title: "World-Class Hospitals",
-      desc: "Gujarat's leading hospitals hold NABH accreditation — India's highest hospital quality standard — with internationally trained surgeons and cutting-edge operating theaters.",
+      title: "NABH & JCI Accredited Hospitals",
+      desc: "India's NABH and JCI accredited hospitals hold the highest recognized quality and safety standards, with internationally trained surgeons and cutting-edge operating theaters.",
       icon: Building2
     },
     {
-      title: "Dramatically Lower Costs",
-      desc: "The same procedure, the same implant brands (US-FDA approved), the same quality standards — at 60–80% lower cost than Western or regional private care.",
+      title: "Hospitals & Packages for Every Budget",
+      desc: "We work with trusted multi-specialty hospitals across every category. Tell us your budget and we build a package around it: treatment, stay and travel.",
       icon: DollarSign
     },
     {
@@ -23,38 +23,40 @@ export default function WhyGujaratPage({ setActivePage }) {
     },
     {
       title: "Convenient Flight Connections",
-      desc: "Direct and single-stop flights connect Nairobi, Dar es Salaam, Kampala, London, and Toronto directly to Sardar Vallabhbhai Patel International Airport (AMD) in Ahmedabad.",
+      desc: "Direct and single-stop flights connect Nairobi, Dar es Salaam, Kampala, London, and Toronto directly to major international airport hubs in India.",
       icon: Plane
     },
     {
-      title: "A Home Away From Home",
-      desc: "Gujarat shares centuries of trade and cultural ties with East Africa. Gujarati, Hindi, and English are widely spoken; vegetarian and halal meals are readily available; and local communities ensure patients feel safe and welcomed.",
+      title: "Full Travel & Family Support",
+      desc: "Medical visa assistance, attendant visas for up to 2 family members, airport pickup, vegetarian/halal meals, and hotel accommodation near the hospital handled.",
       icon: Heart
     }
   ];
 
   const whyUsPoints = [
     {
-      title: "Doctors, Not Travel Agents.",
-      desc: "Most medical travel facilitators are commercial agents. Aarogyatra was founded and is operated by medical doctors (MBBS). We evaluate your clinical reports ourselves, question hospital teams on your behalf, and never recommend unnecessary interventions.",
+      title: "Specialised Medical Team.",
+      desc: "Our specialised medical team studies your clinical reports and matches you with the right hospital and specialist in India. Clear answers within 48 hours.",
       icon: Stethoscope
     },
     {
-      title: "One Written, Transparent Price.",
-      desc: "Your written estimate covers hospital treatment, surgeon fees, nursing, implants, coordination, and airport transfers. If anything changes due to medical requirements, you'll know why — in writing — before it occurs.",
+      title: "Packages Built Around Your Budget.",
+      desc: "We are not limited to one kind of hospital. Alongside India's NABH and JCI accredited hospitals, we work across all hospital categories so there is always a right option for your budget.",
       icon: ShieldCheck
     },
     {
-      title: "Aarogyatra Aftercare™ — 8-Week Promise.",
-      desc: "Most facilitators end communication the moment you board your flight home. We stay connected: structured weekly WhatsApp check-ins for 8 weeks covering medications, wound care, physiotherapy, and dietary advice.",
+      title: "4 Weeks of Aftercare Back Home.",
+      desc: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet.",
       icon: Award
     },
     {
-      title: "Healing Beyond the Hospital.",
-      desc: "Recovery involves body, mind, and spirit. We offer optional yoga therapy sessions, personalized clinical nutrition plans, and compassionate counselling support during your stay.",
+      title: "Wellness & Recovery Included.",
+      desc: "Yoga sessions, personalised nutrition guidance and counselling support during your stay in India.",
       icon: Sparkles
     }
   ];
+
+  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra,%20I%20have%20a%20question%20about%20medical%20travel.";
 
   return (
     <div className="space-y-16 pb-16">
@@ -66,23 +68,23 @@ export default function WhyGujaratPage({ setActivePage }) {
             Medical Travel Excellence
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit text-white leading-tight">
-            Why Gujarat, India? <br />
+            Why Choose Medical Treatment in India? <br />
             <span className="gradient-text-light">Why Aarogyatra Global Care?</span>
           </h1>
           <p className="text-slate-200 text-base max-w-2xl mx-auto leading-relaxed">
-            Discover why thousands of international patients choose Gujarat for advanced healthcare, and why doctor-guided care makes all the difference.
+            Discover why international patients trust India's accredited hospitals, and why our specialised team makes all the difference.
           </p>
         </div>
       </section>
 
-      {/* SECTION 1: WHY GUJARAT */}
+      {/* SECTION 1: WHY INDIA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-slate-900 font-outfit">
-            Why Choose Gujarat for Medical Treatment?
+            World-Class Hospitals & Surgeons
           </h2>
           <p className="text-slate-700 text-sm mt-2 font-medium">
-            Gujarat has rapidly emerged as India's premier hub for medical tourism due to its clinical expertise, warm hospital care, and strong global connectivity.
+            Access India's NABH and JCI accredited hospitals with surgeons who have handled thousands of successful cases.
           </p>
         </div>
 
@@ -118,7 +120,7 @@ export default function WhyGujaratPage({ setActivePage }) {
               Why Patients Trust Aarogyatra
             </h2>
             <p className="text-slate-300 text-sm mt-2 font-normal">
-              We bridge the gap between international patients and India's healthcare system with doctor integrity.
+              Healthcare travel you can trust — simple, honest and human.
             </p>
           </div>
 
@@ -150,10 +152,10 @@ export default function WhyGujaratPage({ setActivePage }) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-teal-50 border border-teal-200/90 rounded-3xl p-8 sm:p-10 text-center space-y-4 shadow-xs">
           <h3 className="text-2xl font-bold text-slate-900 font-outfit">
-            Have questions about travelling to Gujarat?
+            Have questions about medical travel to India?
           </h3>
           <p className="text-slate-700 text-sm max-w-xl mx-auto font-medium">
-            Speak directly with our doctor-founders or request a free medical report assessment.
+            Speak directly with our specialised medical team or request a free medical report assessment.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
             <button
@@ -163,7 +165,7 @@ export default function WhyGujaratPage({ setActivePage }) {
               Get Free Medical Opinion
             </button>
             <a
-              href="https://wa.me/919900000000?text=Hello%20Aarogyatra,%20I%20have%20a%20question%20about%20travelling%20to%20Gujarat."
+              href={primaryWhatsapp}
               target="_blank"
               rel="noreferrer"
               className="px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"

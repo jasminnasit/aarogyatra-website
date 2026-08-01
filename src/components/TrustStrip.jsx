@@ -1,27 +1,27 @@
 import React from 'react';
-import { UserCheck, Building2, TrendingDown, Clock, ShieldCheck } from 'lucide-react';
+import { UserCheck, Building2, TrendingDown, Clock, ShieldCheck, Plane } from 'lucide-react';
 
 export default function TrustStrip() {
   const trustPoints = [
     {
-      icon: UserCheck,
-      title: "Founded by Doctors",
-      subtitle: "Cases reviewed by physician-founders"
-    },
-    {
       icon: Building2,
-      title: "NABH Partner Hospitals",
-      subtitle: "Highest accreditation in Gujarat"
+      title: "NABH & JCI Accredited",
+      subtitle: "Highest hospital standards in India"
     },
     {
-      icon: TrendingDown,
-      title: "Save 60–80%",
-      subtitle: "Compared to US, UK & East Africa private"
+      icon: UserCheck,
+      title: "Specialised Medical Team",
+      subtitle: "Cases reviewed by doctor directors"
+    },
+    {
+      icon: Plane,
+      title: "Visa & Travel Support",
+      subtitle: "e-Visa guidance & attendant visas"
     },
     {
       icon: Clock,
-      title: "8-Week Aftercare Included",
-      subtitle: "Continuous WhatsApp medical support"
+      title: "4 Weeks of Aftercare",
+      subtitle: "Continuous WhatsApp check-ins back home"
     }
   ];
 
