@@ -55,10 +55,6 @@ export default function Navbar({ activePage, setActivePage }) {
               <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
               <span>WhatsApp: +91 74339 28339</span>
             </a>
-            <span className="text-slate-600">|</span>
-            <div className="flex items-center gap-1 text-[11px] font-medium text-teal-300 bg-slate-800 px-2 py-0.5 rounded">
-              🌐 EN / GU / HI
-            </div>
           </div>
         </div>
       </div>
