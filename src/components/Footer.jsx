@@ -58,7 +58,7 @@ export default function Footer({ setActivePage }) {
               Quick Navigation
             </h4>
             <ul className="space-y-2.5 text-sm">
-              <li><button onClick={() => handleNavClick('home')} className="hover:text-teal-400 transition-colors">Home</button></li>
+              <li><button onClick={() => handleNavClick('home')} className="hover:text-teal-400 transition-colors">Hero / Home</button></li>
               <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Treatments</button></li>
               <li><button onClick={() => handleNavClick('hospitals-packages')} className="hover:text-teal-400 transition-colors">Hospitals & Packages</button></li>
               <li><button onClick={() => handleNavClick('your-journey')} className="hover:text-teal-400 transition-colors">Your Journey</button></li>
@@ -79,7 +79,7 @@ export default function Footer({ setActivePage }) {
               <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Cancer Care (Oncology)</button></li>
               <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Kidney & Urology</button></li>
               <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">General & Advanced Surgery</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Dentistry & Oral Rehab</button></li>
+              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Dentistry</button></li>
               <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Cosmetology & Aesthetics</button></li>
             </ul>
           </div>

@@ -6,6 +6,7 @@ export default function Navbar({ activePage, setActivePage }) {
 
   const navLinks = [
     { id: 'home', label: 'Home' },
+    { id: 'how-it-works', label: 'How It Works' },
     { id: 'treatments', label: 'Treatments' },
     { id: 'hospitals-packages', label: 'Hospitals & Packages' },
     { id: 'your-journey', label: 'Your Journey' },
@@ -14,6 +15,15 @@ export default function Navbar({ activePage, setActivePage }) {
   ];
 
   const handleNavClick = (pageId) => {
+    if (pageId === 'how-it-works') {
+      setActivePage('home');
+      setMobileMenuOpen(false);
+      setTimeout(() => {
+        const el = document.getElementById('how-it-works-section');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
     setActivePage(pageId);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });

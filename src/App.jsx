@@ -7,7 +7,6 @@ import HomePage from './pages/HomePage';
 import TreatmentsPage from './pages/TreatmentsPage';
 import HospitalsPackagesPage from './pages/HospitalsPackagesPage';
 import SpecialtyDetailPage from './pages/SpecialtyDetailPage';
-import WhyGujaratPage from './pages/WhyGujaratPage';
 import InternationalPatientsPage from './pages/InternationalPatientsPage';
 import AboutUsPage from './pages/AboutUsPage';
 import FreeOpinionPage from './pages/FreeOpinionPage';
@@ -28,7 +27,6 @@ const parseHash = () => {
     'hospitals-packages', 
     'your-journey', 
     'specialty-detail', 
-    'why-us', 
     'about-us', 
     'free-opinion', 
     'contact'
@@ -127,10 +125,6 @@ export default function App() {
             specialtyId={selectedSpecialtyId} 
             setActivePage={handleSetActivePage} 
           />
-        )}
-
-        {activePage === 'why-us' && (
-          <WhyGujaratPage setActivePage={handleSetActivePage} />
         )}
 
         {activePage === 'about-us' && (
