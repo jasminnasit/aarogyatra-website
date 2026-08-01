@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, ShieldCheck, Info, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Clock, Smile, Sparkles, HelpCircle, MessageCircle } from 'lucide-react';
+import { Search, ArrowRight, ShieldCheck, Info, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Clock, Smile, Sparkles, HelpCircle, MessageCircle, Heart } from 'lucide-react';
 import { treatmentsData } from '../data/treatmentsData';
 
 export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }) {
@@ -60,6 +60,16 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                 className="w-full pl-12 pr-4 py-3.5 bg-slate-800/90 border border-slate-700 rounded-2xl text-sm font-medium text-white placeholder-slate-400 focus:outline-hidden focus:ring-2 focus:ring-teal-400 shadow-xl"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Disclaimer Box */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-teal-50 border border-teal-200/90 rounded-2xl p-5 flex items-start gap-3 text-xs text-teal-950 leading-relaxed shadow-xs">
+          <Info className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
+          <div>
+            <span className="font-bold text-teal-950">Indicative Cost Disclaimer:</span> Costs shown below are indicative ranges (in USD). You will receive an exact written estimate after our specialised medical team studies your clinical reports and matches you with the right hospital and specialist.
           </div>
         </div>
       </section>
@@ -149,7 +159,7 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                       onClick={() => handleSelectSpecialty(treatment.id)}
                       className="w-full py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                     >
-                      <span>View Full {treatment.title} Details</span>
+                      <span>View Full {treatment.title} Details & Cost Matrix</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -159,6 +169,31 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
             })}
           </div>
         )}
+      </section>
+
+      {/* WELLNESS & RECOVERY (INCLUDED) CARD */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-teal-50 to-emerald-50 rounded-3xl p-8 border border-teal-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full">
+              <Heart className="w-3.5 h-3.5 text-teal-600 fill-teal-600/20" />
+              Included With Every Medical Package
+            </div>
+            <h3 className="text-2xl font-bold font-outfit text-slate-900">
+              Wellness & Recovery (Included)
+            </h3>
+            <p className="text-slate-700 text-sm leading-relaxed">
+              Yoga sessions, personalised nutrition guidance and counselling support during your stay in India — because true healing encompasses physical, mental, and emotional care.
+            </p>
+          </div>
+
+          <button
+            onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            className="w-full md:w-auto px-6 py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md shrink-0"
+          >
+            Inquire About Wellness Support
+          </button>
+        </div>
       </section>
 
       {/* DON'T SEE YOUR TREATMENT? SECTION */}
