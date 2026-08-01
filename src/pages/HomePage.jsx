@@ -58,8 +58,6 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
 
   const handleSelectSpecialty = (id) => {
     setSelectedSpecialtyId(id);
-    setActivePage('specialty-detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20medical%20opinion.";

@@ -63,15 +63,15 @@ export default function App() {
 
   // Navigate helper that updates URL hash and browser history
   const navigateTo = (page, specialtyId = null) => {
+    const targetSpecialtyId = specialtyId || route.specialtyId || 'cardiac-care';
     let newHash = `#${page}`;
-    if (page === 'specialty-detail' && specialtyId) {
-      newHash = `#specialty-detail?id=${specialtyId}`;
+    if (page === 'specialty-detail') {
+      newHash = `#specialty-detail?id=${targetSpecialtyId}`;
     }
     
+    setRoute({ page, specialtyId: targetSpecialtyId });
     if (window.location.hash !== newHash) {
       window.location.hash = newHash;
-    } else {
-      setRoute({ page, specialtyId: specialtyId || route.specialtyId });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

@@ -14,8 +14,6 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
 
   const handleSelectSpecialty = (id) => {
     setSelectedSpecialtyId(id);
-    setActivePage('specialty-detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getIcon = (id) => {
