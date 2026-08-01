@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, ShieldCheck, Info, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Clock, Smile, Sparkles, HelpCircle, MessageCircle, Heart } from 'lucide-react';
+import { Search, ArrowRight, ShieldCheck, Info, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Clock, Smile, Sparkles, HelpCircle, MessageCircle, Heart, Stethoscope } from 'lucide-react';
 import { treatmentsData } from '../data/treatmentsData';
 
 export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }) {
@@ -64,16 +64,6 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
         </div>
       </section>
 
-      {/* Compliance Disclaimer Box */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-teal-50 border border-teal-200/90 rounded-2xl p-5 flex items-start gap-3 text-xs text-teal-950 leading-relaxed shadow-xs">
-          <Info className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
-          <div>
-            <span className="font-bold text-teal-950">Indicative Cost Disclaimer:</span> Costs shown below are indicative ranges (in USD). You will receive an exact written estimate after our specialised medical team studies your clinical reports and matches you with the right hospital and specialist.
-          </div>
-        </div>
-      </section>
-
       {/* Grid of Specialty Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {filteredTreatments.length === 0 ? (
@@ -91,7 +81,7 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                 >
                   
                   {/* Left Column - Meta & Info */}
-                  <div className="lg:col-span-7 space-y-4">
+                  <div className="lg:col-span-8 space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-2xl bg-teal-100/80 text-teal-800 flex items-center justify-center shrink-0">
                         <IconComp className="w-6 h-6 stroke-[2.2]" />
@@ -140,27 +130,24 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                     </div>
                   </div>
 
-                  {/* Right Column - Cost Preview & Button */}
-                  <div className="lg:col-span-5 bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600">
-                      Indicative Package Costs (USD)
-                    </h4>
-
+                  {/* Right Column - Action Card */}
+                  <div className="lg:col-span-4 bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 space-y-4 flex flex-col justify-between h-full">
                     <div className="space-y-2">
-                      {treatment.costMatrix.slice(0, 3).map((item, idx) => (
-                        <div key={idx} className="flex justify-between items-center text-xs pb-2 border-b border-slate-200">
-                          <span className="font-semibold text-slate-800 truncate mr-2">{item.procedure}</span>
-                          <span className="font-extrabold text-slate-900 font-outfit shrink-0">{item.gujarat}</span>
-                        </div>
-                      ))}
+                      <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block">Specialist Care</span>
+                      <h4 className="text-lg font-bold font-outfit text-white">
+                        {treatment.title} Package
+                      </h4>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Pre-op evaluation, hospital admission, US-FDA implants, bilingual coordinator, & 4-week aftercare.
+                      </p>
                     </div>
 
                     <button
                       onClick={() => handleSelectSpecialty(treatment.id)}
-                      className="w-full py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                      className="w-full py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                     >
-                      <span>View Full {treatment.title} Details & Cost Matrix</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <Stethoscope className="w-4 h-4" />
+                      <span>View Full Specialty Details</span>
                     </button>
                   </div>
 

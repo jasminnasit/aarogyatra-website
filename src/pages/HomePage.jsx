@@ -5,7 +5,6 @@ import {
   Sparkles, Building2, ChevronRight, Smile, Scissors, HelpCircle
 } from 'lucide-react';
 import TrustStrip from '../components/TrustStrip';
-import CostCalculator from '../components/CostCalculator';
 import { treatmentsData } from '../data/treatmentsData';
 
 export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
@@ -383,11 +382,6 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
           </div>
 
         </div>
-      </section>
-
-      {/* COST CALCULATOR INTERACTIVE SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <CostCalculator onGetOpinionClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
       </section>
 
       {/* ABOUT US PREVIEW */}

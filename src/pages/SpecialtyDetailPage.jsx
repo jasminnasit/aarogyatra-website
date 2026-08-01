@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   ArrowLeft, CheckCircle2, Clock, ShieldCheck, HeartHandshake, MessageCircle, 
-  Stethoscope, FileText, ChevronRight, AlertCircle, Info, DollarSign
+  Stethoscope, FileText, ChevronRight, AlertCircle, Info
 } from 'lucide-react';
 import { treatmentsData } from '../data/treatmentsData';
 
@@ -122,57 +122,7 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
 
       </section>
 
-      {/* 2. INDICATIVE COST TABLE (USD) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-600">Cost & Budget Transparency</span>
-              <h3 className="text-2xl font-bold text-slate-900 font-outfit mt-1">
-                Indicative Cost Comparison Table (USD)
-              </h3>
-            </div>
-            <span className="text-xs text-slate-500 font-medium">
-              Indicative price range per procedure
-            </span>
-          </div>
-
-          {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-slate-900 text-white text-xs uppercase tracking-wider">
-                  <th className="p-4 rounded-tl-xl">Procedure / Treatment</th>
-                  <th className="p-4 bg-teal-800 text-teal-100 font-bold">India Package Range</th>
-                  <th className="p-4">USA Typical</th>
-                  <th className="p-4">UK Private</th>
-                  <th className="p-4 rounded-tr-xl">East Africa Private</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-sm">
-                {treatment.costMatrix.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50">
-                    <td className="p-4 font-semibold text-slate-900">{row.procedure}</td>
-                    <td className="p-4 font-extrabold text-teal-700 bg-teal-50/60 font-outfit">{row.gujarat}</td>
-                    <td className="p-4 text-slate-500 line-through">{row.usa}</td>
-                    <td className="p-4 text-slate-500 line-through">{row.uk}</td>
-                    <td className="p-4 text-slate-500 line-through">{row.eastAfrica}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-900 flex items-start gap-2.5">
-            <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <div>
-              <strong>Note:</strong> We build packages tailored to your budget. Final written estimates are provided after our specialised medical team studies your medical reports.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. WHAT'S INCLUDED & 4-WEEK AFTERCARE */}
+      {/* 2. WHAT'S INCLUDED & 4-WEEK AFTERCARE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200/90 shadow-lg space-y-4">

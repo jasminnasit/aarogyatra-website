@@ -22,11 +22,6 @@ export const treatmentsData = [
       "Pacemaker Implantation",
       "Paediatric and Congenital Heart Surgery"
     ],
-    costMatrix: [
-      { procedure: "CABG (Heart Bypass)", gujarat: "$4,500 – $6,800", usa: "$40,000 – $70,000", uk: "$18,000 – $25,000", eastAfrica: "$9,000 – $14,000" },
-      { procedure: "Heart Valve Replacement", gujarat: "$5,000 – $7,500", usa: "$45,000 – $80,000", uk: "$20,000 – $28,000", eastAfrica: "$10,000 – $16,000" },
-      { procedure: "Angioplasty with Stent", gujarat: "$2,200 – $3,500", usa: "$18,000 – $30,000", uk: "$9,000 – $14,000", eastAfrica: "$5,000 – $8,000" }
-    ],
     hospitalStayDays: "4–6 days in Hospital (ICU + Ward)",
     indiaStayDays: "12–16 days total in India",
     whatsIncluded: [
@@ -63,11 +58,6 @@ export const treatmentsData = [
       "Arthroscopy (ACL, Meniscus, Rotator Cuff)",
       "Fracture Fixation"
     ],
-    costMatrix: [
-      { procedure: "Total Knee Replacement (Single)", gujarat: "$4,000 – $6,500", usa: "$35,000 – $50,000", uk: "$15,000 – $20,000", eastAfrica: "$8,000 – $12,000" },
-      { procedure: "Total Hip Replacement", gujarat: "$4,500 – $7,000", usa: "$32,000 – $45,000", uk: "$14,000 – $18,000", eastAfrica: "$9,000 – $13,000" },
-      { procedure: "ACL Reconstruction Arthroscopy", gujarat: "$2,000 – $3,200", usa: "$15,000 – $22,000", uk: "$7,000 – $10,000", eastAfrica: "$4,000 – $6,000" }
-    ],
     hospitalStayDays: "4–5 days in Hospital",
     indiaStayDays: "10–14 days total in India",
     whatsIncluded: [
@@ -103,11 +93,6 @@ export const treatmentsData = [
       "Immunotherapy",
       "Bone Marrow Transplant"
     ],
-    costMatrix: [
-      { procedure: "Onco-Surgery (Tumor Resection)", gujarat: "$3,800 – $6,500", usa: "$35,000 – $60,000", uk: "$16,000 – $25,000", eastAfrica: "$8,000 – $13,000" },
-      { procedure: "Chemotherapy (per cycle)", gujarat: "$400 – $900", usa: "$4,000 – $9,000", uk: "$2,000 – $3,500", eastAfrica: "$1,000 – $1,800" },
-      { procedure: "Radiation Therapy (Full Course)", gujarat: "$3,000 – $4,800", usa: "$25,000 – $45,000", uk: "$12,000 – $18,000", eastAfrica: "$6,000 – $9,500" }
-    ],
     hospitalStayDays: "3–7 days (Surgery) / Day Care (Chemo/Radiation)",
     indiaStayDays: "14–21 days depending on treatment protocol",
     whatsIncluded: [
@@ -141,11 +126,6 @@ export const treatmentsData = [
       "Prostate Surgery (TURP)",
       "Bladder and Ureter Surgery",
       "Dialysis & Vascular Access"
-    ],
-    costMatrix: [
-      { procedure: "Laser Stone Surgery (PCNL/RIRS)", gujarat: "$1,800 – $2,800", usa: "$15,000 – $24,000", uk: "$6,500 – $9,500", eastAfrica: "$3,800 – $5,500" },
-      { procedure: "TURP Prostate Surgery", gujarat: "$2,200 – $3,400", usa: "$18,000 – $28,000", uk: "$7,500 – $11,000", eastAfrica: "$4,200 – $6,200" },
-      { procedure: "Kidney Transplant Facilitation", gujarat: "$11,000 – $15,000", usa: "$120,000 – $200,000", uk: "$45,000 – $70,000", eastAfrica: "$25,000 – $35,000" }
     ],
     hospitalStayDays: "1–3 days in Hospital",
     indiaStayDays: "7–10 days total in India",
@@ -181,11 +161,6 @@ export const treatmentsData = [
       "Weight-Loss (Bariatric) Surgery",
       "Hysterectomy",
       "IVF and Fertility Treatment"
-    ],
-    costMatrix: [
-      { procedure: "Laparoscopic Gallbladder Surgery", gujarat: "$1,500 – $2,400", usa: "$14,000 – $20,000", uk: "$6,000 – $8,500", eastAfrica: "$3,200 – $4,800" },
-      { procedure: "Laparoscopic Hernia Repair", gujarat: "$1,800 – $2,700", usa: "$15,000 – $22,000", uk: "$6,500 – $9,000", eastAfrica: "$3,500 – $5,200" },
-      { procedure: "Bariatric Weight-Loss Surgery", gujarat: "$4,200 – $6,000", usa: "$22,000 – $35,000", uk: "$11,000 – $16,000", eastAfrica: "$7,500 – $10,500" }
     ],
     hospitalStayDays: "2–4 days in Hospital",
     indiaStayDays: "7–12 days total in India",
@@ -223,11 +198,6 @@ export const treatmentsData = [
       "Wisdom Tooth Removal & Gum Surgery",
       "Laser Teeth Whitening"
     ],
-    costMatrix: [
-      { procedure: "Single Dental Implant (Zirconia)", gujarat: "$450 – $750", usa: "$3,000 – $5,000", uk: "$2,000 – $3,500", eastAfrica: "$1,200 – $2,000" },
-      { procedure: "Full-Mouth Rehabilitation", gujarat: "$4,500 – $7,500", usa: "$30,000 – $50,000", uk: "$18,000 – $28,000", eastAfrica: "$9,000 – $14,000" },
-      { procedure: "Root Canal + Zirconia Crown", gujarat: "$150 – $300", usa: "$1,500 – $2,500", uk: "$800 – $1,400", eastAfrica: "$400 – $700" }
-    ],
     hospitalStayDays: "Outpatient / Day Care Clinic",
     indiaStayDays: "5–10 days total in India",
     whatsIncluded: [
@@ -263,11 +233,6 @@ export const treatmentsData = [
       "Cosmetic Breast Surgery",
       "Laser Skin & Anti-Ageing Treatments",
       "Chemical Peels & Scar Revision"
-    ],
-    costMatrix: [
-      { procedure: "FUE Hair Transplant (3,500+ grafts)", gujarat: "$1,200 – $2,200", usa: "$10,000 – $18,000", uk: "$6,000 – $12,000", eastAfrica: "$3,500 – $6,000" },
-      { procedure: "Rhinoplasty (Nose Job)", gujarat: "$1,800 – $3,200", usa: "$8,000 – $15,000", uk: "$5,000 – $9,000", eastAfrica: "$3,200 – $5,500" },
-      { procedure: "Liposuction (High-Definition)", gujarat: "$2,000 – $3,500", usa: "$12,000 – $20,000", uk: "$6,500 – $11,000", eastAfrica: "$4,000 – $7,000" }
     ],
     hospitalStayDays: "Day Care / 1 day Hospital",
     indiaStayDays: "7–10 days total in India",
