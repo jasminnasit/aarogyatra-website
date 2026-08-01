@@ -3,24 +3,24 @@ export const treatmentsData = [
     id: "cardiac-care",
     title: "Cardiac Care",
     slug: "cardiac-care",
-    tagline: "Advanced Heart Surgery & Cardiology by Renowned Specialists",
-    shortDesc: "Bypass surgery (CABG), angioplasty & stenting, valve replacement, pacemaker implantation, and paediatric cardiac procedures at India's accredited heart hospitals.",
+    tagline: "Specialised Cardiac Surgery & Cardiology",
+    shortDesc: "Bypass surgery (CABG), angioplasty & stenting, valve replacement and repair, pacemaker implantation, paediatric and congenital heart surgery.",
     iconName: "HeartPulse",
     heroImage: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Coronary Artery Disease (CAD)",
-      "Heart Attack & Ischemic Heart Disease",
-      "Heart Valve Disease & Stenosis",
-      "Heart Failure",
-      "Irregular Heartbeat (Arrhythmia)",
-      "Holes in the Heart (Congenital Defects)"
+      "Coronary artery disease",
+      "Heart attack",
+      "Valve disease",
+      "Heart failure",
+      "Irregular heartbeat",
+      "Holes in the heart"
     ],
     procedures: [
-      "Coronary Artery Bypass Grafting (CABG)",
-      "Angioplasty & Stenting",
-      "Valve Replacement and Repair",
-      "Pacemaker Implantation",
-      "Paediatric and Congenital Heart Surgery"
+      "Bypass surgery (CABG)",
+      "Angioplasty & stenting",
+      "Valve replacement and repair",
+      "Pacemaker implantation",
+      "Paediatric and congenital heart surgery"
     ],
     whatsIncluded: [
       "Pre-operative cardiac evaluation & diagnostic tests",
@@ -30,205 +30,208 @@ export const treatmentsData = [
       "Airport pickup & drop-off",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Continuous 4-week WhatsApp check-ins with our specialized medical team, medication reminders, recovery check-ins, and direct answers until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "orthopedics-joint-replacement",
     title: "Orthopedics & Joint Replacement",
     slug: "orthopedics-joint-replacement",
-    tagline: "Knee & Hip Replacement in India — Walk Again, Pain-Free",
-    shortDesc: "Total knee replacement, total hip replacement, revision joint surgery, spinal fusion, arthroscopy, and fracture fixation at India's leading orthopedic centres.",
+    tagline: "Knee, Hip & Spine Surgery in India",
+    shortDesc: "Total knee replacement, total hip replacement, revision joint surgery, spinal fusion and disc surgery, arthroscopy (ACL, meniscus, rotator cuff), fracture fixation.",
     iconName: "Activity",
     heroImage: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Osteoarthritis & Rheumatoid Arthritis",
-      "Avascular Necrosis (AVN)",
-      "Slipped Disc & Sciatica",
-      "Sports Injuries & Ligament Tears",
-      "Complex Fractures",
-      "Spine & Spinal Cord Conditions"
+      "Osteoarthritis",
+      "Rheumatoid arthritis",
+      "Avascular necrosis",
+      "Slipped disc",
+      "Sciatica",
+      "Sports injuries",
+      "Complex fractures"
     ],
     procedures: [
-      "Total Knee Replacement",
-      "Total Hip Replacement",
-      "Revision Joint Surgery",
-      "Spinal Fusion and Disc Surgery",
-      "Arthroscopy (ACL, Meniscus, Rotator Cuff)",
-      "Fracture Fixation"
+      "Total knee replacement",
+      "Total hip replacement",
+      "Revision joint surgery",
+      "Spinal fusion and disc surgery",
+      "Arthroscopy (ACL, meniscus, rotator cuff)",
+      "Fracture fixation"
     ],
     whatsIncluded: [
-      "US-FDA approved implants (Stryker, DePuy, Zimmer)",
+      "US-FDA approved implants",
       "Physiotherapist sessions during hospital stay",
       "Private room, nursing care & all meals",
       "Medical coordinator & transport",
-      "Customized home exercise program & mobility aids",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Weekly WhatsApp check-ins with our physiotherapy & orthopedic medical team, incision healing review, mobility progress tracking, and medication guidance."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "oncology",
-    title: "Cancer Care (Oncology)",
+    title: "Cancer Care",
     slug: "oncology",
-    tagline: "Comprehensive, Compassionate & Advanced Cancer Management",
-    shortDesc: "Cancer surgery, chemotherapy, radiotherapy (IMRT), immunotherapy, and bone marrow transplant guided by expert oncology teams.",
+    tagline: "Comprehensive & Advanced Surgical & Medical Oncology",
+    shortDesc: "Cancer surgery, chemotherapy, radiotherapy and IMRT, immunotherapy, bone marrow transplant.",
     iconName: "ShieldAlert",
     heroImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Breast, Cervical & Ovarian Cancers",
-      "Prostate, Lung & Colorectal Cancers",
-      "Oral and Head & Neck Cancers",
-      "Leukaemia & Lymphoma",
-      "Gastrointestinal Malignancies",
-      "Bone & Soft Tissue Sarcomas"
+      "Breast cancer",
+      "Cervical cancer",
+      "Prostate cancer",
+      "Lung cancer",
+      "Colorectal cancer",
+      "Oral and head & neck cancers",
+      "Leukaemia and lymphoma"
     ],
     procedures: [
-      "Cancer Surgery (Onco-Surgery)",
+      "Cancer surgery",
       "Chemotherapy",
       "Radiotherapy and IMRT",
       "Immunotherapy",
-      "Bone Marrow Transplant"
+      "Bone marrow transplant"
     ],
     whatsIncluded: [
-      "Multidisciplinary tumor evaluation before arrival",
+      "Multidisciplinary tumor evaluation",
       "Biopsy, PET-CT scan & pathology verification",
       "Surgery or Chemo/Radiation administration",
-      "Onco-nutrition consultation & psychological counselling",
+      "Onco-nutrition guidance",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Post-chemotherapy symptom monitoring, blood count check reviews via WhatsApp, dietary support for immunity, and follow-up scan scheduling."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "kidney-urology",
     title: "Kidney & Urology",
     slug: "kidney-urology",
-    tagline: "State-of-the-Art Renal Care, Dialysis & Laser Urology Surgery",
-    shortDesc: "Kidney transplant, stone removal (RIRS, PCNL, ESWL), prostate surgery (TURP), bladder surgery, and dialysis.",
+    tagline: "Renal Transplant, Dialysis & Laser Urology",
+    shortDesc: "Kidney transplant, stone removal (RIRS, PCNL, ESWL), prostate surgery (TURP), bladder and ureter surgery, dialysis.",
     iconName: "Droplet",
     heroImage: "https://images.unsplash.com/photo-1581595220892-6a8ce56e493f?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Kidney Failure (CKD / ESRD)",
-      "Kidney & Ureter Stones",
-      "Enlarged Prostate (BPH)",
-      "Recurrent Urinary Infections",
-      "Bladder Disorders",
-      "Urological Malignancies"
+      "Kidney failure",
+      "Kidney and ureter stones",
+      "Enlarged prostate",
+      "Recurrent urinary infections",
+      "Bladder disorders"
     ],
     procedures: [
-      "Kidney Transplant",
-      "Stone Removal (RIRS, PCNL, ESWL)",
-      "Prostate Surgery (TURP)",
-      "Bladder and Ureter Surgery",
-      "Dialysis & Vascular Access"
+      "Kidney transplant",
+      "Stone removal (RIRS, PCNL, ESWL)",
+      "Prostate surgery (TURP)",
+      "Bladder and ureter surgery",
+      "Dialysis"
     ],
     whatsIncluded: [
       "Advanced laser procedures with minimal incision",
-      "Urologist consultations & ultrasound/CT imaging",
+      "Urologist consultations & imaging",
       "Stent removal coordination",
       "Airport transfer & local stay coordination",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Hydration protocol management, stent removal reminders, urine routine review via WhatsApp, and renal function blood report tracking."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "general-advanced-surgery",
     title: "General & Advanced Surgery",
     slug: "general-advanced-surgery",
-    tagline: "Minimally Invasive & Laparoscopic Surgical Excellence",
-    shortDesc: "Laparoscopic gallbladder surgery, hernia repair, appendix surgery, weight-loss (bariatric) surgery, hysterectomy, IVF and fertility treatments.",
+    tagline: "Minimally Invasive & Laparoscopic Surgery",
+    shortDesc: "Laparoscopic gallbladder surgery, hernia repair, appendix surgery, weight-loss (bariatric) surgery, hysterectomy, IVF and fertility treatment.",
     iconName: "Scissors",
     heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Gallstones & Cholecystitis",
-      "Hernia (Inguinal, Abdominal)",
+      "Gallstones",
+      "Hernia",
       "Appendicitis",
-      "Obesity & Metabolic Disorders",
-      "Fibroids & Gynecological Issues",
-      "Infertility, Liver & Digestive Disorders"
+      "Obesity",
+      "Fibroids",
+      "Infertility",
+      "Liver and digestive disorders"
     ],
     procedures: [
-      "Laparoscopic Gallbladder Surgery",
-      "Hernia Repair",
-      "Appendix Surgery",
-      "Weight-Loss (Bariatric) Surgery",
+      "Laparoscopic gallbladder surgery",
+      "Hernia repair",
+      "Appendix surgery",
+      "Weight-loss (bariatric) surgery",
       "Hysterectomy",
-      "IVF and Fertility Treatment"
+      "IVF and fertility treatment"
     ],
     whatsIncluded: [
-      "High-definition 4K laparoscopic surgical setup",
-      "Premium imported surgical meshes & staplers",
+      "Laparoscopic surgical setup",
+      "Imported surgical meshes & staplers",
       "Nutritionist guidance & diet planning",
       "Airport & hospital transfers",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Post-surgery wound inspection, dietary progression monitoring, pain management protocol, and WhatsApp check-ins with medical team."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "dentistry",
-    title: "Dentistry & Oral Rehabilitation",
+    title: "Dentistry",
     slug: "dentistry",
-    tagline: "World-Class Dental Care, Implants & Smile Transformations",
-    shortDesc: "Dental implants, full-mouth rehabilitation, root canal treatment, crowns & bridges, clear aligners, wisdom tooth removal, and teeth whitening.",
+    tagline: "Treatments & Procedures for Complete Dental Care",
+    shortDesc: "Dental implants, full-mouth rehabilitation, root canal treatment, crowns and bridges, braces and clear aligners, wisdom tooth removal, gum surgery, teeth whitening.",
     iconName: "Smile",
     heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Missing or Broken Teeth",
-      "Severe Tooth Decay & Infections",
-      "Gum Disease & Periodontal Issues",
-      "Crooked, Misaligned or Crowded Teeth",
-      "Jaw Pain & TMJ Disorders",
-      "Stained or Discolored Teeth"
+      "Missing or broken teeth",
+      "Tooth decay",
+      "Gum disease",
+      "Crooked or crowded teeth",
+      "Jaw pain",
+      "Stained teeth"
     ],
     procedures: [
-      "Dental Implants & All-on-4 / All-on-6",
-      "Full-Mouth Rehabilitation",
-      "Root Canal Treatment (RCT)",
-      "Crowns and Bridges (Zirconia)",
-      "Braces and Clear Aligners",
-      "Wisdom Tooth Removal & Gum Surgery",
-      "Laser Teeth Whitening"
+      "Dental implants",
+      "Full-mouth rehabilitation",
+      "Root canal treatment",
+      "Crowns and bridges",
+      "Braces and clear aligners",
+      "Wisdom tooth removal",
+      "Gum surgery",
+      "Teeth whitening"
     ],
     whatsIncluded: [
-      "3D CBCT Imaging & Digital Smile Design",
-      "US-FDA certified dental implants & Zirconia crowns",
-      "Pain-free laser dental procedures",
+      "3D Imaging & Digital Smile Design",
+      "Certified dental implants & crowns",
+      "Laser dental procedures",
       "Coordinator & local travel support",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Post-treatment oral hygiene guidelines, implant integration check-in via WhatsApp, and direct dental specialist contact."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "cosmetology-aesthetics",
     title: "Cosmetology & Aesthetics",
     slug: "cosmetology-aesthetics",
-    tagline: "Advanced Hair Transplant, Cosmetic Surgery & Dermatology",
-    shortDesc: "Hair transplant (FUE/DHI), rhinoplasty, liposuction, tummy tuck, cosmetic breast surgery, laser skin treatments, chemical peels, and scar treatments.",
+    tagline: "Treatments & Procedures for Hair, Skin & Body",
+    shortDesc: "Hair transplant, rhinoplasty, liposuction, tummy tuck, cosmetic breast surgery, laser skin treatments, chemical peels, anti-ageing and scar treatments.",
     iconName: "Sparkles",
     heroImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
     conditionsTreated: [
-      "Hair Loss & Pattern Baldness",
-      "Stubborn Localized Fat Deposits",
-      "Sagging or Ageing Skin & Wrinkles",
-      "Acne Scars & Facial Imperfections",
-      "Skin Pigmentation & Uneven Tone",
-      "Body & Facial Contouring Needs"
+      "Hair loss",
+      "Stubborn fat",
+      "Sagging or ageing skin",
+      "Acne scars",
+      "Pigmentation",
+      "Body and facial contouring"
     ],
     procedures: [
-      "Hair Transplant (FUE / DHI)",
-      "Rhinoplasty (Nose Reshaping)",
-      "Liposuction & Body Contouring",
-      "Tummy Tuck (Abdominoplasty)",
-      "Cosmetic Breast Surgery",
-      "Laser Skin & Anti-Ageing Treatments",
-      "Chemical Peels & Scar Revision"
+      "Hair transplant",
+      "Rhinoplasty",
+      "Liposuction",
+      "Tummy tuck",
+      "Cosmetic breast surgery",
+      "Laser skin treatments",
+      "Chemical peels",
+      "Anti-ageing and scar treatments"
     ],
     whatsIncluded: [
       "Board-certified plastic surgeons & dermatologists",
-      "Advanced robotic / Sapphire FUE hair transplant tools",
-      "Post-procedure healing creams & compression garments",
+      "Advanced hair transplant tools",
+      "Post-procedure healing creams",
       "Coordinator & local travel support",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Weekly hair growth & graft check-ins, scar healing monitoring, specialized skin regimen advice, and direct physician follow-up on WhatsApp."
+    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   }
 ];
