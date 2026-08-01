@@ -83,37 +83,6 @@ export default function HospitalsPackagesPage({ setActivePage }) {
         </div>
       </section>
 
-      {/* PARTNER HOSPITALS LOGO SLOTS PLACEHOLDER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl space-y-6 text-center">
-          <div className="max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">
-              Hospital Network
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-outfit text-white">
-              Our Partner Hospitals
-            </h3>
-            <p className="text-slate-300 text-sm">
-              We partner with India's premier accredited hospitals and specialized surgical centers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 pt-4">
-            {[1, 2, 3, 4, 5, 6].map((slot) => (
-              <div key={slot} className="bg-slate-800/90 border border-slate-700/80 rounded-2xl py-6 px-3 text-center text-xs font-medium text-slate-300 flex flex-col items-center justify-center gap-2 hover:border-teal-500 transition-all">
-                <Building2 className="w-6 h-6 text-teal-400" />
-                <span className="font-semibold text-white">Hospital Partner {slot}</span>
-                <span className="text-[10px] text-slate-400">NABH / JCI Accredited</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-slate-800/60 rounded-2xl p-4 border border-slate-700/60 max-w-xl mx-auto text-xs text-slate-400 italic">
-            Hospital names and logos are added as each partnership agreement is signed.
-          </div>
-        </div>
-      </section>
-
       {/* CTA Box */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-teal-50 border border-teal-200 rounded-3xl p-8 text-center space-y-4">

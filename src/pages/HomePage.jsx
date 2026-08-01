@@ -382,24 +382,6 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
             })}
           </div>
 
-          {/* Hospital Logos Slots Note */}
-          <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 text-center space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-teal-400">
-              Our Partner Hospital Network Across India
-            </h4>
-            <div className="grid grid-cols-2 sm:grid-cols-6 gap-4 pt-2">
-              {[1, 2, 3, 4, 5, 6].map((slot) => (
-                <div key={slot} className="bg-slate-900/80 border border-slate-700/60 rounded-xl py-4 px-2 text-center text-xs font-medium text-slate-400 flex flex-col items-center justify-center gap-1">
-                  <Building2 className="w-5 h-5 text-slate-500" />
-                  <span>Partner Slot {slot}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-slate-400 italic pt-1">
-              *Hospital names and logos are added as each partnership agreement is signed.
-            </p>
-          </div>
-
         </div>
       </section>
 
