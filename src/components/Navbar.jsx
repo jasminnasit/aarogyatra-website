@@ -33,32 +33,6 @@ export default function Navbar({ activePage, setActivePage }) {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
-      {/* Top Announcement Bar */}
-      <div className="bg-slate-900 text-slate-200 text-xs py-1.5 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded-full font-medium text-[11px]">
-              <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
-              Specialised Medical Team
-            </span>
-            <span className="hidden md:inline text-slate-400">|</span>
-            <span className="hidden md:inline text-slate-300">India's NABH & JCI Accredited Hospitals • 4 Weeks Aftercare</span>
-          </div>
-
-          <div className="flex items-center gap-4 text-slate-300">
-            <a 
-              href={primaryWhatsapp}
-              target="_blank" 
-              rel="noreferrer"
-              className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
-              <span>WhatsApp: +91 74339 28339</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navbar - Strictly Single Line Height */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 xl:h-20 flex-nowrap gap-2">
