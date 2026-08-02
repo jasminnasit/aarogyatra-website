@@ -171,7 +171,7 @@ export const treatmentsData = [
     tagline: "Treatments & Procedures for Complete Dental Care",
     shortDesc: "Dental implants, full-mouth rehabilitation, root canal treatment, crowns and bridges, braces and clear aligners, wisdom tooth removal, gum surgery, teeth whitening.",
     iconName: "Smile",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/dentistry.jpg",
     conditionsTreated: [
       "Missing or broken teeth",
       "Tooth decay",
