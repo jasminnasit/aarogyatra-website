@@ -39,7 +39,7 @@ export const treatmentsData = [
     tagline: "Knee, Hip & Spine Surgery in India",
     shortDesc: "Total knee replacement, total hip replacement, revision joint surgery, spinal fusion and disc surgery, arthroscopy (ACL, meniscus, rotator cuff), fracture fixation.",
     iconName: "Activity",
-    heroImage: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/orthopedics.jpg",
     conditionsTreated: [
       "Osteoarthritis",
       "Rheumatoid arthritis",
@@ -106,7 +106,7 @@ export const treatmentsData = [
     tagline: "Renal Transplant, Dialysis & Laser Urology",
     shortDesc: "Kidney transplant, stone removal (RIRS, PCNL, ESWL), prostate surgery (TURP), bladder and ureter surgery, dialysis.",
     iconName: "Droplet",
-    heroImage: "https://images.unsplash.com/photo-1581595220892-6a8ce56e493f?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/kidney-urology.jpg",
     conditionsTreated: [
       "Kidney failure",
       "Kidney and ureter stones",
@@ -137,7 +137,7 @@ export const treatmentsData = [
     tagline: "Minimally Invasive & Laparoscopic Surgery",
     shortDesc: "Laparoscopic gallbladder surgery, hernia repair, appendix surgery, weight-loss (bariatric) surgery, hysterectomy, IVF and fertility treatment.",
     iconName: "Scissors",
-    heroImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/general-surgery.jpg",
     conditionsTreated: [
       "Gallstones",
       "Hernia",
@@ -206,7 +206,7 @@ export const treatmentsData = [
     tagline: "Treatments & Procedures for Hair, Skin & Body",
     shortDesc: "Hair transplant, rhinoplasty, liposuction, tummy tuck, cosmetic breast surgery, laser skin treatments, chemical peels, anti-ageing and scar treatments.",
     iconName: "Sparkles",
-    heroImage: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/cosmetology.jpg",
     conditionsTreated: [
       "Hair loss",
       "Stubborn fat",
