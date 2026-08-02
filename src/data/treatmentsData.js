@@ -6,7 +6,7 @@ export const treatmentsData = [
     tagline: "Specialised Cardiac Surgery & Cardiology",
     shortDesc: "Bypass surgery (CABG), angioplasty & stenting, valve replacement and repair, pacemaker implantation, paediatric and congenital heart surgery.",
     iconName: "HeartPulse",
-    heroImage: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/cardiac-care.jpg",
     conditionsTreated: [
       "Coronary artery disease",
       "Heart attack",
@@ -73,7 +73,7 @@ export const treatmentsData = [
     tagline: "Comprehensive & Advanced Surgical & Medical Oncology",
     shortDesc: "Cancer surgery, chemotherapy, radiotherapy and IMRT, immunotherapy, bone marrow transplant.",
     iconName: "ShieldAlert",
-    heroImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "./treatments/oncology.jpg",
     conditionsTreated: [
       "Breast cancer",
       "Cervical cancer",
