@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck, Instagram } from 'lucide-react';
+import { allCountries, allLanguages } from '../components/MedicalOpinionForm';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', 
+    email: '', 
+    country: 'Kenya (+254)',
+    whatsapp: '', 
+    language: 'English',
+    message: '' 
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -131,7 +139,7 @@ export default function ContactPage() {
               </h3>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Name *</label>
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Full Name *</label>
                 <input
                   type="text"
                   required
@@ -144,14 +152,16 @@ export default function ContactPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Email Address</label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    placeholder="name@example.com"
+                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Country *</label>
+                  <select
+                    value={formData.country}
+                    onChange={(e) => setFormData({...formData, country: e.target.value})}
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
-                  />
+                  >
+                    {allCountries.map((c, idx) => (
+                      <option key={idx} value={c}>{c}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">WhatsApp Number *</label>
@@ -164,6 +174,19 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Preferred Communication Language</label>
+                <select
+                  value={formData.language}
+                  onChange={(e) => setFormData({...formData, language: e.target.value})}
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
+                >
+                  {allLanguages.map((lang, idx) => (
+                    <option key={idx} value={lang}>{lang}</option>
+                  ))}
+                </select>
               </div>
 
               <div>

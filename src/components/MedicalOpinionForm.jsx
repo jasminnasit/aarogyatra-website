@@ -1,6 +1,118 @@
 import React, { useState } from 'react';
 import { Send, Upload, CheckCircle2, MessageCircle, FileText, Lock, ShieldCheck } from 'lucide-react';
 
+export const allCountries = [
+  'Kenya (+254)',
+  'Tanzania (+255)',
+  'Uganda (+256)',
+  'Ethiopia (+251)',
+  'Nigeria (+234)',
+  'United Kingdom (+44)',
+  'United States (+1)',
+  'Canada (+1)',
+  'United Arab Emirates (+971)',
+  'Saudi Arabia (+966)',
+  'Oman (+968)',
+  'Kuwait (+965)',
+  'Qatar (+974)',
+  'Bahrain (+973)',
+  'Somalia (+252)',
+  'South Africa (+27)',
+  'Ghana (+233)',
+  'Rwanda (+250)',
+  'Burundi (+257)',
+  'Sudan (+249)',
+  'South Sudan (+211)',
+  'Malawi (+265)',
+  'Zambia (+260)',
+  'Zimbabwe (+263)',
+  'Mozambique (+258)',
+  'Mauritius (+230)',
+  'Seychelles (+248)',
+  'Madagascar (+261)',
+  'DR Congo (+243)',
+  'Republic of Congo (+242)',
+  'Cameroon (+237)',
+  'Ivory Coast (+225)',
+  'Senegal (+221)',
+  'Egypt (+20)',
+  'Morocco (+212)',
+  'Algeria (+213)',
+  'Tunisia (+216)',
+  'India (+91)',
+  'Afghanistan (+93)',
+  'Bangladesh (+880)',
+  'Nepal (+977)',
+  'Sri Lanka (+94)',
+  'Myanmar (+95)',
+  'Maldives (+960)',
+  'Australia (+61)',
+  'New Zealand (+64)',
+  'Fiji (+679)',
+  'Germany (+49)',
+  'France (+33)',
+  'Italy (+39)',
+  'Netherlands (+31)',
+  'Spain (+34)',
+  'Portugal (+351)',
+  'Switzerland (+41)',
+  'Sweden (+46)',
+  'Norway (+47)',
+  'Denmark (+45)',
+  'Finland (+358)',
+  'Ireland (+353)',
+  'Belgium (+32)',
+  'Austria (+43)',
+  'Poland (+48)',
+  'Turkey (+90)',
+  'Russia (+7)',
+  'Ukraine (+380)',
+  'Uzbekistan (+998)',
+  'Kazakhstan (+7)',
+  'Turkmenistan (+993)',
+  'Tajikistan (+992)',
+  'Kyrgyzstan (+996)',
+  'Singapore (+65)',
+  'Malaysia (+60)',
+  'Indonesia (+62)',
+  'Philippines (+63)',
+  'Thailand (+66)',
+  'Vietnam (+84)',
+  'Japan (+81)',
+  'South Korea (+82)',
+  'China (+86)',
+  'Hong Kong (+852)',
+  'Taiwan (+886)',
+  'Brazil (+55)',
+  'Mexico (+52)',
+  'Argentina (+54)',
+  'Colombia (+57)',
+  'Chile (+56)',
+  'Peru (+51)',
+  'Ecuador (+593)',
+  'Other Country'
+];
+
+export const allLanguages = [
+  'English',
+  'Swahili (Kiswahili)',
+  'Gujarati (ગુજરાતી)',
+  'Hindi (हिंदी)',
+  'Arabic (العربية)',
+  'French (Français)',
+  'Amharic (አማርኛ)',
+  'Somali (Soomaali)',
+  'Oromo (Afaan Oromoo)',
+  'Hausa',
+  'Yoruba',
+  'Bengali (বাংলা)',
+  'Russian (Русский)',
+  'Spanish (Español)',
+  'Portuguese (Português)',
+  'German (Deutsch)',
+  'Other Language'
+];
+
 export default function MedicalOpinionForm({ compact = false }) {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -13,17 +125,6 @@ export default function MedicalOpinionForm({ compact = false }) {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [dragActive, setDragActive] = useState(false);
-
-  const countries = [
-    'Kenya (+254)',
-    'Uganda (+256)',
-    'Tanzania (+255)',
-    'United Kingdom (+44)',
-    'Canada (+1)',
-    'Ethiopia (+251)',
-    'Nigeria (+234)',
-    'Other International'
-  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -144,7 +245,7 @@ export default function MedicalOpinionForm({ compact = false }) {
             required
             value={formData.fullName}
             onChange={handleInputChange}
-            placeholder="e.g. John Okoth / Mary Wanjiku"
+            placeholder="Your Full Name"
             className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-hidden transition-all"
           />
         </div>
@@ -161,7 +262,7 @@ export default function MedicalOpinionForm({ compact = false }) {
               onChange={handleInputChange}
               className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-hidden transition-all"
             >
-              {countries.map((c, i) => (
+              {allCountries.map((c, i) => (
                 <option key={i} value={c}>{c}</option>
               ))}
             </select>
@@ -193,7 +294,7 @@ export default function MedicalOpinionForm({ compact = false }) {
             rows="3"
             value={formData.medicalCondition}
             onChange={handleInputChange}
-            placeholder="Describe your medical condition, treatment needed, or target budget... (Unlisted treatments & custom budget packages welcomed!)"
+            placeholder="Describe your medical condition, treatment needed, or target budget..."
             className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-hidden transition-all resize-none"
           ></textarea>
         </div>
@@ -241,27 +342,21 @@ export default function MedicalOpinionForm({ compact = false }) {
           )}
         </div>
 
-        {/* Preferred Language */}
+        {/* Preferred Language Dropdown */}
         <div>
           <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
             Preferred Communication Language
           </label>
-          <div className="grid grid-cols-3 gap-2">
-            {['English', 'Gujarati', 'Hindi'].map((lang) => (
-              <button
-                key={lang}
-                type="button"
-                onClick={() => setFormData(prev => ({ ...prev, language: lang }))}
-                className={`py-2 px-3 text-xs font-semibold rounded-xl border transition-all ${
-                  formData.language === lang
-                    ? 'bg-teal-600 text-white border-teal-600 shadow-xs'
-                    : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
-                }`}
-              >
-                {lang}
-              </button>
+          <select
+            name="language"
+            value={formData.language}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-teal-500 focus:outline-hidden transition-all"
+          >
+            {allLanguages.map((lang, idx) => (
+              <option key={idx} value={lang}>{lang}</option>
             ))}
-          </div>
+          </select>
         </div>
 
         {/* Submit Button */}
