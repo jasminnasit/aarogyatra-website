@@ -32,7 +32,7 @@ export default function FreeOpinionPage() {
             <CheckCircle2 className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
             <div className="text-xs">
               <span className="font-bold text-slate-900 block mb-0.5">Doctor Reviewed</span>
-              Reviewed by Dr. Dhyani & Dr. Nensi Savani, MBBS before any recommendations.
+              Reviewed by our specialized medical team before any recommendations
             </div>
           </div>
 
