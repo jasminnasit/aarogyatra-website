@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Send, Upload, CheckCircle2, MessageCircle, FileText, Lock, ShieldCheck } from 'lucide-react';
+import { Send, Upload, CheckCircle2, MessageCircle, FileText, Lock, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
+import { sendEmailNotification } from '../services/emailService';
 
 export const allCountries = [
   'Kenya (+254)',
@@ -147,13 +148,41 @@ export default function MedicalOpinionForm({ compact = false }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.whatsappNumber) {
       alert("Please fill in your name and WhatsApp number.");
       return;
     }
-    setIsSubmitted(true);
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      await sendEmailNotification({
+        subject: `New Free Doctor Opinion Request from ${formData.fullName}`,
+        fullName: formData.fullName,
+        country: formData.country,
+        whatsappNumber: formData.whatsappNumber,
+        email: formData.email || 'Not provided',
+        treatmentCategory: formData.treatmentCategory,
+        primaryConcern: formData.primaryConcern || 'Not specified',
+        preferredCity: formData.preferredCity,
+        estimatedBudget: formData.estimatedBudget,
+        filesUploaded: formData.files.length > 0 ? formData.files.join(', ') : 'None',
+        additionalNotes: formData.additionalNotes || 'None',
+        sourceForm: 'Medical Opinion Form'
+      });
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error('Medical opinion submission error:', err);
+      setSubmitError(err.message || 'Failed to submit form. Please try again or reach out directly on WhatsApp.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const primaryWhatsappUrl = `https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20doctor%20opinion.%20My%20name%20is%20${encodeURIComponent(formData.fullName || 'Patient')}`;
@@ -359,14 +388,31 @@ export default function MedicalOpinionForm({ compact = false }) {
           </select>
         </div>
 
+        {submitError && (
+          <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-start gap-2">
+            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+            <span>{submitError}</span>
+          </div>
+        )}
+
         {/* Submit Button */}
         <div className="pt-2">
           <button
             type="submit"
-            className="w-full py-4 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold text-base rounded-2xl shadow-lg shadow-teal-600/25 transition-all active:scale-[0.99] flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full py-4 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 disabled:from-teal-400 disabled:to-teal-500 text-white font-bold text-base rounded-2xl shadow-lg shadow-teal-600/25 transition-all active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
           >
-            <Send className="w-4 h-4" />
-            <span>Submit for Free Doctor Opinion & Package Quote</span>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                <span>Sending Your Medical Request...</span>
+              </>
+            ) : (
+              <>
+                <Send className="w-4 h-4" />
+                <span>Submit for Free Doctor Opinion & Package Quote</span>
+              </>
+            )}
           </button>
         </div>
 

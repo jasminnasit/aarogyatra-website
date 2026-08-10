@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck, Instagram } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck, Instagram, Loader2, AlertCircle } from 'lucide-react';
 import { allCountries, allLanguages } from '../components/MedicalOpinionForm';
+import { sendEmailNotification } from '../services/emailService';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const [formData, setFormData] = useState({ 
     name: '', 
     email: '', 
@@ -13,9 +16,29 @@ export default function ContactPage() {
     message: '' 
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      await sendEmailNotification({
+        subject: `New Contact Form Inquiry from ${formData.name}`,
+        name: formData.name,
+        email: formData.email,
+        country: formData.country,
+        whatsapp: formData.whatsapp,
+        language: formData.language,
+        message: formData.message,
+        sourceForm: 'Contact Page'
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Submission error:', err);
+      setSubmitError(err.message || 'Something went wrong while sending your message. Please try again or WhatsApp us.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20an%20inquiry.";
@@ -201,12 +224,29 @@ export default function ContactPage() {
                 ></textarea>
               </div>
 
+              {submitError && (
+                <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+                  <span>{submitError}</span>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-4 bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-teal-700 hover:bg-teal-800 disabled:bg-teal-400 text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed"
               >
-                <Send className="w-4 h-4" />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending Message...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           )}
