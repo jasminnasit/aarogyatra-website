@@ -1,0 +1,33 @@
+# Aarogyatra Global Care
+
+> Doctor-guided medical travel facilitator in India connecting international patients with leading NABH and JCI accredited multi-specialty hospitals in Gujarat. Founded and led by practicing medical doctors, providing free second opinions, transparent package estimates (60–80% savings vs Western healthcare), medical visa assistance, personal hospital coordinators, and a signature 4-week recovery aftercare program.
+
+## Core Pages & Services
+
+- [Home](https://www.aarogyatraglobalcare.com/): Comprehensive medical tourism overview, 4-step treatment journey, hospital categories, and doctor-guided facilitation.
+- [Treatments & Medical Specialties](https://www.aarogyatraglobalcare.com/#treatments): Full directory of advanced treatments, procedures, and conditions treated.
+- [Free Medical Opinion](https://www.aarogyatraglobalcare.com/#free-opinion): Confidential medical report review by doctors with hospital recommendations and written quotes within 48 hours.
+- [Hospitals & Packages](https://www.aarogyatraglobalcare.com/#hospitals-packages): NABH & JCI accredited hospital networks across Ahmedabad, Surat, and Vadodara.
+- [International Patient Journey](https://www.aarogyatraglobalcare.com/#your-journey): Visa assistance, airport transfers, English/Hindi/Gujarati coordination, family stays, and post-discharge recovery.
+- [About Aarogyatra](https://www.aarogyatraglobalcare.com/#about-us): Founded by medical doctors prioritizing clinical integrity over sales commissions.
+- [Contact & Support](https://www.aarogyatraglobalcare.com/#contact): 24/7 direct WhatsApp and email assistance for international patients.
+
+## Primary Medical Specialties
+
+- [Cardiac Care](https://www.aarogyatraglobalcare.com/#specialty-detail?id=cardiac-care): Coronary artery bypass (CABG), angioplasty, stenting, heart valve replacement/repair, and pediatric heart surgery.
+- [Orthopedics & Joint Replacement](https://www.aarogyatraglobalcare.com/#specialty-detail?id=orthopedics-joint-replacement): Total knee replacement, total hip replacement, spine surgery, arthroscopy, and sports trauma.
+- [Cancer Care (Oncology)](https://www.aarogyatraglobalcare.com/#specialty-detail?id=oncology): Surgical oncology, chemotherapy, IMRT radiotherapy, immunotherapy, and bone marrow transplants.
+- [Kidney & Urology](https://www.aarogyatraglobalcare.com/#specialty-detail?id=kidney-urology): Dialysis, kidney stone laser treatment, prostate surgery, reconstructive urology, and nephrology.
+- [General & Advanced Surgery](https://www.aarogyatraglobalcare.com/#specialty-detail?id=general-advanced-surgery): Laparoscopic surgery, hernia repair, gallbladder removal, gastrointestinal surgery, and bariatrics.
+
+## Key Facts & Differentiators
+
+- **Physician-Led**: Cases reviewed by licensed doctors before any travel commitment.
+- **Cost Savings**: 60% to 80% lower than US, UK, and East Africa private hospital costs.
+- **Continuous Care**: Signature 4-week structured post-return WhatsApp follow-up.
+- **Languages**: English, Hindi, Gujarati.
+- **Direct WhatsApp**: https://wa.me/917433928339
+
+## Extended Documentation
+
+- [Full Site Context & Clinical Details](https://www.aarogyatraglobalcare.com/llms-full.txt): Detailed breakdown of procedures, hospital accreditations, and patient support workflows.

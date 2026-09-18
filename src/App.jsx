@@ -11,16 +11,10 @@ import InternationalPatientsPage from './pages/InternationalPatientsPage';
 import AboutUsPage from './pages/AboutUsPage';
 import FreeOpinionPage from './pages/FreeOpinionPage';
 import ContactPage from './pages/ContactPage';
+import SEOHead from './components/SEOHead';
 
-// Parse current URL hash into route state
+// Parse current URL hash or query params into route state
 const parseHash = () => {
-  const hash = window.location.hash.replace('#', '');
-  if (!hash) return { page: 'home', specialtyId: 'cardiac-care' };
-  
-  const [page, queryString] = hash.split('?');
-  const params = new URLSearchParams(queryString || '');
-  const specialtyId = params.get('id') || 'cardiac-care';
-
   const validPages = [
     'home', 
     'treatments', 
@@ -31,9 +25,25 @@ const parseHash = () => {
     'free-opinion', 
     'contact'
   ];
-  
+
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const [page, queryString] = hash.split('?');
+    const params = new URLSearchParams(queryString || '');
+    const specialtyId = params.get('id') || 'cardiac-care';
+    return {
+      page: validPages.includes(page) ? page : 'home',
+      specialtyId
+    };
+  }
+
+  // Support query string URL routing for search engines
+  const searchParams = new URLSearchParams(window.location.search || '');
+  const queryPage = searchParams.get('page');
+  const specialtyId = searchParams.get('id') || 'cardiac-care';
+
   return {
-    page: validPages.includes(page) ? page : 'home',
+    page: validPages.includes(queryPage) ? queryPage : 'home',
     specialtyId
   };
 };
@@ -89,6 +99,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-500 selection:text-white">
+      {/* Dynamic SEO Meta Manager */}
+      <SEOHead page={activePage} specialtyId={selectedSpecialtyId} />
+
       {/* Header Navigation */}
       <Navbar activePage={activePage} setActivePage={handleSetActivePage} />
 
