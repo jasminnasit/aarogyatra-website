@@ -3,6 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTY6D8RG7H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TTY6D8RG7H', {
+        send_page_view: true
+      });
+
+      // Track WhatsApp and Consultation Inquiries
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('a');
+        if (!target) return;
+        if (target.href && target.href.includes('wa.me')) {
+          gtag('event', 'whatsapp_click', {
+            event_category: 'conversion',
+            event_label: target.innerText ? target.innerText.trim() : 'WhatsApp Chat',
+            destination: target.href
+          });
+        }
+      });
+    </script>
     
     <!-- Primary Meta Tags -->
     <title>Aarogyatra Global Care — Doctor-Guided Medical Travel in India</title>
@@ -206,7 +230,7 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="./assets/index-BfxQcn_d.js"></script>
+    <script type="module" crossorigin src="./assets/index-DykrMQW3.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-k3W-i9jv.css">
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-500 selection:text-white">
