@@ -86,6 +86,15 @@ export default function SEOHead({ page, specialtyId }) {
     const twitterDesc = document.querySelector('meta[name="twitter:description"]');
     if (twitterDesc) twitterDesc.setAttribute('content', currentMeta.description);
 
+    // Trigger GA4 page_view for Single Page Application navigation
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: currentMeta.title,
+        page_location: currentMeta.canonical || window.location.href,
+        page_path: window.location.pathname + window.location.search + window.location.hash
+      });
+    }
+
   }, [page, specialtyId]);
 
   return null;
