@@ -500,7 +500,10 @@ def calculate_overall_score(data: dict, scoring_config: dict | None = None) -> d
 
     # PageSpeed score
     psi = data["sections"].get("pagespeed", {})
-    scores["pagespeed"] = psi.get("performance_score", 0)
+    if psi and not psi.get("error"):
+        scores["pagespeed"] = psi.get("performance_score", 0)
+    else:
+        scores["pagespeed"] = None
 
     # On-page score
     op = data["sections"].get("onpage", {})
