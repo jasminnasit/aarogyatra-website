@@ -54,9 +54,7 @@ def get_sitemap_urls(site_url: str, limit: int = 200) -> list:
     parsed = urlparse(site_url)
     sitemap_url = f"{parsed.scheme}://{parsed.netloc}/sitemap.xml"
     _, body = fetch_page(sitemap_url)
-    if not body:
-        return []
-    urls = re.findall(r"<loc>([^<]+)</loc>", body)
+    urls = [u.replace("&amp;", "&") for u in re.findall(r"<loc>([^<]+)</loc>", body)]
     # Expand sitemap index
     if any("sitemap" in u.lower() and u.endswith(".xml") for u in urls[:5]):
         expanded = []
@@ -89,8 +87,9 @@ def extract_links(html: str, page_url: str, base_domain: str) -> dict:
         anchor_text = a.get_text(strip=True)[:100]
         nofollow = "nofollow" in (a.get("rel") or [])
 
+        query_str = f"?{parsed.query}" if parsed.query else ""
         link_data = {
-            "url": f"{parsed.scheme}://{parsed.netloc}{parsed.path}",
+            "url": f"{parsed.scheme}://{parsed.netloc}{parsed.path}{query_str}",
             "anchor": anchor_text,
             "nofollow": nofollow,
         }

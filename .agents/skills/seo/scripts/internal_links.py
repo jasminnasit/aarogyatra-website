@@ -57,8 +57,9 @@ def extract_internal_links(html: str, page_url: str, domain: str) -> list:
             continue
 
         # Normalize: remove fragments, trailing slashes
-        normalized = f"{parsed.scheme}://{parsed.netloc}{parsed.path}"
-        if normalized.endswith("/") and len(parsed.path) > 1:
+        query_str = f"?{parsed.query}" if parsed.query else ""
+        normalized = f"{parsed.scheme}://{parsed.netloc}{parsed.path}{query_str}"
+        if normalized.endswith("/") and len(parsed.path) > 1 and not parsed.query:
             normalized = normalized.rstrip("/")
 
         if normalized in seen:

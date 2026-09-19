@@ -109,6 +109,21 @@ def check_security_headers(url: str, timeout: int = 15) -> dict:
         # Check each security header
         response_headers = {k.lower(): v for k, v in resp.headers.items()}
 
+        # Check meta tags for client-side security policies (crucial for static hosting / GitHub Pages)
+        try:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(resp.text, "html.parser")
+            for meta in soup.find_all("meta"):
+                equiv = (meta.get("http-equiv") or "").strip().lower()
+                name = (meta.get("name") or "").strip().lower()
+                content = (meta.get("content") or "").strip()
+                if equiv in SECURITY_HEADERS and equiv not in response_headers and content:
+                    response_headers[equiv] = content
+                elif name == "referrer" and "referrer-policy" not in response_headers and content:
+                    response_headers["referrer-policy"] = content
+        except Exception:
+            pass
+
         for header_key, header_info in SECURITY_HEADERS.items():
             if header_key in response_headers:
                 value = response_headers[header_key]

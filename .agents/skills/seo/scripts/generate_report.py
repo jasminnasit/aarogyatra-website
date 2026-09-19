@@ -535,9 +535,10 @@ def calculate_overall_score(data: dict, scoring_config: dict | None = None) -> d
         missing = sameas.get("total_missing_critical", 4)
         has_wikidata = 1 if ent.get("wikidata", {}).get("found") else 0
         has_wikipedia = 1 if ent.get("wikipedia", {}).get("found") else 0
-        ent_score = min(100, found * 15 + has_wikidata * 25 + has_wikipedia * 25)
-        issues_count = len(ent.get("issues", []))
-        ent_score = max(0, ent_score - issues_count * 10)
+        base = 60 if ent.get("entities_in_schema") else 0
+        ent_score = min(100, base + found * 10 + has_wikidata * 15 + has_wikipedia * 15)
+        warning_issues = sum(1 for iss in ent.get("issues", []) if iss.get("severity") in ("Warning", "Critical"))
+        ent_score = max(0, ent_score - warning_issues * 10)
         scores["entity"] = ent_score
     else:
         scores["entity"] = 0
