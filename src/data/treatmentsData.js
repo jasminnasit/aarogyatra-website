@@ -30,7 +30,7 @@ export const treatmentsData = [
       "Airport pickup & drop-off",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "orthopedics-joint-replacement",
@@ -64,7 +64,7 @@ export const treatmentsData = [
       "Medical coordinator & transport",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "oncology",
@@ -97,7 +97,7 @@ export const treatmentsData = [
       "Onco-nutrition guidance",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "kidney-urology",
@@ -128,7 +128,7 @@ export const treatmentsData = [
       "Airport transfer & local stay coordination",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "general-advanced-surgery",
@@ -162,7 +162,7 @@ export const treatmentsData = [
       "Airport & hospital transfers",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "dentistry",
@@ -197,7 +197,7 @@ export const treatmentsData = [
       "Coordinator & local travel support",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   },
   {
     id: "cosmetology-aesthetics",
@@ -232,6 +232,6 @@ export const treatmentsData = [
       "Coordinator & local travel support",
       "4-Week Aarogyatra Aftercare post-return"
     ],
-    aftercareDetails: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet."
+    aftercareDetails: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet."
   }
 ];

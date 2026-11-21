@@ -33,7 +33,7 @@ export default function Footer({ setActivePage }) {
             </div>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              Aarogyatra Global Care LLP connects international patients to India's NABH and JCI accredited hospitals — from your first message to your full recovery. Healthcare travel you can trust.
+              Aarogyatra Global Care LLP connects international patients to India's NABH and JCI accredited hospitals - from your first message to your full recovery. Healthcare travel you can trust.
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -116,8 +116,8 @@ export default function Footer({ setActivePage }) {
                 Aarogyatra Global Care LLP<br />
                 LLPIN: ACZ-7789<br />
                 Co-Founders & Managing Directors:<br />
-                Dr. Dhyani Rathi — BHMS, MHA, FMC<br />
-                Dr. Nensi Savani — BDS, MHA
+                Dr. Dhyani Rathi - BHMS, MHA, FMC<br />
+                Dr. Nensi Savani - BDS, MHA
               </li>
             </ul>
           </div>

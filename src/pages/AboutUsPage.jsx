@@ -44,7 +44,7 @@ export default function AboutUsPage({ setActivePage }) {
             </p>
 
             <p>
-              We connect patients to India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category — with surgeons who have handled thousands of cases.
+              We connect patients to India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category - with surgeons who have handled thousands of cases.
             </p>
 
             <blockquote className="p-5 bg-teal-50 border-l-4 border-teal-700 rounded-r-2xl font-outfit text-teal-950 font-bold italic text-lg my-4 shadow-xs">

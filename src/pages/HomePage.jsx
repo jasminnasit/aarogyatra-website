@@ -24,13 +24,13 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
     {
       num: "03",
       title: "We arrange everything",
-      desc: "Medical visa, flights, hospital admission, your stay, your food, your family — all handled.",
+      desc: "Medical visa, flights, hospital admission, your stay, your food, your family - all handled.",
       icon: Plane
     },
     {
       num: "04",
       title: "We stay with you for 4 weeks",
-      desc: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet.",
+      desc: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet.",
       icon: HeartHandshake
     }
   ];
@@ -87,7 +87,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Aarogyatra Global Care connects international patients to India's NABH and JCI accredited hospitals — <span className="font-semibold text-slate-900 underline decoration-teal-500 decoration-2">from your first message to your full recovery</span>.
+                Aarogyatra Global Care connects international patients to India's NABH and JCI accredited hospitals - <span className="font-semibold text-slate-900 underline decoration-teal-500 decoration-2">from your first message to your full recovery</span>.
               </p>
 
               {/* Action Buttons */}
@@ -245,7 +245,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
               Treatments & Specialties
             </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-              Treatment at India's NABH and JCI accredited hospitals, and at trusted multi-specialty hospitals across every category — with surgeons who have handled thousands of cases.
+              Treatment at India's NABH and JCI accredited hospitals, and at trusted multi-specialty hospitals across every category - with surgeons who have handled thousands of cases.
             </p>
           </div>
 
@@ -338,7 +338,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
               A hospital and a package for every budget
             </h2>
             <p className="text-slate-300 text-base leading-relaxed">
-              We are not limited to one kind of hospital. Alongside India's NABH and JCI accredited hospitals, we work with trusted multi-specialty hospitals across every category — so there is always a right option for your budget.
+              We are not limited to one kind of hospital. Alongside India's NABH and JCI accredited hospitals, we work with trusted multi-specialty hospitals across every category - so there is always a right option for your budget.
             </p>
           </div>
 

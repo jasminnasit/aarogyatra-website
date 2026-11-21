@@ -52,10 +52,10 @@ export default function InternationalPatientsPage({ setActivePage }) {
             Complete Patient Logistics & Care
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit text-white leading-tight">
-            Your Journey — All Handled
+            Your Journey - All Handled
           </h1>
           <p className="text-slate-200 text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            Medical visa, flights, hospital admission, your stay, your food, your family — all handled.
+            Medical visa, flights, hospital admission, your stay, your food, your family - all handled.
           </p>
         </div>
       </section>

@@ -46,7 +46,7 @@ export default function WhyGujaratPage({ setActivePage }) {
     },
     {
       title: "4 Weeks of Aftercare Back Home.",
-      desc: "Back home, we're still one message away — simple WhatsApp check-ins for four weeks until you're properly back on your feet.",
+      desc: "Back home, we're still one message away - simple WhatsApp check-ins for four weeks until you're properly back on your feet.",
       icon: Award
     },
     {
@@ -120,7 +120,7 @@ export default function WhyGujaratPage({ setActivePage }) {
               Why Patients Trust Aarogyatra
             </h2>
             <p className="text-slate-300 text-sm mt-2 font-normal">
-              Healthcare travel you can trust — simple, honest and human.
+              Healthcare travel you can trust - simple, honest and human.
             </p>
           </div>
 

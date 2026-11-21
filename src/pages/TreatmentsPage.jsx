@@ -43,7 +43,7 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
             Treatments We Facilitate in India
           </h1>
           <p className="text-slate-200 text-base max-w-3xl mx-auto leading-relaxed font-normal">
-            Treatment at India's NABH and JCI accredited hospitals, and at trusted multi-specialty hospitals across every category — with surgeons who have handled thousands of cases.
+            Treatment at India's NABH and JCI accredited hospitals, and at trusted multi-specialty hospitals across every category - with surgeons who have handled thousands of cases.
           </p>
 
           {/* Search bar with centered icon */}
@@ -147,7 +147,7 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
               Wellness & Recovery (Included)
             </h3>
             <p className="text-slate-700 text-sm leading-relaxed">
-              Yoga sessions, personalised nutrition guidance and counselling support during your stay in India — because true healing encompasses physical, mental, and emotional care.
+              Yoga sessions, personalised nutrition guidance and counselling support during your stay in India - because true healing encompasses physical, mental, and emotional care.
             </p>
           </div>
 

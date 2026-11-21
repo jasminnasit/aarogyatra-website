@@ -38,7 +38,7 @@ export default function HospitalsPackagesPage({ setActivePage }) {
             A hospital and a package for every budget
           </h1>
           <p className="text-slate-200 text-base max-w-3xl mx-auto leading-relaxed font-normal">
-            We are not limited to one kind of hospital. Alongside India's NABH and JCI accredited hospitals, we work with trusted multi-specialty hospitals across every category — so there is always a right option for your budget.
+            We are not limited to one kind of hospital. Alongside India's NABH and JCI accredited hospitals, we work with trusted multi-specialty hospitals across every category - so there is always a right option for your budget.
           </p>
         </div>
       </section>
@@ -87,10 +87,10 @@ export default function HospitalsPackagesPage({ setActivePage }) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-teal-50 border border-teal-200 rounded-3xl p-8 text-center space-y-4">
           <h3 className="text-2xl font-bold text-slate-900 font-outfit">
-            Tell us your target budget — we will build a package to fit
+            Tell us your target budget - we will build a package to fit
           </h3>
           <p className="text-slate-600 text-sm max-w-xl mx-auto">
-            Treatment, hospital stay, local travel, and family accommodation — all planned around your budget.
+            Treatment, hospital stay, local travel, and family accommodation - all planned around your budget.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
             <button

@@ -9,7 +9,7 @@ export const faqsData = [
   },
   {
     question: "How do I pay for my medical treatment & package?",
-    answer: "You pay the hospital directly or via bank transfer. We provide a complete written breakdown for your budget in advance. Aarogyatra builds a transparent package tailored to your budget — treatment, stay, and travel — with no hidden charges."
+    answer: "You pay the hospital directly or via bank transfer. We provide a complete written breakdown for your budget in advance. Aarogyatra builds a transparent package tailored to your budget - treatment, stay, and travel - with no hidden charges."
   },
   {
     question: "Can my family members come with me to India?",
@@ -17,7 +17,7 @@ export const faqsData = [
   },
   {
     question: "What if I need an unlisted treatment or a specific budget package?",
-    answer: "Our network includes India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category. If your treatment isn't listed, simply tell us what you need and your budget — our medical team will find the right hospital and specialist for you."
+    answer: "Our network includes India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category. If your treatment isn't listed, simply tell us what you need and your budget - our medical team will find the right hospital and specialist for you."
   },
   {
     question: "How does the 4-Week Aarogyatra Aftercare program work?",

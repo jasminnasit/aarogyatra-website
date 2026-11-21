@@ -3,7 +3,7 @@ import { treatmentsData } from '../data/treatmentsData';
 
 const PAGE_META = {
   home: {
-    title: "Aarogyatra Global Care — Doctor-Guided Medical Travel in India",
+    title: "Aarogyatra Global Care - Doctor-Guided Medical Travel in India",
     description: "Connect to India's leading NABH and JCI accredited hospitals in Gujarat with doctor-reviewed medical travel plans, 60-80% cost savings, and 4-week recovery aftercare.",
     canonical: "https://www.aarogyatraglobalcare.com/"
   },
@@ -47,7 +47,7 @@ export default function SEOHead({ page, specialtyId }) {
       const specialty = treatmentsData.find(t => t.id === specialtyId || t.slug === specialtyId);
       if (specialty) {
         currentMeta = {
-          title: `${specialty.title} in India — ${specialty.tagline} | Aarogyatra Global Care`,
+          title: `${specialty.title} in India - ${specialty.tagline} | Aarogyatra Global Care`,
           description: specialty.shortDesc,
           canonical: `https://www.aarogyatraglobalcare.com/#specialty-detail?id=${specialty.id}`
         };
