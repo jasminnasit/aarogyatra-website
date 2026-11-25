@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTY6D8RG7H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TTY6D8RG7H', {
+        send_page_view: true
+      });
+
+      // Track WhatsApp and Phone Call Inquiries
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('a');
+        if (!target || !target.href) return;
+        if (target.href.includes('wa.me')) {
+          gtag('event', 'whatsapp_click', {
+            event_category: 'conversion',
+            event_label: target.innerText ? target.innerText.trim() : 'WhatsApp Chat',
+            destination: target.href
+          });
+        } else if (target.href.startsWith('tel:')) {
+          gtag('event', 'phone_click', {
+            event_category: 'conversion',
+            event_label: target.innerText ? target.innerText.trim() : 'Phone Call',
+            destination: target.href
+          });
+        }
+      });
+    </script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Frequently Asked Questions | Medical Travel in India - Aarogyatra Global Care</title>
+    <meta name="title" content="Frequently Asked Questions | Medical Travel in India - Aarogyatra Global Care" />
+    <meta name="description" content="Find answers to common questions about exploring medical treatment in India, required documents, sharing medical records securely, treatment estimates, and travel." />
+    <meta name="keywords" content="medical travel India, medical tourism Gujarat, doctor guided medical treatment, cardiac surgery India, knee replacement India, cancer care India, NABH accredited hospitals Ahmedabad, medical visa India, international patient hospital" />
+    <meta name="author" content="Aarogyatra Global Care" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#0d9488" />
+
+    <!-- Security & Referrer Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; img-src 'self' https: data: blob:;" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.aarogyatraglobalcare.com/faqs/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Hreflang Multi-Region Meta Tags -->
+    <link rel="alternate" hreflang="en" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-GB" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-KE" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-TZ" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-UG" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="en-IN" href="https://www.aarogyatraglobalcare.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.aarogyatraglobalcare.com/" />
+
+    <!-- Geo & Local SEO Tags (Gujarat, India) -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Ahmedabad, Gujarat, India" />
+    <meta name="geo.position" content="23.0225;72.5714" />
+    <meta name="ICBM" content="23.0225, 72.5714" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.aarogyatraglobalcare.com/faqs/" />
+    <meta property="og:title" content="Frequently Asked Questions | Medical Travel in India - Aarogyatra Global Care" />
+    <meta property="og:description" content="Find answers to common questions about exploring medical treatment in India, required documents, sharing medical records securely, treatment estimates, and travel." />
+    <meta property="og:image" content="https://www.aarogyatraglobalcare.com/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Aarogyatra Global Care Logo" />
+    <meta property="og:site_name" content="Aarogyatra Global Care" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@aarogyatra" />
+    <meta name="twitter:creator" content="@aarogyatra" />
+    <meta name="twitter:url" content="https://www.aarogyatraglobalcare.com/faqs/" />
+    <meta name="twitter:title" content="Frequently Asked Questions | Medical Travel in India - Aarogyatra Global Care" />
+    <meta name="twitter:description" content="Find answers to common questions about exploring medical treatment in India, required documents, sharing medical records securely, treatment estimates, and travel." />
+    <meta name="twitter:image" content="https://www.aarogyatraglobalcare.com/logo.png" />
+
+    <!-- Resource Hints & Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD): MedicalOrganization & MedicalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalOrganization",
+          "@id": "https://www.aarogyatraglobalcare.com/#organization",
+          "name": "Aarogyatra Global Care",
+          "alternateName": "Aarogyatra Medical Travel India",
+          "url": "https://www.aarogyatraglobalcare.com",
+          "sameAs": [
+            "https://www.aarogyatraglobalcare.com/",
+            "https://github.com/jasminnasit/aarogyatra-website"
+          ],
+          "logo": "https://www.aarogyatraglobalcare.com/logo.png",
+          "image": "https://www.aarogyatraglobalcare.com/logo.png",
+          "description": "Doctor-guided medical travel facilitator in India connecting international patients with NABH and JCI accredited multi-specialty hospitals in Gujarat.",
+          "telephone": "+917433928339",
+          "email": "care@aarogyatraglobalcare.com",
+          "priceRange": "$$",
+          "currenciesAccepted": "USD, GBP, EUR, INR",
+          "paymentAccepted": "Bank Transfer, Hospital Direct Payment",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "23.0225",
+            "longitude": "72.5714"
+          },
+          "medicalSpecialty": [
+            "Cardiovascular",
+            "Orthopedic",
+            "Oncologic",
+            "Urologic",
+            "Surgical"
+          ],
+          "availableService": [
+            {
+              "@type": "MedicalProcedure",
+              "name": "Coronary Artery Bypass Grafting (CABG)",
+              "procedureType": "SurgicalProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Total Knee & Hip Replacement",
+              "procedureType": "SurgicalProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Comprehensive Oncology & Cancer Surgery",
+              "procedureType": "TherapeuticProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Kidney Laser Lithotripsy & Urology",
+              "procedureType": "SurgicalProcedure"
+            },
+            {
+              "@type": "MedicalProcedure",
+              "name": "Advanced Laparoscopic Surgery",
+              "procedureType": "SurgicalProcedure"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.aarogyatraglobalcare.com/#website",
+          "url": "https://www.aarogyatraglobalcare.com/",
+          "name": "Aarogyatra Global Care",
+          "description": "Doctor-Guided Medical Travel in India - NABH & JCI Accredited Hospitals in Gujarat",
+          "publisher": {
+            "@id": "https://www.aarogyatraglobalcare.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.aarogyatraglobalcare.com/faqs/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How can international patients explore treatment in India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Contact Aarogyatra Global Care with details of the treatment you are exploring. We can guide you on the information needed to coordinate an enquiry with a relevant hospital."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What documents are required?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The hospital may request medical reports, investigation results, prescriptions, previous treatment records and identification documents. Requirements vary depending on the case."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I share my medical reports securely?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Contact our team first so we can guide you on the appropriate method for sharing reports. Avoid sending sensitive medical records through a standard website enquiry form."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What affects the cost of treatment in India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The cost depends on the patient's condition, hospital, specialist, investigations, procedure, length of stay and treatment plan. The hospital provides the estimate after reviewing the case."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in a treatment estimate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The hospital should clarify the inclusions and exclusions, such as consultation, investigations, procedure, room category, medicines and length of stay."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a family member accompany the patient?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Accompanying arrangements depend on applicable visa requirements and travel plans. Our team can help coordinate practical arrangements and guide you to relevant information."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does medical travel assistance work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Aarogyatra helps coordinate hospital communication, appointments and practical travel arrangements, depending on the patient's requirements and agreed services."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What follow-up arrangements are available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Follow-up care is determined by the treating hospital and doctor. Aarogyatra may assist with communication and coordination where agreed."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-B6hBymDW.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Dq1R8Ls-.css">
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-500 selection:text-white">
+    <!-- Crawlable Semantic Fallback for Spiders and Non-JS Search Agents -->
+    <noscript>
+      <div style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif; line-height: 1.6;">
+        <h1>Frequently Asked Questions</h1>
+        <p>Clear answers about exploring treatment in India, required documents, sharing medical records securely, treatment estimates, and travel coordination.</p>
+        <p>From finding the right healthcare options to planning your journey, we're here to guide you at every step.</p>
+        <p>Aarogyatra Global Care helps international patients explore treatment options in India and connect with suitable hospitals and healthcare professionals. From coordinating medical records and hospital communication to appointments, treatment estimates, travel and accommodation arrangements, our team supports you through the key steps of your healthcare journey.</p>
+
+        <h2>Explore Treatment Options</h2>
+        <ul>
+          <li><a href="https://www.aarogyatraglobalcare.com/cardiac-treatment-in-india/">Cardiac Treatment in India</a>: Heart surgery, bypass care, and valve repair.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/orthopaedic-treatment-in-india/">Orthopaedic Treatment in India</a>: Knee and hip joint replacement and spine surgery.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/cancer-treatment-in-india/">Cancer Treatment in India</a>: Cancer surgery, chemotherapy, radiotherapy, and oncology review.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/kidney-urology-treatment-in-india/">Kidney &amp; Urology Treatment in India</a>: Kidney stone care and urology procedures.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/general-surgery-in-india/">General Surgery in India</a>: Laparoscopic gallbladder surgery, hernia repair, and advanced surgery.</li>
+        </ul>
+
+        <h2>Explore Our Website</h2>
+        <ul>
+          <li><a href="https://www.aarogyatraglobalcare.com/">Aarogyatra Global Care Home</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/treatments/">All Medical Treatments</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/hospitals-packages/">Accredited Partner Hospitals &amp; Packages</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/patient-journey/">Patient Journey &amp; Support</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/faqs/">Frequently Asked Questions</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/about-us/">About Aarogyatra Global Care</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/contact/">Contact Patient Support</a></li>
+        </ul>
+
+        <h2>Contact Our Medical Team</h2>
+        <p>WhatsApp: <a href="https://wa.me/917433928339">+91 74339 28339</a></p>
+        <p>Phone: <a href="tel:+917433928339">+91 74339 28339</a></p>
+        <p>Email: <a href="mailto:connect@aarogyatraglobalcare.com">connect@aarogyatraglobalcare.com</a></p>
+        <p>Website: <a href="https://www.aarogyatraglobalcare.com/">www.aarogyatraglobalcare.com</a></p>
+      </div>
+    </noscript>
+
+    <!-- React Application Mount Point -->
+    <div id="root"></div>
+
+  </body>
+</html>
