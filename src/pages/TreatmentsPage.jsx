@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Search, ArrowRight, ShieldCheck, Info, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Clock, Smile, Sparkles, HelpCircle, MessageCircle, Heart, Stethoscope } from 'lucide-react';
+import { Search, HeartPulse, Activity, ShieldAlert, Droplet, Scissors, Smile, Sparkles, HelpCircle, MessageCircle, Heart, Stethoscope } from 'lucide-react';
 import { treatmentsData } from '../data/treatmentsData';
+import { getPathForRoute } from '../utils/routes';
 
 export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -111,21 +112,22 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
                   <div className="lg:col-span-4 bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 space-y-4 flex flex-col justify-between h-full">
                     <div className="space-y-2">
                       <span className="text-xs font-bold text-teal-400 uppercase tracking-wider block">Specialist Care</span>
-                      <h4 className="text-lg font-bold font-outfit text-white">
+                      <h3 className="text-lg font-bold font-outfit text-white">
                         {treatment.title} Package
-                      </h4>
+                      </h3>
                       <p className="text-xs text-slate-300 leading-relaxed">
                         Pre-op evaluation, hospital admission, US-FDA implants, bilingual coordinator, & 4-week aftercare.
                       </p>
                     </div>
 
-                    <button
-                      onClick={() => handleSelectSpecialty(treatment.id)}
+                    <a
+                      href={getPathForRoute('specialty-detail', treatment.id)}
+                      onClick={(e) => { e.preventDefault(); handleSelectSpecialty(treatment.id); }}
                       className="w-full py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                     >
                       <Stethoscope className="w-4 h-4" />
                       <span>View Full Specialty Details</span>
-                    </button>
+                    </a>
                   </div>
 
                 </div>
@@ -143,20 +145,21 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
               <Heart className="w-3.5 h-3.5 text-teal-600 fill-teal-600/20" />
               Included With Every Medical Package
             </div>
-            <h3 className="text-2xl font-bold font-outfit text-slate-900">
+            <h2 className="text-2xl font-bold font-outfit text-slate-900">
               Wellness & Recovery (Included)
-            </h3>
+            </h2>
             <p className="text-slate-700 text-sm leading-relaxed">
               Yoga sessions, personalised nutrition guidance and counselling support during your stay in India - because true healing encompasses physical, mental, and emotional care.
             </p>
           </div>
 
-          <button
-            onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="w-full md:w-auto px-6 py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md shrink-0"
+          <a
+            href={getPathForRoute('free-opinion')}
+            onClick={(e) => { e.preventDefault(); setActivePage('free-opinion'); }}
+            className="w-full md:w-auto px-6 py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md shrink-0 text-center"
           >
             Inquire About Wellness Support
-          </button>
+          </a>
         </div>
       </section>
 
@@ -168,9 +171,9 @@ export default function TreatmentsPage({ setActivePage, setSelectedSpecialtyId }
               <HelpCircle className="w-3.5 h-3.5" />
               Custom Medical Requests
             </div>
-            <h3 className="text-2xl font-bold font-outfit text-white">
+            <h2 className="text-2xl font-bold font-outfit text-white">
               Don't see your treatment?
-            </h3>
+            </h2>
             <p className="text-slate-300 text-sm leading-relaxed">
               Tell us what you need. Whatever the treatment, our specialised medical team will find the right hospital and specialist for you in India.
             </p>

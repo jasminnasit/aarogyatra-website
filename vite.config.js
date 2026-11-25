@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: './', // Ensures assets load correctly on GitHub Pages
+  base: '/', // Clean root paths for subpath SPA + prerendered GitHub Pages routes
   server: {
     port: 3000,
     host: true

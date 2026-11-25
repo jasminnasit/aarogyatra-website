@@ -14,14 +14,20 @@
         send_page_view: true
       });
 
-      // Track WhatsApp and Consultation Inquiries
+      // Track WhatsApp and Phone Call Inquiries
       document.addEventListener('click', function(e) {
         var target = e.target.closest('a');
-        if (!target) return;
-        if (target.href && target.href.includes('wa.me')) {
+        if (!target || !target.href) return;
+        if (target.href.includes('wa.me')) {
           gtag('event', 'whatsapp_click', {
             event_category: 'conversion',
             event_label: target.innerText ? target.innerText.trim() : 'WhatsApp Chat',
+            destination: target.href
+          });
+        } else if (target.href.startsWith('tel:')) {
+          gtag('event', 'phone_click', {
+            event_category: 'conversion',
+            event_label: target.innerText ? target.innerText.trim() : 'Phone Call',
             destination: target.href
           });
         }
@@ -29,9 +35,9 @@
     </script>
     
     <!-- Primary Meta Tags -->
-    <title>Aarogyatra Global Care - Doctor-Guided Medical Travel in India</title>
-    <meta name="title" content="Aarogyatra Global Care - Doctor-Guided Medical Travel in India" />
-    <meta name="description" content="Connect to India's leading NABH and JCI accredited hospitals in Gujarat with doctor-reviewed medical travel plans, 60-80% cost savings, and 4-week recovery aftercare." />
+    <title>Medical Treatment in India for International Patients | Aarogyatra Global Care</title>
+    <meta name="title" content="Medical Treatment in India for International Patients | Aarogyatra Global Care" />
+    <meta name="description" content="Aarogyatra Global Care helps international patients explore treatment options in India, coordinate hospital communication, treatment estimates, and travel arrangements." />
     <meta name="keywords" content="medical travel India, medical tourism Gujarat, doctor guided medical treatment, cardiac surgery India, knee replacement India, cancer care India, NABH accredited hospitals Ahmedabad, medical visa India, international patient hospital" />
     <meta name="author" content="Aarogyatra Global Care" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -47,8 +53,8 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.aarogyatraglobalcare.com/" />
-    <link rel="icon" type="image/png" href="./favicon.png" />
-    <link rel="apple-touch-icon" href="./favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Hreflang Multi-Region Meta Tags -->
     <link rel="alternate" hreflang="en" href="https://www.aarogyatraglobalcare.com/" />
@@ -69,8 +75,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.aarogyatraglobalcare.com/" />
-    <meta property="og:title" content="Aarogyatra Global Care - Medical Travel in India" />
-    <meta property="og:description" content="Connect to India's leading NABH and JCI accredited hospitals with doctor-reviewed treatment plans, transparent pricing, and 4-week recovery aftercare." />
+    <meta property="og:title" content="Medical Treatment in India for International Patients | Aarogyatra Global Care" />
+    <meta property="og:description" content="Aarogyatra Global Care helps international patients explore treatment options in India, coordinate hospital communication, treatment estimates, and travel arrangements." />
     <meta property="og:image" content="https://www.aarogyatraglobalcare.com/logo.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -84,8 +90,8 @@
     <meta name="twitter:site" content="@aarogyatra" />
     <meta name="twitter:creator" content="@aarogyatra" />
     <meta name="twitter:url" content="https://www.aarogyatraglobalcare.com/" />
-    <meta name="twitter:title" content="Aarogyatra Global Care - Medical Travel in India" />
-    <meta name="twitter:description" content="Connect to India's leading NABH and JCI accredited hospitals with doctor-reviewed treatment plans, transparent pricing, and 4-week recovery aftercare." />
+    <meta name="twitter:title" content="Medical Treatment in India for International Patients | Aarogyatra Global Care" />
+    <meta name="twitter:description" content="Aarogyatra Global Care helps international patients explore treatment options in India, coordinate hospital communication, treatment estimates, and travel arrangements." />
     <meta name="twitter:image" content="https://www.aarogyatraglobalcare.com/logo.png" />
 
     <!-- Resource Hints & Google Fonts -->
@@ -175,54 +181,70 @@
         },
         {
           "@type": "FAQPage",
-          "@id": "https://www.aarogyatraglobalcare.com/#faq",
+          "@id": "https://www.aarogyatraglobalcare.com/faqs/#faq",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is my medical information kept confidential?",
+              "name": "How can international patients explore treatment in India?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, 100%. Your medical reports, diagnosis, and personal details are strictly confidential and reviewed only by our specialised medical team and treating hospital specialists in India."
+                "text": "Contact Aarogyatra Global Care with details of the treatment you are exploring. We can guide you on the information needed to coordinate an enquiry with a relevant hospital."
               }
             },
             {
               "@type": "Question",
-              "name": "Do you charge for giving a medical opinion or matching a hospital?",
+              "name": "What documents are required?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No, absolutely not. Receiving a doctor-reviewed medical opinion, hospital options, and package estimate from our specialised medical team is 100% free with no obligation to travel."
+                "text": "The hospital may request medical reports, investigation results, prescriptions, previous treatment records and identification documents. Requirements vary depending on the case."
               }
             },
             {
               "@type": "Question",
-              "name": "How do I pay for my medical treatment & package?",
+              "name": "How can I share my medical reports securely?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You pay the hospital directly or via bank transfer. We provide a complete written breakdown for your budget in advance. Aarogyatra builds a transparent package tailored to your budget - treatment, stay, and travel - with no hidden charges."
+                "text": "Contact our team first so we can guide you on the appropriate method for sharing reports. Avoid sending sensitive medical records through a standard website enquiry form."
               }
             },
             {
               "@type": "Question",
-              "name": "Can my family members come with me to India?",
+              "name": "What affects the cost of treatment in India?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! India's e-Medical Visa permits up to 2 family attendants to travel with you on an e-Medical Attendant Visa. We assist with hospital invitation letters, visa guidance, and family accommodation."
+                "text": "The cost depends on the patient's condition, hospital, specialist, investigations, procedure, length of stay and treatment plan. The hospital provides the estimate after reviewing the case."
               }
             },
             {
               "@type": "Question",
-              "name": "What if I need an unlisted treatment or a specific budget package?",
+              "name": "What is included in a treatment estimate?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our network includes India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category. If your treatment isn't listed, our medical team will find the right hospital and specialist for you."
+                "text": "The hospital should clarify the inclusions and exclusions, such as consultation, investigations, procedure, room category, medicines and length of stay."
               }
             },
             {
               "@type": "Question",
-              "name": "How does the 4-Week Aarogyatra Aftercare program work?",
+              "name": "Can a family member accompany the patient?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Back home, we stay with you for 4 weeks. Simple, structured WhatsApp check-ins with our team keep you connected until you're properly back on your feet."
+                "text": "Accompanying arrangements depend on applicable visa requirements and travel plans. Our team can help coordinate practical arrangements and guide you to relevant information."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does medical travel assistance work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Aarogyatra helps coordinate hospital communication, appointments and practical travel arrangements, depending on the patient's requirements and agreed services."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What follow-up arrangements are available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Follow-up care is determined by the treating hospital and doctor. Aarogyatra may assist with communication and coordination where agreed."
               }
             }
           ]
@@ -235,54 +257,34 @@
     <!-- Crawlable Semantic Fallback for Spiders and Non-JS Search Agents -->
     <noscript>
       <div style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif; line-height: 1.6;">
-        <h1>Medical Care in India Guided by Doctors</h1>
-        <p>We help you find top hospitals in India. Doctors lead our team. We guide each patient like family. You get free medical advice within two days. Patients save up to 80% on medical care.</p>
-        <p>We work with accredited hospitals in India. You get care from skilled surgeons. We help with your visa, travel, and stay. Our medical team stays in touch after you return home.</p>
+        <h1>Medical Treatment in India for International Patients</h1>
+        <p>From finding the right healthcare options to planning your journey, we're here to guide you at every step.</p>
+        <p>Aarogyatra Global Care helps international patients explore treatment options in India and connect with suitable hospitals and healthcare professionals. From coordinating medical records and hospital communication to appointments, treatment estimates, travel and accommodation arrangements, our team supports you through the key steps of your healthcare journey.</p>
 
-        <h2>Medical Care in India</h2>
-        <p>We help you with major care. Our partner hospitals have top accreditations. Explore our full medical care list:</p>
+        <h2>Explore Treatment Options</h2>
         <ul>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=specialty-detail&amp;id=cardiac-care">Cardiac Care in India</a>: Heart surgery, bypass care, and valve repair.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=specialty-detail&amp;id=orthopedics-joint-replacement">Knee and Hip Joint Replacement</a>: Knee care, hip care, and bone surgery.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=specialty-detail&amp;id=oncology">Cancer Treatment in India</a>: Tumor care, chemo, and targeted drug care.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=specialty-detail&amp;id=kidney-urology">Kidney and Urology Care</a>: Kidney stone care and urinary surgery.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=specialty-detail&amp;id=general-advanced-surgery">General and Laparoscopic Surgery</a>: Hernia repair, gallbladder care, and keyhole surgery.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/cardiac-treatment-in-india/">Cardiac Treatment in India</a>: Heart surgery, bypass care, and valve repair.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/orthopaedic-treatment-in-india/">Orthopaedic Treatment in India</a>: Knee and hip joint replacement and spine surgery.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/cancer-treatment-in-india/">Cancer Treatment in India</a>: Cancer surgery, chemotherapy, radiotherapy, and oncology review.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/kidney-urology-treatment-in-india/">Kidney &amp; Urology Treatment in India</a>: Kidney stone care and urology procedures.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/general-surgery-in-india/">General Surgery in India</a>: Laparoscopic gallbladder surgery, hernia repair, and advanced surgery.</li>
         </ul>
-
-        <h2>How We Help You</h2>
-        <p>Our four steps make travel simple and safe:</p>
-        <ol>
-          <li>Send your medical reports to us online.</li>
-          <li>Our doctors review your reports for free.</li>
-          <li>We arrange your medical visa, flights, and stay.</li>
-          <li>We give you four weeks of follow-up care.</li>
-        </ol>
 
         <h2>Explore Our Website</h2>
-        <p>Visit all our key website pages to learn more about our services:</p>
         <ul>
-          <li><a href="https://www.aarogyatraglobalcare.com/">Aarogyatra Global Care Home</a>: Learn how our doctor team helps you travel to India for care.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=treatments">All Medical Treatments</a>: Browse surgeries and procedures in our partner hospitals.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=hospitals-packages">Accredited Partner Hospitals</a>: View top hospital networks and affordable budget packages.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=your-journey">Patient Journey and Support</a>: Step-by-step guide on visas, flights, and hospital admission.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=about-us">About Our Doctor Team</a>: Read about our doctor founders and our core values.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=free-opinion">Get Free Medical Opinion</a>: Send your scans and reports to receive a free quote.</li>
-          <li><a href="https://www.aarogyatraglobalcare.com/?page=contact">Contact Support Team</a>: Message our team on WhatsApp or email for fast answers.</li>
+          <li><a href="https://www.aarogyatraglobalcare.com/">Aarogyatra Global Care Home</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/treatments/">All Medical Treatments</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/hospitals-packages/">Accredited Partner Hospitals &amp; Packages</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/patient-journey/">Patient Journey &amp; Support</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/faqs/">Frequently Asked Questions</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/about-us/">About Aarogyatra Global Care</a></li>
+          <li><a href="https://www.aarogyatraglobalcare.com/contact/">Contact Patient Support</a></li>
         </ul>
-
-        <h2>Frequently Asked Questions</h2>
-        <h3>Is my health data kept safe and private?</h3>
-        <p>Yes. Your medical records are completely safe and private.</p>
-
-        <h3>Do you charge fees for a doctor review?</h3>
-        <p>No. You get a doctor-reviewed medical plan for free.</p>
-
-        <h3>Can my family travel with me to India?</h3>
-        <p>Yes. Up to two family members can travel with you.</p>
 
         <h2>Contact Our Medical Team</h2>
         <p>WhatsApp: <a href="https://wa.me/917433928339">+91 74339 28339</a></p>
-        <p>Email: <a href="mailto:care@aarogyatraglobalcare.com">care@aarogyatraglobalcare.com</a></p>
+        <p>Phone: <a href="tel:+917433928339">+91 74339 28339</a></p>
+        <p>Email: <a href="mailto:connect@aarogyatraglobalcare.com">connect@aarogyatraglobalcare.com</a></p>
         <p>Website: <a href="https://www.aarogyatraglobalcare.com/">www.aarogyatraglobalcare.com</a></p>
       </div>
     </noscript>

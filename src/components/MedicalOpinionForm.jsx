@@ -176,6 +176,15 @@ export default function MedicalOpinionForm({ compact = false }) {
         additionalNotes: formData.additionalNotes || 'None',
         sourceForm: 'Medical Opinion Form'
       });
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'conversion',
+          event_label: formData.treatmentCategory,
+          form_name: 'Medical Opinion Form'
+        });
+      }
+
       setIsSubmitted(true);
     } catch (err) {
       console.error('Medical opinion submission error:', err);

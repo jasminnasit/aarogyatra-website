@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import TrustStrip from '../components/TrustStrip';
 import { treatmentsData } from '../data/treatmentsData';
+import { getPathForRoute } from '../utils/routes';
 
 export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
   const steps = [
@@ -82,23 +83,27 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] font-outfit">
-                World-class treatment in India,{' '}
-                <span className="gradient-text">with one team beside you.</span>
+                Medical Treatment in India for International Patients
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Aarogyatra Global Care connects international patients to India's NABH and JCI accredited hospitals - <span className="font-semibold text-slate-900 underline decoration-teal-500 decoration-2">from your first message to your full recovery</span>.
+              <p className="text-lg sm:text-xl font-semibold text-teal-800 leading-snug max-w-2xl mx-auto lg:mx-0">
+                From finding the right healthcare options to planning your journey, we're here to guide you at every step.
+              </p>
+
+              <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Aarogyatra Global Care helps international patients explore treatment options in India and connect with suitable hospitals and healthcare professionals. From coordinating medical records and hospital communication to appointments, treatment estimates, travel and accommodation arrangements, our team supports you through the key steps of your healthcare journey.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                <button
-                  onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                <a
+                  href={getPathForRoute('treatments')}
+                  onClick={(e) => { e.preventDefault(); setActivePage('treatments'); }}
                   className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-bold text-base rounded-2xl shadow-lg shadow-teal-600/30 hover:shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2"
                 >
                   <Stethoscope className="w-5 h-5" />
-                  <span>Get a Free Medical Opinion</span>
-                </button>
+                  <span>Explore Treatment Options</span>
+                </a>
 
                 <a
                   href={primaryWhatsapp}
@@ -107,7 +112,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
                   className="w-full sm:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-base rounded-2xl shadow-lg shadow-emerald-500/25 transition-all active:scale-95 flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5 fill-white/20" />
-                  <span>Chat on WhatsApp</span>
+                  <span>Talk to Our Patient Support Team</span>
                 </a>
               </div>
 
@@ -138,7 +143,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                     <div>
                       <span className="text-xs font-bold uppercase tracking-wider text-teal-600">Aarogyatra Promise</span>
-                      <h3 className="text-xl font-bold text-slate-900 font-outfit">Healthcare Travel You Can Trust</h3>
+                      <h2 className="text-xl font-bold text-slate-900 font-outfit">Healthcare Travel You Can Trust</h2>
                     </div>
                     <span className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
                       <ShieldCheck className="w-6 h-6" />
@@ -232,6 +237,35 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
             );
           })}
         </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm font-semibold">
+          <a
+            href={getPathForRoute('patient-journey')}
+            onClick={(e) => { e.preventDefault(); setActivePage('patient-journey'); }}
+            className="inline-flex items-center gap-1.5 text-teal-700 hover:text-teal-800 underline decoration-teal-500/50 underline-offset-4"
+          >
+            <span>Explore Your Treatment Journey</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <span className="text-slate-300" aria-hidden="true">|</span>
+          <a
+            href={getPathForRoute('faqs')}
+            onClick={(e) => { e.preventDefault(); setActivePage('faqs'); }}
+            className="inline-flex items-center gap-1.5 text-teal-700 hover:text-teal-800 underline decoration-teal-500/50 underline-offset-4"
+          >
+            <span>Frequently Asked Questions</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+          <span className="text-slate-300" aria-hidden="true">|</span>
+          <a
+            href={getPathForRoute('contact')}
+            onClick={(e) => { e.preventDefault(); setActivePage('contact'); }}
+            className="inline-flex items-center gap-1.5 text-teal-700 hover:text-teal-800 underline decoration-teal-500/50 underline-offset-4"
+          >
+            <span>Contact Patient Support</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </section>
 
       {/* TREATMENTS WE FACILITATE */}
@@ -249,26 +283,28 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
             </p>
           </div>
 
-          <button
-            onClick={() => { setActivePage('treatments'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          <a
+            href={getPathForRoute('treatments')}
+            onClick={(e) => { e.preventDefault(); setActivePage('treatments'); }}
             className="inline-flex items-center gap-2 text-sm font-bold text-teal-700 hover:text-teal-800 transition-colors shrink-0"
           >
             <span>View All Specialties & Procedures</span>
             <ChevronRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {treatmentsData.map((treatment) => (
-            <div
+            <a
               key={treatment.id}
-              onClick={() => handleSelectSpecialty(treatment.id)}
+              href={getPathForRoute('specialty-detail', treatment.id)}
+              onClick={(e) => { e.preventDefault(); handleSelectSpecialty(treatment.id); }}
               className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl hover:border-teal-400 transition-all cursor-pointer group flex flex-col justify-between"
             >
               <div className="relative h-44 overflow-hidden">
                 <img
                   src={treatment.heroImage}
-                  alt={treatment.title}
+                  alt={`${treatment.pageTitle || treatment.title} - ${treatment.tagline}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
@@ -287,7 +323,7 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -413,14 +449,15 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
           </div>
 
           <div className="lg:col-span-4 flex flex-col justify-center gap-3 bg-teal-50 p-6 rounded-2xl border border-teal-200 text-center">
-            <h4 className="text-sm font-bold text-slate-900 font-outfit">Official Registration</h4>
+            <h3 className="text-sm font-bold text-slate-900 font-outfit">Official Registration</h3>
             <p className="text-xs text-slate-600">Aarogyatra Global Care LLP<br />LLPIN: ACZ-7789<br />Modasa, Sabarkantha, Gujarat, India</p>
-            <button
-              onClick={() => { setActivePage('about-us'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="mt-2 w-full py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-semibold text-xs rounded-xl shadow-xs"
+            <a
+              href={getPathForRoute('about-us')}
+              onClick={(e) => { e.preventDefault(); setActivePage('about-us'); }}
+              className="mt-2 w-full py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-semibold text-xs rounded-xl shadow-xs block"
             >
               Read Full Founder Story
-            </button>
+            </a>
           </div>
 
         </div>
@@ -435,9 +472,9 @@ export default function HomePage({ setActivePage, setSelectedSpecialtyId }) {
               <span className="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-500/20 px-3 py-1 rounded-full border border-teal-500/30">
                 Zero Cost • Zero Obligation
               </span>
-              <h3 className="text-2xl sm:text-4xl font-extrabold font-outfit text-white tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold font-outfit text-white tracking-tight">
                 Send your reports. We'll reply within 48 hours.
-              </h3>
+              </h2>
               <p className="text-teal-100/90 text-sm sm:text-base leading-relaxed">
                 Our specialised medical team will study your reports and send recommended hospital options and a package built around your budget.
               </p>

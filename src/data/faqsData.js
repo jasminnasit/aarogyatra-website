@@ -1,26 +1,34 @@
 export const faqsData = [
   {
-    question: "Is my medical information kept confidential?",
-    answer: "Yes, 100%. Your medical reports, diagnosis, and personal details are strictly confidential and reviewed only by our specialised medical team and treating hospital specialists in India."
+    question: "How can international patients explore treatment in India?",
+    answer: "Contact Aarogyatra Global Care with details of the treatment you are exploring. We can guide you on the information needed to coordinate an enquiry with a relevant hospital."
   },
   {
-    question: "Do you charge for giving a medical opinion or matching a hospital?",
-    answer: "No, absolutely not. Receiving a doctor-reviewed medical opinion, hospital options, and package estimate from our specialised medical team is 100% free with no obligation to travel."
+    question: "What documents are required?",
+    answer: "The hospital may request medical reports, investigation results, prescriptions, previous treatment records and identification documents. Requirements vary depending on the case."
   },
   {
-    question: "How do I pay for my medical treatment & package?",
-    answer: "You pay the hospital directly or via bank transfer. We provide a complete written breakdown for your budget in advance. Aarogyatra builds a transparent package tailored to your budget - treatment, stay, and travel - with no hidden charges."
+    question: "How can I share my medical reports securely?",
+    answer: "Contact our team first so we can guide you on the appropriate method for sharing reports. Avoid sending sensitive medical records through a standard website enquiry form."
   },
   {
-    question: "Can my family members come with me to India?",
-    answer: "Yes! India's e-Medical Visa permits up to 2 family attendants to travel with you on an e-Medical Attendant Visa. We assist with hospital invitation letters, visa guidance, and family accommodation (hotels/guesthouses for every budget with food preferences)."
+    question: "What affects the cost of treatment in India?",
+    answer: "The cost depends on the patient's condition, hospital, specialist, investigations, procedure, length of stay and treatment plan. The hospital provides the estimate after reviewing the case."
   },
   {
-    question: "What if I need an unlisted treatment or a specific budget package?",
-    answer: "Our network includes India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category. If your treatment isn't listed, simply tell us what you need and your budget - our medical team will find the right hospital and specialist for you."
+    question: "What is included in a treatment estimate?",
+    answer: "The hospital should clarify the inclusions and exclusions, such as consultation, investigations, procedure, room category, medicines and length of stay."
   },
   {
-    question: "How does the 4-Week Aarogyatra Aftercare program work?",
-    answer: "Back home, we stay with you for 4 weeks. Simple, structured WhatsApp check-ins with our team keep you connected until you're properly back on your feet."
+    question: "Can a family member accompany the patient?",
+    answer: "Accompanying arrangements depend on applicable visa requirements and travel plans. Our team can help coordinate practical arrangements and guide you to relevant information."
+  },
+  {
+    question: "How does medical travel assistance work?",
+    answer: "Aarogyatra helps coordinate hospital communication, appointments and practical travel arrangements, depending on the patient's requirements and agreed services."
+  },
+  {
+    question: "What follow-up arrangements are available?",
+    answer: "Follow-up care is determined by the treating hospital and doctor. Aarogyatra may assist with communication and coordination where agreed."
   }
 ];

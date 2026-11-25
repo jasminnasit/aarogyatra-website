@@ -1,27 +1,38 @@
 import React from 'react';
 import { 
-  ArrowLeft, CheckCircle2, Clock, ShieldCheck, HeartHandshake, MessageCircle, 
-  Stethoscope, FileText, ChevronRight, AlertCircle, Info
+  ArrowLeft, CheckCircle2, HeartHandshake, MessageCircle, 
+  Stethoscope
 } from 'lucide-react';
 import { treatmentsData } from '../data/treatmentsData';
+import { getPathForRoute } from '../utils/routes';
 
-export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
+export default function SpecialtyDetailPage({ specialtyId, setActivePage, onEnquireSpecialty }) {
   const treatment = treatmentsData.find(t => t.id === specialtyId) || treatmentsData[0];
 
-  const primaryWhatsapp = `https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20a%20question%20regarding%20${encodeURIComponent(treatment.title)}.`;
+  const primaryWhatsapp = `https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20have%20a%20question%20regarding%20${encodeURIComponent(treatment.pageTitle || treatment.title)}.`;
+
+  const handleEnquireClick = (e) => {
+    e.preventDefault();
+    if (onEnquireSpecialty) {
+      onEnquireSpecialty(treatment.title);
+    } else {
+      setActivePage('contact');
+    }
+  };
 
   return (
     <div className="space-y-12 pb-16">
       
       {/* Breadcrumb & Navigation Back */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <button
-          onClick={() => { setActivePage('treatments'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        <a
+          href={getPathForRoute('treatments')}
+          onClick={(e) => { e.preventDefault(); setActivePage('treatments'); }}
           className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-teal-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to All Treatments</span>
-        </button>
+        </a>
       </div>
 
       {/* Hero Header */}
@@ -33,33 +44,33 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
               Specialty Details
             </span>
             <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit text-white tracking-tight">
-              {treatment.title}
+              {treatment.pageTitle || treatment.title}
             </h1>
             <p className="text-teal-200 text-base sm:text-lg font-medium">
               {treatment.tagline}
             </p>
-            <p className="text-slate-200 text-sm leading-relaxed max-w-2xl font-normal">
-              {treatment.shortDesc}
+            <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+              {treatment.introCopy || treatment.shortDesc}
             </p>
-
           </div>
 
           <div className="lg:col-span-4 flex flex-col gap-3">
-            <button
-              onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2"
+            <a
+              href={getPathForRoute('contact')}
+              onClick={handleEnquireClick}
+              className="w-full py-4 px-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-sm rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-center"
             >
-              <Stethoscope className="w-4 h-4" />
-              <span>Get Doctor Opinion for {treatment.title}</span>
-            </button>
+              <Stethoscope className="w-4 h-4 shrink-0" />
+              <span>{treatment.ctaLabel || `Enquire About ${treatment.title}`}</span>
+            </a>
 
             <a
               href={primaryWhatsapp}
               target="_blank"
               rel="noreferrer"
-              className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 text-center"
             >
-              <MessageCircle className="w-4 h-4 fill-white/20" />
+              <MessageCircle className="w-4 h-4 fill-white/20 shrink-0" />
               <span>Ask Doctor on WhatsApp</span>
             </a>
           </div>
@@ -76,9 +87,9 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
             <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold">
               01
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-outfit">
+            <h2 className="text-xl font-bold text-slate-900 font-outfit">
               Conditions & Concerns Treated
-            </h3>
+            </h2>
           </div>
           <ul className="space-y-3 pt-2">
             {treatment.conditionsTreated.map((cond, idx) => (
@@ -96,9 +107,9 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
             <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold">
               02
             </div>
-            <h3 className="text-xl font-bold text-slate-900 font-outfit">
+            <h2 className="text-xl font-bold text-slate-900 font-outfit">
               Surgeries & Procedures
-            </h3>
+            </h2>
           </div>
           <ul className="space-y-3 pt-2">
             {treatment.procedures.map((proc, idx) => (
@@ -116,9 +127,9 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200/90 shadow-lg space-y-4">
-          <h3 className="text-xl font-bold text-slate-900 font-outfit">
+          <h2 className="text-xl font-bold text-slate-900 font-outfit">
             What Is Included in Your Package
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             {treatment.whatsIncluded.map((inc, idx) => (
               <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/60 flex items-start gap-2.5 text-xs text-slate-800 font-medium">
@@ -136,21 +147,22 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
               <HeartHandshake className="w-3.5 h-3.5" />
               4 Weeks of Aftercare
             </div>
-            <h3 className="text-2xl font-bold font-outfit text-white">
+            <h2 className="text-2xl font-bold font-outfit text-white">
               We Stay With You for 4 Weeks
-            </h3>
+            </h2>
             <p className="text-slate-200 text-sm leading-relaxed font-normal">
               {treatment.aftercareDetails}
             </p>
           </div>
 
           <div className="pt-4 border-t border-teal-800/80">
-            <button
-              onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-              className="w-full py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl transition-all"
+            <a
+              href={getPathForRoute('free-opinion')}
+              onClick={(e) => { e.preventDefault(); setActivePage('free-opinion'); }}
+              className="w-full py-3.5 px-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs uppercase tracking-wider rounded-xl transition-all block text-center"
             >
               Request Free Medical Opinion & Package Quote
-            </button>
+            </a>
           </div>
         </div>
 
@@ -159,19 +171,27 @@ export default function SpecialtyDetailPage({ specialtyId, setActivePage }) {
       {/* CTA Box */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-100 rounded-3xl p-8 text-center space-y-4 border border-slate-200">
-          <h3 className="text-2xl font-bold text-slate-900 font-outfit">
+          <h2 className="text-2xl font-bold text-slate-900 font-outfit">
             Ready to review your treatment plan with our medical team?
-          </h3>
+          </h2>
           <p className="text-slate-600 text-sm max-w-xl mx-auto">
-            Send your reports for a free medical opinion within 48 hours. Zero obligation to travel.
+            Send an enquiry or connect with our patient support team to coordinate hospital options in India.
           </p>
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => { setActivePage('free-opinion'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href={getPathForRoute('contact')}
+              onClick={handleEnquireClick}
               className="px-8 py-3.5 bg-teal-700 hover:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md transition-all"
             >
+              {treatment.ctaLabel || `Enquire About ${treatment.title}`}
+            </a>
+            <a
+              href={getPathForRoute('free-opinion')}
+              onClick={(e) => { e.preventDefault(); setActivePage('free-opinion'); }}
+              className="px-8 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold text-sm rounded-xl shadow-xs transition-all"
+            >
               Get Free Medical Opinion
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -9,79 +9,53 @@ import HospitalsPackagesPage from './pages/HospitalsPackagesPage';
 import SpecialtyDetailPage from './pages/SpecialtyDetailPage';
 import InternationalPatientsPage from './pages/InternationalPatientsPage';
 import AboutUsPage from './pages/AboutUsPage';
+import FAQsPage from './pages/FAQsPage';
 import FreeOpinionPage from './pages/FreeOpinionPage';
 import ContactPage from './pages/ContactPage';
 import SEOHead from './components/SEOHead';
-
-// Parse current URL hash or query params into route state
-const parseHash = () => {
-  const validPages = [
-    'home', 
-    'treatments', 
-    'hospitals-packages', 
-    'your-journey', 
-    'specialty-detail', 
-    'about-us', 
-    'free-opinion', 
-    'contact'
-  ];
-
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    const [page, queryString] = hash.split('?');
-    const params = new URLSearchParams(queryString || '');
-    const specialtyId = params.get('id') || 'cardiac-care';
-    return {
-      page: validPages.includes(page) ? page : 'home',
-      specialtyId
-    };
-  }
-
-  // Support query string URL routing for search engines
-  const searchParams = new URLSearchParams(window.location.search || '');
-  const queryPage = searchParams.get('page');
-  const specialtyId = searchParams.get('id') || 'cardiac-care';
-
-  return {
-    page: validPages.includes(queryPage) ? queryPage : 'home',
-    specialtyId
-  };
-};
+import { getPathForRoute, resolveRouteFromLocation } from './utils/routes';
 
 export default function App() {
-  const [route, setRoute] = useState(parseHash());
+  const initialResolved = resolveRouteFromLocation();
+  const [route, setRoute] = useState({
+    page: initialResolved.page,
+    specialtyId: initialResolved.specialtyId
+  });
+  const [contactTreatment, setContactTreatment] = useState('');
 
-  // Listen to browser Back / Forward actions and Hash changes
+  // Listen to browser Back / Forward actions and legacy hash changes
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(parseHash());
-    };
-
-    // Initialize hash if empty
-    if (!window.location.hash) {
-      window.history.replaceState(null, '', '#home');
+    if (initialResolved.shouldCanonicalizePath) {
+      const targetPath = getPathForRoute(initialResolved.page, initialResolved.specialtyId);
+      const preservedSearch = window.location.search && !window.location.search.includes('page=')
+        ? window.location.search
+        : '';
+      window.history.replaceState(null, '', `${targetPath}${preservedSearch}`);
     }
 
-    window.addEventListener('hashchange', handleHashChange);
-    window.addEventListener('popstate', handleHashChange);
+    const handleNavigationEvent = () => {
+      const resolved = resolveRouteFromLocation();
+      setRoute({ page: resolved.page, specialtyId: resolved.specialtyId });
+    };
+
+    window.addEventListener('popstate', handleNavigationEvent);
+    window.addEventListener('hashchange', handleNavigationEvent);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
+      window.removeEventListener('popstate', handleNavigationEvent);
+      window.removeEventListener('hashchange', handleNavigationEvent);
     };
   }, []);
 
-  // Navigate helper that updates URL hash and browser history
+  // Navigate helper using clean URL paths while preserving scroll behavior
   const navigateTo = (page, specialtyId = null) => {
+    const normalizedPage = page === 'your-journey' ? 'patient-journey' : page;
     const targetSpecialtyId = specialtyId || route.specialtyId || 'cardiac-care';
-    let newHash = `#${page}`;
-    if (page === 'specialty-detail') {
-      newHash = `#specialty-detail?id=${targetSpecialtyId}`;
-    }
-    
-    setRoute({ page, specialtyId: targetSpecialtyId });
-    if (window.location.hash !== newHash) {
-      window.location.hash = newHash;
+    const nextPath = getPathForRoute(normalizedPage, targetSpecialtyId);
+
+    setRoute({ page: normalizedPage, specialtyId: targetSpecialtyId });
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState(null, '', nextPath);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -90,11 +64,19 @@ export default function App() {
   const selectedSpecialtyId = route.specialtyId;
 
   const handleSetActivePage = (page) => {
+    if (page !== 'contact') {
+      setContactTreatment('');
+    }
     navigateTo(page);
   };
 
   const handleSetSelectedSpecialtyId = (id) => {
     navigateTo('specialty-detail', id);
+  };
+
+  const handleEnquireSpecialty = (treatmentTitle) => {
+    setContactTreatment(treatmentTitle);
+    navigateTo('contact');
   };
 
   return (
@@ -127,7 +109,7 @@ export default function App() {
           />
         )}
 
-        {activePage === 'your-journey' && (
+        {activePage === 'patient-journey' && (
           <InternationalPatientsPage 
             setActivePage={handleSetActivePage} 
           />
@@ -136,7 +118,8 @@ export default function App() {
         {activePage === 'specialty-detail' && (
           <SpecialtyDetailPage 
             specialtyId={selectedSpecialtyId} 
-            setActivePage={handleSetActivePage} 
+            setActivePage={handleSetActivePage}
+            onEnquireSpecialty={handleEnquireSpecialty}
           />
         )}
 
@@ -144,12 +127,16 @@ export default function App() {
           <AboutUsPage setActivePage={handleSetActivePage} />
         )}
 
+        {activePage === 'faqs' && (
+          <FAQsPage setActivePage={handleSetActivePage} />
+        )}
+
         {activePage === 'free-opinion' && (
           <FreeOpinionPage />
         )}
 
         {activePage === 'contact' && (
-          <ContactPage />
+          <ContactPage initialTreatment={contactTreatment} />
         )}
       </main>
 
@@ -157,7 +144,10 @@ export default function App() {
       <FloatingWhatsApp />
 
       {/* Footer */}
-      <Footer setActivePage={handleSetActivePage} />
+      <Footer 
+        setActivePage={handleSetActivePage} 
+        setSelectedSpecialtyId={handleSetSelectedSpecialtyId}
+      />
     </div>
   );
 }

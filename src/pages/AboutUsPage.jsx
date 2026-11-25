@@ -11,14 +11,13 @@ export default function AboutUsPage({ setActivePage }) {
       <section className="bg-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 hero-radial-bg border-b border-slate-800">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <span className="inline-block text-xs font-bold uppercase tracking-wider text-teal-300 bg-teal-950/80 px-3.5 py-1.5 rounded-full border border-teal-500/30">
-            About Aarogyatra Global Care LLP
+            Medical Travel Facilitation
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-outfit leading-tight text-white">
-            Two founders. One mission: <br />
-            <span className="gradient-text-light">Healthcare travel you can trust.</span>
+            About Aarogyatra Global Care
           </h1>
-          <p className="text-slate-200 text-base max-w-2xl mx-auto leading-relaxed font-normal">
-            "Aarogya" means health. "Yatra" means journey. Aarogyatra Global Care LLP was founded to make medical travel to India simple, honest and human.
+          <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+            Founded by doctors, driven by care, and committed to making international healthcare journeys simpler and more accessible.
           </p>
         </div>
       </section>
@@ -40,12 +39,16 @@ export default function AboutUsPage({ setActivePage }) {
 
           <div className="text-slate-700 text-base leading-relaxed space-y-4 font-normal">
             <p>
-              Aarogyatra Global Care LLP was founded to solve a critical gap in medical travel: ensuring international patients receive doctor-guided evaluation, transparent budget packages, and continuous aftercare support.
+              Aarogyatra Global Care is a doctor-founded medical travel facilitation company that supports international patients exploring healthcare options in India. We help patients connect with hospitals and healthcare professionals and coordinate the practical steps involved in planning their treatment journey.
             </p>
 
             <p>
               We connect patients to India's NABH and JCI accredited hospitals, as well as trusted multi-specialty hospitals across every category - with surgeons who have handled thousands of cases.
             </p>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm text-slate-700">
+              <strong className="text-slate-900">Role Clarification:</strong> Our role is to facilitate communication and coordination. Medical opinions, diagnosis, treatment decisions and clinical care are provided by the treating doctors and hospitals.
+            </div>
 
             <blockquote className="p-5 bg-teal-50 border-l-4 border-teal-700 rounded-r-2xl font-outfit text-teal-950 font-bold italic text-lg my-4 shadow-xs">
               "Aarogya" means health. "Yatra" means journey. Aarogyatra Global Care LLP was founded to make medical travel to India simple, honest and human.
@@ -117,9 +120,9 @@ export default function AboutUsPage({ setActivePage }) {
         <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-800 shadow-xl space-y-6">
           <div className="flex items-center gap-3">
             <Building2 className="w-6 h-6 text-teal-400" />
-            <h3 className="text-xl font-bold font-outfit text-white">
+            <h2 className="text-xl font-bold font-outfit text-white">
               Official LLP Entity Details
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-200">

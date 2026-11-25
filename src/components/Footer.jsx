@@ -1,10 +1,21 @@
 import React from 'react';
-import { Heart, MessageCircle, Mail, MapPin, Shield, CheckCircle2, ArrowRight, Instagram } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Shield, Instagram, Phone } from 'lucide-react';
+import { getPathForRoute } from '../utils/routes';
+import { treatmentsData } from '../data/treatmentsData';
 
-export default function Footer({ setActivePage }) {
-  const handleNavClick = (pageId) => {
+export default function Footer({ setActivePage, setSelectedSpecialtyId }) {
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
     setActivePage(pageId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSpecialtyClick = (e, id) => {
+    e.preventDefault();
+    if (setSelectedSpecialtyId) {
+      setSelectedSpecialtyId(id);
+    } else {
+      setActivePage('treatments');
+    }
   };
 
   const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20medical%20opinion.";
@@ -18,7 +29,7 @@ export default function Footer({ setActivePage }) {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <img 
-                src="./logo.jpg" 
+                src="/logo.jpg" 
                 alt="Aarogyatra Global Care Logo" 
                 className="h-14 w-auto object-contain rounded-xl bg-white p-1 shadow-md" 
               />
@@ -61,41 +72,46 @@ export default function Footer({ setActivePage }) {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="font-outfit text-white font-semibold text-base mb-4 tracking-wide uppercase text-xs text-teal-400">
+            <h3 className="font-outfit font-semibold mb-4 tracking-wide uppercase text-xs text-teal-400">
               Quick Navigation
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-sm">
-              <li><button onClick={() => handleNavClick('home')} className="hover:text-teal-400 transition-colors">Hero / Home</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Treatments</button></li>
-              <li><button onClick={() => handleNavClick('hospitals-packages')} className="hover:text-teal-400 transition-colors">Hospitals & Packages</button></li>
-              <li><button onClick={() => handleNavClick('your-journey')} className="hover:text-teal-400 transition-colors">Your Journey</button></li>
-              <li><button onClick={() => handleNavClick('about-us')} className="hover:text-teal-400 transition-colors">About Us</button></li>
-              <li><button onClick={() => handleNavClick('free-opinion')} className="hover:text-teal-400 transition-colors text-teal-300 font-medium">Free Medical Opinion</button></li>
-              <li><button onClick={() => handleNavClick('contact')} className="hover:text-teal-400 transition-colors">Contact</button></li>
+              <li><a href={getPathForRoute('home')} onClick={(e) => handleNavClick(e, 'home')} className="hover:text-teal-400 transition-colors">Home</a></li>
+              <li><a href={getPathForRoute('treatments')} onClick={(e) => handleNavClick(e, 'treatments')} className="hover:text-teal-400 transition-colors">Treatments</a></li>
+              <li><a href={getPathForRoute('hospitals-packages')} onClick={(e) => handleNavClick(e, 'hospitals-packages')} className="hover:text-teal-400 transition-colors">Hospitals & Packages</a></li>
+              <li><a href={getPathForRoute('patient-journey')} onClick={(e) => handleNavClick(e, 'patient-journey')} className="hover:text-teal-400 transition-colors">Patient Journey</a></li>
+              <li><a href={getPathForRoute('faqs')} onClick={(e) => handleNavClick(e, 'faqs')} className="hover:text-teal-400 transition-colors">FAQs</a></li>
+              <li><a href={getPathForRoute('about-us')} onClick={(e) => handleNavClick(e, 'about-us')} className="hover:text-teal-400 transition-colors">About Us</a></li>
+              <li><a href={getPathForRoute('free-opinion')} onClick={(e) => handleNavClick(e, 'free-opinion')} className="hover:text-teal-400 transition-colors text-teal-300 font-medium">Free Medical Opinion</a></li>
+              <li><a href={getPathForRoute('contact')} onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-teal-400 transition-colors">Contact</a></li>
             </ul>
           </div>
 
           {/* Col 3: Specialties */}
           <div>
-            <h4 className="font-outfit text-white font-semibold text-base mb-4 tracking-wide uppercase text-xs text-teal-400">
+            <h3 className="font-outfit font-semibold mb-4 tracking-wide uppercase text-xs text-teal-400">
               Specialties
-            </h4>
+            </h3>
             <ul className="space-y-2.5 text-sm">
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Cardiac Care</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Orthopedics & Joint Replacement</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Cancer Care (Oncology)</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Kidney & Urology</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">General & Advanced Surgery</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Dentistry</button></li>
-              <li><button onClick={() => handleNavClick('treatments')} className="hover:text-teal-400 transition-colors">Cosmetology & Aesthetics</button></li>
+              {treatmentsData.map((treatment) => (
+                <li key={treatment.id}>
+                  <a
+                    href={getPathForRoute('specialty-detail', treatment.id)}
+                    onClick={(e) => handleSpecialtyClick(e, treatment.id)}
+                    className="hover:text-teal-400 transition-colors"
+                  >
+                    {treatment.pageTitle || treatment.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Col 4: Contact & LLP Info */}
           <div>
-            <h4 className="font-outfit text-white font-semibold text-base mb-4 tracking-wide uppercase text-xs text-teal-400">
+            <h3 className="font-outfit font-semibold mb-4 tracking-wide uppercase text-xs text-teal-400">
               Contact & Entity
-            </h4>
+            </h3>
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
@@ -106,10 +122,14 @@ export default function Footer({ setActivePage }) {
                 <a href="mailto:connect@aarogyatraglobalcare.com" className="hover:text-teal-400 transition-colors">connect@aarogyatraglobalcare.com</a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
-                  <div>WhatsApp: +91 74339 28339</div>
-                  <div className="text-xs text-slate-400">+91 81693 87848</div>
+                  <div>
+                    <a href="tel:+917433928339" className="hover:text-teal-400 transition-colors">+91 74339 28339</a>
+                  </div>
+                  <div className="text-xs text-slate-400">
+                    <a href="tel:+918169387848" className="hover:text-teal-400 transition-colors">+91 81693 87848</a>
+                  </div>
                 </div>
               </li>
               <li className="pt-2 text-xs text-slate-400 border-t border-slate-800">
@@ -128,9 +148,9 @@ export default function Footer({ setActivePage }) {
         <div className="py-6 border-b border-slate-800/80 bg-slate-900/60 rounded-xl px-6 my-8">
           <div className="flex items-start gap-3 text-xs text-slate-400 leading-relaxed">
             <Shield className="w-5 h-5 text-teal-400 shrink-0 mt-0.5" />
-            <div>
-              <span className="font-semibold text-slate-200 uppercase tracking-wide">Medical Disclaimer:</span> Aarogyatra Global Care LLP is a medical travel facilitator. All medical treatment is provided by partner hospitals and their licensed physicians. Information on this website is not medical advice.
-            </div>
+            <p>
+              <strong className="text-slate-200 font-semibold">Medical Disclaimer:</strong> Aarogyatra Global Care LLP is a medical travel facilitator. All medical treatment is provided by partner hospitals and their licensed physicians. Information on this website is not medical advice. No guaranteed medical outcomes are implied. Consultations are purely advisory prior to hospital admission and treatment evaluation.
+            </p>
           </div>
         </div>
 

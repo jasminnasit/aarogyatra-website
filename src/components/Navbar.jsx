@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { PhoneCall, MessageCircle, Menu, X, Heart, ShieldCheck, Stethoscope } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { getPathForRoute } from '../utils/routes';
 
 export default function Navbar({ activePage, setActivePage }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,12 +10,14 @@ export default function Navbar({ activePage, setActivePage }) {
     { id: 'how-it-works', label: 'How It Works' },
     { id: 'treatments', label: 'Treatments' },
     { id: 'hospitals-packages', label: 'Hospitals & Packages' },
-    { id: 'your-journey', label: 'Your Journey' },
+    { id: 'patient-journey', label: 'Your Journey' },
+    { id: 'faqs', label: 'FAQs' },
     { id: 'about-us', label: 'About Us' },
     { id: 'contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (pageId) => {
+  const handleNavClick = (e, pageId) => {
+    e.preventDefault();
     if (pageId === 'how-it-works') {
       setActivePage('home');
       setMobileMenuOpen(false);
@@ -26,10 +29,7 @@ export default function Navbar({ activePage, setActivePage }) {
     }
     setActivePage(pageId);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  const primaryWhatsapp = "https://wa.me/917433928339?text=Hello%20Aarogyatra%20Global%20Care,%20I%20would%20like%20a%20free%20medical%20opinion.";
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
@@ -38,12 +38,13 @@ export default function Navbar({ activePage, setActivePage }) {
         <div className="flex justify-between items-center h-16 xl:h-20 flex-nowrap gap-2">
           
           {/* Logo */}
-          <button 
-            onClick={() => handleNavClick('home')}
+          <a 
+            href="/"
+            onClick={(e) => handleNavClick(e, 'home')}
             className="flex items-center gap-2.5 text-left group shrink-0"
           >
             <img 
-              src="./logo.jpg" 
+              src="/logo.jpg" 
               alt="Aarogyatra Global Care Logo" 
               className="h-10 xl:h-12 w-auto object-contain rounded-lg shadow-xs group-hover:scale-105 transition-transform bg-white p-0.5" 
             />
@@ -55,45 +56,52 @@ export default function Navbar({ activePage, setActivePage }) {
                 GLOBAL CARE LLP
               </span>
             </div>
-          </button>
+          </a>
 
           {/* Desktop Navigation Links - Single Line, No Wrap */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 flex-nowrap">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`px-2 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all ${
-                  activePage === link.id
-                    ? 'text-teal-700 bg-teal-50 font-semibold'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
+          <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-0.5 xl:gap-1 flex-nowrap">
+            {navLinks.map((link) => {
+              const href = link.id === 'how-it-works' ? '/#how-it-works-section' : getPathForRoute(link.id);
+              return (
+                <a
+                  key={link.id}
+                  href={href}
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  className={`px-2 xl:px-2.5 py-1.5 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-all ${
+                    activePage === link.id
+                      ? 'text-teal-700 bg-teal-50 font-semibold'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right CTA Buttons - Single Line */}
           <div className="hidden lg:flex items-center shrink-0">
-            <button
-              onClick={() => handleNavClick('free-opinion')}
+            <a
+              href={getPathForRoute('free-opinion')}
+              onClick={(e) => handleNavClick(e, 'free-opinion')}
               className="relative inline-flex items-center justify-center px-4 xl:px-5 py-2 text-xs xl:text-sm font-semibold text-white whitespace-nowrap transition-all bg-gradient-to-r from-teal-600 to-teal-700 rounded-xl shadow-md hover:from-teal-700 hover:to-teal-800 hover:shadow-lg hover:shadow-teal-600/25 active:scale-95"
             >
               Get Free Medical Opinion
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center lg:hidden gap-2 shrink-0">
-            <button
-              onClick={() => handleNavClick('free-opinion')}
+            <a
+              href={getPathForRoute('free-opinion')}
+              onClick={(e) => handleNavClick(e, 'free-opinion')}
               className="px-3 py-1.5 text-xs font-semibold text-white bg-teal-600 rounded-lg shadow-xs whitespace-nowrap"
             >
               Free Opinion
-            </button>
+            </a>
 
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-hidden"
               aria-label="Toggle Navigation"
@@ -107,26 +115,31 @@ export default function Navbar({ activePage, setActivePage }) {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
-          {navLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => handleNavClick(link.id)}
-              className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium ${
-                activePage === link.id
-                  ? 'text-teal-700 bg-teal-50 font-semibold'
-                  : 'text-slate-700 hover:bg-slate-50'
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map((link) => {
+            const href = link.id === 'how-it-works' ? '/#how-it-works-section' : getPathForRoute(link.id);
+            return (
+              <a
+                key={link.id}
+                href={href}
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium ${
+                  activePage === link.id
+                    ? 'text-teal-700 bg-teal-50 font-semibold'
+                    : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
           <div className="pt-2">
-            <button
-              onClick={() => handleNavClick('free-opinion')}
-              className="w-full text-center py-3 text-base font-semibold text-white bg-teal-600 rounded-xl shadow-md"
+            <a
+              href={getPathForRoute('free-opinion')}
+              onClick={(e) => handleNavClick(e, 'free-opinion')}
+              className="block w-full text-center py-3 text-base font-semibold text-white bg-teal-600 rounded-xl shadow-md"
             >
               Get a Free Medical Opinion
-            </button>
+            </a>
           </div>
         </div>
       )}

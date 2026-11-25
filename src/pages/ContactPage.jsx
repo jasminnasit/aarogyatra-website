@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
-import { MessageCircle, Mail, MapPin, Clock, Phone, Send, CheckCircle2, ShieldCheck, Instagram, Loader2, AlertCircle } from 'lucide-react';
-import { allCountries, allLanguages } from '../components/MedicalOpinionForm';
+import React, { useState, useEffect } from 'react';
+import { MessageCircle, Mail, MapPin, Phone, Send, CheckCircle2, Instagram, Loader2, AlertCircle, Lock } from 'lucide-react';
+import { allCountries } from '../components/MedicalOpinionForm';
+import { treatmentsData } from '../data/treatmentsData';
 import { sendEmailNotification } from '../services/emailService';
 
-export default function ContactPage() {
+const treatmentCategories = [
+  ...treatmentsData.map((t) => t.title),
+  'Other / Not Sure'
+];
+
+const contactMethods = ['WhatsApp', 'Email', 'Phone Call'];
+
+export default function ContactPage({ initialTreatment = '' }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [formData, setFormData] = useState({ 
     name: '', 
-    email: '', 
     country: 'Kenya (+254)',
+    email: '', 
     whatsapp: '', 
-    language: 'English',
+    treatmentCategory: initialTreatment && treatmentCategories.includes(initialTreatment) ? initialTreatment : treatmentCategories[0],
+    preferredContactMethod: 'WhatsApp',
     message: '' 
   });
+
+  useEffect(() => {
+    if (initialTreatment && treatmentCategories.includes(initialTreatment)) {
+      setFormData((prev) => ({ ...prev, treatmentCategory: initialTreatment }));
+    }
+  }, [initialTreatment]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,19 +38,29 @@ export default function ContactPage() {
 
     try {
       await sendEmailNotification({
-        subject: `New Contact Form Inquiry from ${formData.name}`,
+        subject: `New Contact Enquiry (${formData.treatmentCategory}) from ${formData.name}`,
         name: formData.name,
-        email: formData.email,
         country: formData.country,
+        email: formData.email,
         whatsapp: formData.whatsapp,
-        language: formData.language,
+        treatmentCategory: formData.treatmentCategory,
+        preferredContactMethod: formData.preferredContactMethod,
         message: formData.message,
         sourceForm: 'Contact Page'
       });
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'conversion',
+          event_label: formData.treatmentCategory,
+          form_name: 'Contact Enquiry Form'
+        });
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
-      setSubmitError(err.message || 'Something went wrong while sending your message. Please try again or WhatsApp us.');
+      setSubmitError(err.message || 'Something went wrong while sending your enquiry. Please try again or WhatsApp us.');
     } finally {
       setIsSubmitting(false);
     }
@@ -66,9 +91,9 @@ export default function ContactPage() {
         {/* Left Column: Direct Contact Info */}
         <div className="lg:col-span-5 bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl space-y-8 flex flex-col justify-between border border-slate-800">
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold font-outfit text-white">
+            <h2 className="text-2xl font-bold font-outfit text-white">
               Direct Contact Details
-            </h3>
+            </h2>
 
             {/* WhatsApp Primary */}
             <a
@@ -87,6 +112,18 @@ export default function ContactPage() {
               </div>
             </a>
 
+            {/* Direct Phone */}
+            <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-800 border border-slate-700">
+              <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                <Phone className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-xs text-teal-400 font-bold uppercase tracking-wider block">Direct Phone Call</span>
+                <a href="tel:+917433928339" className="text-sm font-semibold text-white hover:underline block">+91 74339 28339</a>
+                <a href="tel:+918169387848" className="text-xs text-slate-300 hover:underline block mt-0.5">+91 81693 87848</a>
+              </div>
+            </div>
+
             {/* Email */}
             <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-800 border border-slate-700">
               <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
@@ -95,7 +132,7 @@ export default function ContactPage() {
               <div>
                 <span className="text-xs text-teal-400 font-bold uppercase tracking-wider block">Email Inquiry</span>
                 <a href="mailto:connect@aarogyatraglobalcare.com" className="text-sm font-semibold text-white hover:underline">connect@aarogyatraglobalcare.com</a>
-                <p className="text-xs text-slate-400 mt-0.5">Detailed medical reports & package requests</p>
+                <p className="text-xs text-slate-400 mt-0.5">Enquiries & travel coordination</p>
               </div>
             </div>
 
@@ -135,50 +172,53 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Right Column: Quick Contact Form */}
+        {/* Right Column: Enquiry Form */}
         <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 shadow-lg border border-slate-200/90">
           {submitted ? (
             <div className="py-12 text-center space-y-4">
               <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 font-outfit">
-                Message Sent Successfully!
-              </h3>
-              <p className="text-slate-700 text-sm max-w-md mx-auto">
-                Thank you for contacting Aarogyatra. Our specialised medical team will reply to your message within 48 hours.
+              <h2 className="text-2xl font-bold text-slate-900 font-outfit">
+                Enquiry Received
+              </h2>
+              <p className="text-slate-700 text-sm max-w-md mx-auto leading-relaxed">
+                Thank you for contacting Aarogyatra Global Care. We have received your enquiry and our team will get in touch.
               </p>
               <button
+                type="button"
                 onClick={() => setSubmitted(false)}
-                className="px-6 py-2.5 bg-slate-900 text-white text-xs font-semibold rounded-xl"
+                className="px-6 py-2.5 bg-slate-900 text-white text-xs font-semibold rounded-xl cursor-pointer"
               >
-                Send Another Message
+                Send Another Enquiry
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900 font-outfit mb-2">
-                Send Us a Direct Message
-              </h3>
-
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Full Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  placeholder="Your Full Name"
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
-                />
-              </div>
+              <h2 className="text-2xl font-bold text-slate-900 font-outfit mb-2">
+                Send Us an Enquiry
+              </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Country *</label>
+                  <label htmlFor="contact-name" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Name *</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your Full Name"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-country" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Country *</label>
                   <select
+                    id="contact-country"
                     value={formData.country}
-                    onChange={(e) => setFormData({...formData, country: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
                   >
                     {allCountries.map((c, idx) => (
@@ -186,40 +226,75 @@ export default function ContactPage() {
                     ))}
                   </select>
                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">WhatsApp Number *</label>
+                  <label htmlFor="contact-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Email *</label>
                   <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-phone" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">WhatsApp / Phone *</label>
+                  <input
+                    id="contact-phone"
                     type="tel"
                     required
                     value={formData.whatsapp}
-                    onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                     placeholder="+254 700 000 000"
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
                   />
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Preferred Communication Language</label>
-                <select
-                  value={formData.language}
-                  onChange={(e) => setFormData({...formData, language: e.target.value})}
-                  className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
-                >
-                  {allLanguages.map((lang, idx) => (
-                    <option key={idx} value={lang}>{lang}</option>
-                  ))}
-                </select>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="contact-treatment" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Treatment Category *</label>
+                  <select
+                    id="contact-treatment"
+                    value={formData.treatmentCategory}
+                    onChange={(e) => setFormData({ ...formData, treatmentCategory: e.target.value })}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
+                  >
+                    {treatmentCategories.map((cat, idx) => (
+                      <option key={idx} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="contact-method" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Preferred Contact Method *</label>
+                  <select
+                    id="contact-method"
+                    value={formData.preferredContactMethod}
+                    onChange={(e) => setFormData({ ...formData, preferredContactMethod: e.target.value })}
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden text-slate-900"
+                  >
+                    {contactMethods.map((method, idx) => (
+                      <option key={idx} value={method}>{method}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Message / Medical Inquiry *</label>
+                <label htmlFor="contact-message" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Brief Message *</label>
                 <textarea
+                  id="contact-message"
                   rows="4"
                   required
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  placeholder="Tell us what medical treatment or budget package you need..."
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Briefly share the treatment you are exploring or your enquiry..."
                   className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium focus:ring-2 focus:ring-teal-500 focus:outline-hidden resize-none text-slate-900"
                 ></textarea>
               </div>
@@ -239,15 +314,22 @@ export default function ContactPage() {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Sending Message...</span>
+                    <span>Sending Enquiry...</span>
                   </>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
-                    <span>Send Message</span>
+                    <span>Send Enquiry</span>
                   </>
                 )}
               </button>
+
+              <p className="text-xs text-slate-600 bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-start gap-2 leading-relaxed">
+                <Lock className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+                <span>
+                  Please do not upload or enter detailed medical records in this enquiry form. Our team will guide you on the appropriate way to share medical information if required.
+                </span>
+              </p>
             </form>
           )}
         </div>
