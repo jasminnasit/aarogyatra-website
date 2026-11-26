@@ -8,7 +8,10 @@ export const ROUTE_PATHS = {
   'about-us': '/about-us/',
   faqs: '/faqs/',
   'free-opinion': '/free-opinion/',
-  contact: '/contact/'
+  contact: '/contact/',
+  'privacy-policy': '/privacy-policy/',
+  'terms-of-service': '/terms-of-service/',
+  'medical-disclaimer': '/medical-disclaimer/'
 };
 
 export const SPECIALTY_PATHS = {
@@ -57,13 +60,19 @@ export function resolveRouteFromLocation(loc = window.location) {
     }
   }
 
-  // 3. Legacy hash URL fallback (#your-journey, #specialty-detail?id=...)
+  // 3. Legacy hash URL fallback (#your-journey, #privacy, #specialty-detail?id=...)
   const hash = (loc.hash || '').replace(/^#/, '');
   if (hash) {
     const [rawPage, queryString] = hash.split('?');
     const params = new URLSearchParams(queryString || '');
     const specialtyId = params.get('id') || 'cardiac-care';
-    const mappedPage = rawPage === 'your-journey' ? 'patient-journey' : rawPage;
+    const hashAliases = {
+      'your-journey': 'patient-journey',
+      privacy: 'privacy-policy',
+      terms: 'terms-of-service',
+      disclaimer: 'medical-disclaimer'
+    };
+    const mappedPage = hashAliases[rawPage] || rawPage;
 
     if (mappedPage === 'specialty-detail') {
       return { page: 'specialty-detail', specialtyId, shouldCanonicalizePath: true };

@@ -12,6 +12,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import FAQsPage from './pages/FAQsPage';
 import FreeOpinionPage from './pages/FreeOpinionPage';
 import ContactPage from './pages/ContactPage';
+import LegalPage from './pages/LegalPage';
 import SEOHead from './components/SEOHead';
 import { getPathForRoute, resolveRouteFromLocation } from './utils/routes';
 
@@ -137,6 +138,10 @@ export default function App() {
 
         {activePage === 'contact' && (
           <ContactPage initialTreatment={contactTreatment} />
+        )}
+
+        {(activePage === 'privacy-policy' || activePage === 'terms-of-service' || activePage === 'medical-disclaimer') && (
+          <LegalPage pageKey={activePage} setActivePage={handleSetActivePage} />
         )}
       </main>
 

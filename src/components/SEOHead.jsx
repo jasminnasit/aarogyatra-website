@@ -43,6 +43,21 @@ export const PAGE_META = {
     title: "Contact Aarogyatra Global Care | International Patient Support & Enquiry",
     description: "Send an enquiry to Aarogyatra Global Care for treatment options, hospital coordination, and medical travel guidance in India via WhatsApp, phone, or email.",
     canonical: getCanonicalUrl('contact')
+  },
+  'privacy-policy': {
+    title: "Privacy Policy | Aarogyatra Global Care",
+    description: "Read Aarogyatra Global Care LLP's Privacy Policy explaining how we collect, protect, and use contact enquiry details and website analytics.",
+    canonical: getCanonicalUrl('privacy-policy')
+  },
+  'terms-of-service': {
+    title: "Terms of Service | Aarogyatra Global Care",
+    description: "Terms of Service governing the use of Aarogyatra Global Care LLP's medical travel facilitation website and coordination services.",
+    canonical: getCanonicalUrl('terms-of-service')
+  },
+  'medical-disclaimer': {
+    title: "Medical Disclaimer | Aarogyatra Global Care",
+    description: "Important Medical Disclaimer clarifying Aarogyatra Global Care LLP's role as a medical travel facilitator and independent care by partner hospitals.",
+    canonical: getCanonicalUrl('medical-disclaimer')
   }
 };
 

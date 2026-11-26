@@ -158,9 +158,9 @@ export default function Footer({ setActivePage, setSelectedSpecialtyId }) {
         <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-4">
           <p>© 2026 Aarogyatra Global Care LLP · LLPIN ACZ-7789 · Modasa, Gujarat, India</p>
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-slate-200 transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-slate-200 transition-colors">Terms of Service</a>
-            <a href="#disclaimer" className="hover:text-slate-200 transition-colors">Medical Disclaimer</a>
+            <a href={getPathForRoute('privacy-policy')} onClick={(e) => handleNavClick(e, 'privacy-policy')} className="hover:text-slate-200 transition-colors">Privacy Policy</a>
+            <a href={getPathForRoute('terms-of-service')} onClick={(e) => handleNavClick(e, 'terms-of-service')} className="hover:text-slate-200 transition-colors">Terms of Service</a>
+            <a href={getPathForRoute('medical-disclaimer')} onClick={(e) => handleNavClick(e, 'medical-disclaimer')} className="hover:text-slate-200 transition-colors">Medical Disclaimer</a>
           </div>
         </div>
 

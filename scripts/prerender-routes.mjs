@@ -65,6 +65,27 @@ const routeEntries = [
     h1: 'Contact Aarogyatra Global Care LLP',
     intro: 'Send us an enquiry or connect via WhatsApp, phone, or email. Please do not upload or enter detailed medical records in the enquiry form.'
   },
+  {
+    urlPath: '/privacy-policy/',
+    title: 'Privacy Policy | Aarogyatra Global Care',
+    description: "Read Aarogyatra Global Care LLP's Privacy Policy explaining how we collect, protect, and use contact enquiry details and website analytics.",
+    h1: 'Privacy Policy',
+    intro: 'Aarogyatra Global Care LLP respects your privacy and is committed to protecting personal information shared with us when exploring medical travel in India.'
+  },
+  {
+    urlPath: '/terms-of-service/',
+    title: 'Terms of Service | Aarogyatra Global Care',
+    description: "Terms of Service governing the use of Aarogyatra Global Care LLP's medical travel facilitation website and coordination services.",
+    h1: 'Terms of Service',
+    intro: 'Terms governing your use of the Aarogyatra Global Care LLP website and medical travel coordination services.'
+  },
+  {
+    urlPath: '/medical-disclaimer/',
+    title: 'Medical Disclaimer | Aarogyatra Global Care',
+    description: "Important Medical Disclaimer clarifying Aarogyatra Global Care LLP's role as a medical travel facilitator and independent care by partner hospitals.",
+    h1: 'Medical Disclaimer',
+    intro: 'Aarogyatra Global Care LLP is a medical travel facilitator. All clinical care is provided independently by partner hospitals and their licensed physicians.'
+  },
   ...treatmentsData.map((t) => ({
     urlPath: t.urlPath,
     title: t.seoTitle,
