@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KQX8J9LV');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Google tag (gtag.js) - Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CG38X4QY1"></script>
     <script>
@@ -14,22 +22,29 @@
         send_page_view: false
       });
 
-      // Track WhatsApp and Phone Call Inquiries
+      // Track WhatsApp and Phone Call Inquiries (GTM dataLayer + GA4)
       document.addEventListener('click', function(e) {
         var target = e.target.closest('a');
         if (!target || !target.href) return;
+        var label = target.innerText ? target.innerText.trim() : '';
         if (target.href.includes('wa.me')) {
-          gtag('event', 'whatsapp_click', {
+          var waParams = {
             event_category: 'conversion',
-            event_label: target.innerText ? target.innerText.trim() : 'WhatsApp Chat',
+            event_label: label || 'WhatsApp Chat',
+            click_location: window.location.pathname,
             destination: target.href
-          });
+          };
+          window.dataLayer.push(Object.assign({ event: 'whatsapp_click' }, waParams));
+          gtag('event', 'whatsapp_click', waParams);
         } else if (target.href.startsWith('tel:')) {
-          gtag('event', 'phone_click', {
+          var telParams = {
             event_category: 'conversion',
-            event_label: target.innerText ? target.innerText.trim() : 'Phone Call',
+            event_label: label || 'Phone Call',
+            click_location: window.location.pathname,
             destination: target.href
-          });
+          };
+          window.dataLayer.push(Object.assign({ event: 'phone_click' }, telParams));
+          gtag('event', 'phone_click', telParams);
         }
       });
     </script>
@@ -254,6 +269,11 @@
     </script>
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-500 selection:text-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQX8J9LV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Crawlable Semantic Fallback for Spiders and Non-JS Search Agents -->
     <noscript>
       <div style="padding: 2rem; max-width: 800px; margin: 0 auto; font-family: sans-serif; line-height: 1.6;">

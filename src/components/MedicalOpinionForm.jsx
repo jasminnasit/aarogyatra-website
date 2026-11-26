@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Send, Upload, CheckCircle2, MessageCircle, FileText, Lock, ShieldCheck, Loader2, AlertCircle } from 'lucide-react';
 import { sendEmailNotification } from '../services/emailService';
+import { trackEvent } from '../utils/analytics';
 
 export const allCountries = [
   'Kenya (+254)',
@@ -177,13 +178,12 @@ export default function MedicalOpinionForm({ compact = false }) {
         sourceForm: 'Medical Opinion Form'
       });
 
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'generate_lead', {
-          event_category: 'conversion',
-          event_label: formData.treatmentCategory,
-          form_name: 'Medical Opinion Form'
-        });
-      }
+      trackEvent('generate_lead', {
+        event_category: 'conversion',
+        event_label: 'Medical Opinion Form',
+        form_name: 'Medical Opinion Form',
+        country: formData.country
+      });
 
       setIsSubmitted(true);
     } catch (err) {

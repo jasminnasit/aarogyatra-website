@@ -3,6 +3,7 @@ import { MessageCircle, Mail, MapPin, Phone, Send, CheckCircle2, Instagram, Load
 import { allCountries } from '../components/MedicalOpinionForm';
 import { treatmentsData } from '../data/treatmentsData';
 import { sendEmailNotification } from '../services/emailService';
+import { trackEvent } from '../utils/analytics';
 
 const treatmentCategories = [
   ...treatmentsData.map((t) => t.title),
@@ -49,13 +50,13 @@ export default function ContactPage({ initialTreatment = '' }) {
         sourceForm: 'Contact Page'
       });
 
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'generate_lead', {
-          event_category: 'conversion',
-          event_label: formData.treatmentCategory,
-          form_name: 'Contact Enquiry Form'
-        });
-      }
+      trackEvent('generate_lead', {
+        event_category: 'conversion',
+        event_label: 'Contact Enquiry Form',
+        form_name: 'Contact Enquiry Form',
+        preferred_contact_method: formData.preferredContactMethod,
+        country: formData.country
+      });
 
       setSubmitted(true);
     } catch (err) {

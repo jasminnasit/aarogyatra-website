@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { treatmentsData } from '../data/treatmentsData';
 import { getCanonicalUrl } from '../utils/routes';
+import { trackPageView } from '../utils/analytics';
 
 export const PAGE_META = {
   home: {
@@ -104,14 +105,12 @@ export default function SEOHead({ page, specialtyId }) {
     const twitterUrl = document.querySelector('meta[name="twitter:url"]');
     if (twitterUrl) twitterUrl.setAttribute('content', currentMeta.canonical);
 
-    // Trigger GA4 page_view for Single Page Application navigation
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'page_view', {
-        page_title: currentMeta.title,
-        page_location: currentMeta.canonical || window.location.href,
-        page_path: window.location.pathname + window.location.search
-      });
-    }
+    // Trigger GA4 & GTM page_view for Single Page Application navigation
+    trackPageView({
+      title: currentMeta.title,
+      location: currentMeta.canonical || window.location.href,
+      path: window.location.pathname + window.location.search
+    });
   }, [page, specialtyId]);
 
   return null;
